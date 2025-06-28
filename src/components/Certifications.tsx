@@ -18,14 +18,34 @@ const Certifications = () => {
       hasImage: true
     },
     {
-      title: "AWS Academy Cloud Architecting",
+      title: "AWS Academy Graduate - Cloud Architecting",
       issuer: "Amazon Web Services",
       date: "October 2024",
       description: "Completed 40+ hours of training on scalable AWS architecture design. Mastered core AWS services and best practices.",
       skills: ["EC2", "S3", "IAM", "RDS", "VPC", "Auto Scaling", "CloudFormation"],
       logo: "🟠",
       verified: true,
-      credlyLink: "https://www.credly.com/badges/ccd123a3-5223-4402-87bb-66c0f663cfa4"
+      credlyLink: "https://www.credly.com/badges/ccd123a3-5223-4402-87bb-66c0f663cfa4",
+      badgeImage: "/lovable-uploads/ef6fef7f-0326-4265-82c2-2a90c6bb127e.png"
+    },
+    {
+      title: "AWS Academy Graduate - Cloud Foundations",
+      issuer: "Amazon Web Services",
+      date: "2024",
+      description: "Completed foundational training on AWS cloud concepts, services, and best practices.",
+      skills: ["AWS Basics", "Cloud Computing", "EC2", "S3", "Security", "Pricing"],
+      logo: "🟠",
+      verified: true,
+      badgeImage: "/lovable-uploads/25563a4a-4ff6-4515-bd5c-e24295030ce2.png"
+    },
+    {
+      title: "IBM Python for Data Science and AI",
+      issuer: "IBM via Coursera",
+      date: "2024",
+      description: "Comprehensive course covering Python fundamentals for data science and AI applications.",
+      skills: ["Python", "Data Science", "AI", "Pandas", "NumPy", "Matplotlib"],
+      logo: "🔵",
+      verified: true
     }
   ];
 
@@ -55,14 +75,14 @@ const Certifications = () => {
   };
 
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white font-serif">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             Certifications & Achievements
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Recognized expertise and continuous learning in AI, cloud technologies, and leadership
+            Recognized expertise and continuous learning in AI, cloud technologies, and leadership (3+ certifications)
           </p>
         </div>
 
@@ -106,6 +126,17 @@ const Certifications = () => {
                 </CardHeader>
 
                 <CardContent className="space-y-4">
+                  {/* Badge Image */}
+                  {cert.badgeImage && (
+                    <div className="flex justify-center mb-4">
+                      <img
+                        src={cert.badgeImage}
+                        alt={`${cert.title} Badge`}
+                        className="w-32 h-32 object-contain"
+                      />
+                    </div>
+                  )}
+
                   {cert.hasImage && cert.certificateImage && (
                     <div className="mb-4">
                       <img

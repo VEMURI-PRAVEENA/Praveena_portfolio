@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from "react";
-import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
+import { ArrowDown, Github, Linkedin, Mail, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Hero = () => {
@@ -18,7 +18,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center pt-16 px-4 sm:px-6 lg:px-8">
+    <section className="min-h-screen flex items-center justify-center pt-16 px-4 sm:px-6 lg:px-8 font-serif">
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Text Content */}
@@ -55,18 +55,25 @@ const Hero = () => {
               <Button
                 variant="outline"
                 className="border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-8 py-3 rounded-lg transition-all duration-300"
+                asChild
               >
-                Download Resume
+                <a 
+                  href="https://drive.google.com/file/d/1bRQhvIoZg4J4ry-J440x2y9J4SYnvSen/view?usp=sharing" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                >
+                  Download Resume
+                </a>
               </Button>
             </div>
 
-            {/* Social Links */}
+            {/* Social Links - Always visible with hover effects */}
             <div className="flex space-x-6 pt-4">
               <a
                 href="https://github.com/VEMURI-PRAVEENA"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-600 hover:text-blue-600 transition-colors duration-300 transform hover:scale-110"
+                className="text-gray-600 hover:text-blue-600 transition-all duration-300 transform hover:scale-110 hover:underline hover:font-bold"
               >
                 <Github size={24} />
               </a>
@@ -74,15 +81,21 @@ const Hero = () => {
                 href="https://linkedin.com/in/vemuri-praveena-22m26f11c"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-600 hover:text-blue-600 transition-colors duration-300 transform hover:scale-110"
+                className="text-gray-600 hover:text-blue-600 transition-all duration-300 transform hover:scale-110 hover:underline hover:font-bold"
               >
                 <Linkedin size={24} />
               </a>
               <a
                 href="mailto:vempuripraveena2226@gmail.com"
-                className="text-gray-600 hover:text-blue-600 transition-colors duration-300 transform hover:scale-110"
+                className="text-gray-600 hover:text-blue-600 transition-all duration-300 transform hover:scale-110 hover:underline hover:font-bold"
               >
                 <Mail size={24} />
+              </a>
+              <a
+                href="tel:+918639414811"
+                className="text-gray-600 hover:text-blue-600 transition-all duration-300 transform hover:scale-110 hover:underline hover:font-bold"
+              >
+                <Phone size={24} />
               </a>
             </div>
           </div>
@@ -97,7 +110,7 @@ const Hero = () => {
               <div className="w-80 h-80 rounded-full bg-gradient-to-br from-blue-400 to-purple-500 p-1">
                 <div className="w-full h-full rounded-full bg-gray-200 flex items-center justify-center overflow-hidden">
                   <img
-                    src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=400&fit=crop&crop=face"
+                    src="/lovable-uploads/8053af38-8789-4260-a47c-0d37687a1fee.png"
                     alt="Praveena Vemuri"
                     className="w-full h-full object-cover"
                   />

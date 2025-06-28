@@ -38,7 +38,7 @@ const Navigation = ({ activeSection }: NavigationProps) => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 font-serif ${
         isScrolled
           ? "bg-white/90 backdrop-blur-md shadow-lg"
           : "bg-transparent"
@@ -56,9 +56,9 @@ const Navigation = ({ activeSection }: NavigationProps) => {
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
+                className={`px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 hover:underline hover:font-bold ${
                   activeSection === item.id
-                    ? "text-blue-600 bg-blue-50"
+                    ? "text-blue-600 bg-blue-50 font-bold underline"
                     : "text-gray-700 hover:text-blue-600"
                 }`}
               >
@@ -85,9 +85,9 @@ const Navigation = ({ activeSection }: NavigationProps) => {
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`block w-full text-left px-4 py-2 text-sm font-medium transition-colors duration-200 ${
+                className={`block w-full text-left px-4 py-2 text-sm font-medium transition-all duration-200 hover:underline hover:font-bold ${
                   activeSection === item.id
-                    ? "text-blue-600 bg-blue-50"
+                    ? "text-blue-600 bg-blue-50 font-bold underline"
                     : "text-gray-700 hover:text-blue-600"
                 }`}
               >

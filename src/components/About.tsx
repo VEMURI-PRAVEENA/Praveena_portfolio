@@ -5,7 +5,7 @@ import { Download, MapPin, GraduationCap, Target } from "lucide-react";
 
 const About = () => {
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-50 to-purple-50">
+    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-50 to-purple-50 font-serif">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
@@ -20,8 +20,12 @@ const About = () => {
           {/* Left Column - Photo and Quick Info */}
           <div className="space-y-8">
             <div className="relative">
-              <div className="w-80 h-80 mx-auto bg-gradient-to-br from-blue-400 to-purple-500 rounded-full flex items-center justify-center text-white text-8xl font-bold shadow-2xl">
-                P
+              <div className="w-80 h-80 mx-auto bg-gradient-to-br from-blue-400 to-purple-500 rounded-full flex items-center justify-center overflow-hidden shadow-2xl">
+                <img
+                  src="/lovable-uploads/8053af38-8789-4260-a47c-0d37687a1fee.png"
+                  alt="Praveena Vemuri"
+                  className="w-full h-full object-cover"
+                />
               </div>
               <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2">
                 <Card className="px-6 py-3 bg-white shadow-lg">
@@ -106,7 +110,7 @@ const About = () => {
                 <p className="text-gray-600">Current CGPA</p>
               </Card>
               <Card className="text-center p-6 hover:shadow-lg transition-shadow duration-300">
-                <div className="text-3xl font-bold text-purple-600 mb-2">2+</div>
+                <div className="text-3xl font-bold text-purple-600 mb-2">3+</div>
                 <p className="text-gray-600">Major Projects</p>
               </Card>
             </div>

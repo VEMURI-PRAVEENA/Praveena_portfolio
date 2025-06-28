@@ -10,45 +10,45 @@ const Projects = () => {
 
   const projects = [
     {
-      title: "AI Chatbot using RAG with Mistral-7B",
-      description: "Built a document-aware chatbot using Retrieval-Augmented Generation (RAG) with over 93% response accuracy. Processed 200+ pages of medical PDFs and generated 500+ semantic chunks using Sentence Transformers + FAISS.",
-      technologies: ["LangChain", "HuggingFace", "FAISS", "Streamlit", "Mistral-7B"],
-      github: "https://github.com/VEMURI-PRAVEENA",
+      title: "Face Mask Detection using CNN",
+      description: "Developed and trained a CNN model to classify facial images into 'mask' and 'no mask' with 92%+ accuracy. Implemented real-time video stream detection using OpenCV and deployed .h5 model.",
+      technologies: ["TensorFlow", "Keras", "OpenCV", "Matplotlib"],
+      github: "https://github.com/VEMURI-PRAVEENA/face-mask--detection",
       features: [
-        "93% response accuracy",
-        "500+ semantic chunks processing",
-        "Medical PDF document processing",
-        "Top 3 relevant context retrieval"
+        "92%+ accuracy CNN model",
+        "Real-time video stream detection",
+        "Feature maps visualization",
+        "Dense layer interpretation"
       ]
     },
     {
-      title: "FrozenLake: Q-Learning vs Policy Gradient",
-      description: "Enhanced Q-Learning and REINFORCE algorithms on FrozenLake-v1 with custom reward functions, increasing success rates from 38% to 42% (Q-Learning) and 45% to 62% (Policy Gradient).",
-      technologies: ["OpenAI Gym", "NumPy", "Matplotlib", "Reinforcement Learning"],
-      github: "https://github.com/VEMURI-PRAVEENA",
+      title: "FrozenLake: Q-Learning vs Policy Gradient Comparison",
+      description: "Implemented both Q-Learning and Policy Gradient on FrozenLake-v1 using custom rewards. Compared convergence, stability, and average rewards with detailed performance analysis.",
+      technologies: ["OpenAI Gym", "NumPy", "Matplotlib"],
+      github: "https://github.com/VEMURI-PRAVEENA/Frozen--lake",
       features: [
         "Custom reward function implementation",
-        "100+ episode convergence improvement",
-        "Policy visualization and heatmaps",
-        "Comparative algorithm analysis"
+        "Convergence and stability comparison",
+        "Agent path visualizations",
+        "Performance metrics analysis"
       ]
     },
     {
-      title: "Cloud-Native ML Pipeline",
-      description: "Designed and deployed scalable machine learning pipelines on AWS using Docker containers, implementing automated model training and deployment workflows.",
-      technologies: ["AWS", "Docker", "Python", "Apache Spark", "MLOps"],
-      github: "https://github.com/VEMURI-PRAVEENA",
+      title: "AI Chatbot using RAG with Mistral-7B",
+      description: "Built an RAG-based chatbot using Mistral-7B for over 93% semantic accuracy. Processed 200+ pages of medical PDFs into 500+ semantic chunks using Sentence Transformers + FAISS.",
+      technologies: ["LangChain", "HuggingFace", "FAISS", "Streamlit", "Mistral-7B"],
+      github: "https://github.com/VEMURI-PRAVEENA/AI-RAG-based-chatbot",
       features: [
-        "Automated ML pipeline",
-        "Scalable cloud deployment",
-        "Docker containerization",
-        "CI/CD integration"
+        "93%+ semantic accuracy",
+        "500+ semantic chunks processing",
+        "Medical PDF document processing",
+        "Dynamic context retrieval from vector DB"
       ]
     }
   ];
 
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white font-serif">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
@@ -114,7 +114,7 @@ const Projects = () => {
                     onClick={() => window.open(project.github, "_blank")}
                   >
                     <Github size={16} />
-                    <span>Code</span>
+                    <span>GitHub</span>
                   </Button>
                   <Button
                     size="sm"
