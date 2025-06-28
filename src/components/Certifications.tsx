@@ -37,15 +37,6 @@ const Certifications = () => {
       logo: "🟠",
       verified: true,
       badgeImage: "/lovable-uploads/25563a4a-4ff6-4515-bd5c-e24295030ce2.png"
-    },
-    {
-      title: "IBM Python for Data Science and AI",
-      issuer: "IBM via Coursera",
-      date: "2024",
-      description: "Comprehensive course covering Python fundamentals for data science and AI applications.",
-      skills: ["Python", "Data Science", "AI", "Pandas", "NumPy", "Matplotlib"],
-      logo: "🔵",
-      verified: true
     }
   ];
 
@@ -75,28 +66,35 @@ const Certifications = () => {
   };
 
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white font-serif">
-      <div className="max-w-7xl mx-auto">
+    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-white via-purple-50 to-blue-50 font-serif relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute top-0 left-0 w-full h-full">
+        <div className="absolute top-32 left-20 w-80 h-80 bg-purple-200 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
+        <div className="absolute bottom-32 right-20 w-96 h-96 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse delay-1000"></div>
+      </div>
+
+      <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 animate-fade-in-up">
             Certifications & Achievements
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Recognized expertise and continuous learning in AI, cloud technologies, and leadership (3+ certifications)
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto animate-fade-in-up delay-200">
+            Recognized expertise and continuous learning in AI, cloud technologies, and leadership
           </p>
         </div>
 
         {/* Certifications */}
         <div className="mb-16">
-          <h3 className="text-2xl font-bold text-gray-900 mb-8 flex items-center">
+          <h3 className="text-2xl font-bold text-gray-900 mb-8 flex items-center justify-center animate-fade-in-up delay-300">
             <Award className="mr-3 text-blue-600" size={28} />
             Professional Certifications
           </h3>
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {certifications.map((cert, index) => (
               <Card
                 key={index}
-                className="group hover:shadow-xl transition-all duration-300 transform hover:scale-102 border-l-4 border-l-blue-500 cursor-pointer"
+                className={`group hover:shadow-2xl transition-all duration-500 transform hover:scale-105 border-0 bg-white/80 backdrop-blur-sm shadow-lg cursor-pointer animate-fade-in-up`}
+                style={{ animationDelay: `${(index + 4) * 200}ms` }}
                 onClick={() => handleCertificateClick(cert)}
               >
                 <CardHeader>
@@ -104,13 +102,13 @@ const Certifications = () => {
                     <div className="flex items-center space-x-3">
                       <span className="text-3xl">{cert.logo}</span>
                       <div>
-                        <CardTitle className="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors duration-300">
+                        <CardTitle className="text-lg font-bold text-gray-900 group-hover:text-blue-600 transition-colors duration-300">
                           {cert.title}
                         </CardTitle>
                         <CardDescription className="flex items-center space-x-2 text-gray-600">
                           <span>{cert.issuer}</span>
                           {cert.verified && (
-                            <Badge className="bg-green-100 text-green-700 text-xs flex items-center">
+                            <Badge className="bg-green-100 text-green-700 text-xs flex items-center border-0">
                               <Shield size={12} className="mr-1" />
                               Verified
                             </Badge>
@@ -132,7 +130,7 @@ const Certifications = () => {
                       <img
                         src={cert.badgeImage}
                         alt={`${cert.title} Badge`}
-                        className="w-32 h-32 object-contain"
+                        className="w-32 h-32 object-contain transition-transform duration-300 group-hover:scale-110"
                       />
                     </div>
                   )}
@@ -142,7 +140,7 @@ const Certifications = () => {
                       <img
                         src={cert.certificateImage}
                         alt={`${cert.title} Certificate`}
-                        className="w-full h-48 object-cover rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
+                        className="w-full h-48 object-cover rounded-lg shadow-md hover:shadow-lg transition-all duration-300 group-hover:scale-105"
                       />
                     </div>
                   )}
@@ -155,8 +153,7 @@ const Certifications = () => {
                     {cert.skills.map((skill, skillIndex) => (
                       <Badge
                         key={skillIndex}
-                        variant="secondary"
-                        className="bg-blue-50 text-blue-700 hover:bg-blue-100 transition-colors duration-200"
+                        className="bg-gradient-to-r from-blue-100 to-purple-100 text-blue-700 hover:from-blue-200 hover:to-purple-200 transition-all duration-200 border-0"
                       >
                         {skill}
                       </Badge>
@@ -164,15 +161,13 @@ const Certifications = () => {
                   </div>
 
                   <Button
-                    variant="outline"
-                    size="sm"
-                    className="flex items-center space-x-2 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200"
+                    className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white transition-all duration-300 transform hover:scale-105 shadow-lg"
                     onClick={(e) => {
                       e.stopPropagation();
                       handleCertificateClick(cert);
                     }}
                   >
-                    <ExternalLink size={16} />
+                    <ExternalLink size={16} className="mr-2" />
                     <span>
                       {cert.credlyLink ? "Verify Credential" : "View Certificate"}
                     </span>
@@ -185,7 +180,7 @@ const Certifications = () => {
 
         {/* Achievements */}
         <div>
-          <h3 className="text-2xl font-bold text-gray-900 mb-8 flex items-center">
+          <h3 className="text-2xl font-bold text-gray-900 mb-8 flex items-center justify-center animate-fade-in-up delay-700">
             <Star className="mr-3 text-purple-600" size={28} />
             Leadership & Achievements
           </h3>
@@ -193,7 +188,8 @@ const Certifications = () => {
             {achievements.map((achievement, index) => (
               <Card
                 key={index}
-                className="group hover:shadow-xl transition-all duration-300 transform hover:scale-102 border-l-4 border-l-purple-500"
+                className={`group hover:shadow-2xl transition-all duration-500 transform hover:scale-105 border-0 bg-white/80 backdrop-blur-sm shadow-lg animate-fade-in-up`}
+                style={{ animationDelay: `${(index + 7) * 200}ms` }}
               >
                 <CardHeader>
                   <CardTitle className="text-xl font-bold text-gray-900 group-hover:text-purple-600 transition-colors duration-300">
@@ -214,7 +210,7 @@ const Certifications = () => {
                     <ul className="text-sm text-gray-600 space-y-1">
                       {achievement.impact.map((item, itemIndex) => (
                         <li key={itemIndex} className="flex items-center">
-                          <span className="w-2 h-2 bg-purple-500 rounded-full mr-2 flex-shrink-0"></span>
+                          <span className="w-2 h-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full mr-2 flex-shrink-0"></span>
                           {item}
                         </li>
                       ))}

@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Github, ExternalLink } from "lucide-react";
+import { Github } from "lucide-react";
 
 const Projects = () => {
   const [hoveredProject, setHoveredProject] = useState<number | null>(null);
@@ -17,8 +17,7 @@ const Projects = () => {
       features: [
         "92%+ accuracy CNN model",
         "Real-time video stream detection",
-        "Feature maps visualization",
-        "Dense layer interpretation"
+        "Visualized feature maps and interpreted dense layer contributions"
       ]
     },
     {
@@ -28,9 +27,8 @@ const Projects = () => {
       github: "https://github.com/VEMURI-PRAVEENA/Frozen--lake",
       features: [
         "Custom reward function implementation",
-        "Convergence and stability comparison",
-        "Agent path visualizations",
-        "Performance metrics analysis"
+        "Compared convergence, stability, and average rewards",
+        "Plotted agent path visualizations and performance metrics"
       ]
     },
     {
@@ -40,22 +38,27 @@ const Projects = () => {
       github: "https://github.com/VEMURI-PRAVEENA/AI-RAG-based-chatbot",
       features: [
         "93%+ semantic accuracy",
-        "500+ semantic chunks processing",
-        "Medical PDF document processing",
-        "Dynamic context retrieval from vector DB"
+        "Processed 200+ pages of medical PDFs → 500+ semantic chunks using Sentence Transformers + FAISS",
+        "Integrated LangChain QA pipeline for dynamic context retrieval from vector DB"
       ]
     }
   ];
 
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white font-serif">
-      <div className="max-w-7xl mx-auto">
+    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-white via-blue-50 to-purple-50 font-serif relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute top-0 left-0 w-full h-full">
+        <div className="absolute top-20 right-20 w-64 h-64 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
+        <div className="absolute bottom-20 left-20 w-72 h-72 bg-purple-200 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse delay-700"></div>
+      </div>
+
+      <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 animate-fade-in-up">
             Featured Projects
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Showcasing my expertise in AI/ML through hands-on projects that solve real-world problems
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto animate-fade-in-up delay-200">
+            Showcasing expertise in AI/ML through hands-on projects that solve real-world problems
           </p>
         </div>
 
@@ -63,29 +66,32 @@ const Projects = () => {
           {projects.map((project, index) => (
             <Card
               key={index}
-              className={`group cursor-pointer transition-all duration-300 transform hover:scale-105 hover:shadow-2xl ${
-                hoveredProject === index ? "shadow-2xl" : "shadow-lg"
+              className={`group cursor-pointer transition-all duration-500 transform hover:scale-105 bg-white/80 backdrop-blur-sm border-0 shadow-lg hover:shadow-2xl animate-fade-in-up ${
+                hoveredProject === index 
+                  ? "shadow-2xl scale-105 bg-gradient-to-br from-white to-blue-50" 
+                  : ""
               }`}
+              style={{ animationDelay: `${index * 200}ms` }}
               onMouseEnter={() => setHoveredProject(index)}
               onMouseLeave={() => setHoveredProject(null)}
             >
-              <CardHeader>
-                <CardTitle className="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors duration-300">
+              <CardHeader className="relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 to-purple-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <CardTitle className="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors duration-300 relative z-10">
                   {project.title}
                 </CardTitle>
-                <CardDescription className="text-gray-600 leading-relaxed">
+                <CardDescription className="text-gray-600 leading-relaxed relative z-10">
                   {project.description}
                 </CardDescription>
               </CardHeader>
 
-              <CardContent className="space-y-4">
+              <CardContent className="space-y-4 relative">
                 {/* Technologies */}
                 <div className="flex flex-wrap gap-2">
                   {project.technologies.map((tech, techIndex) => (
                     <Badge
                       key={techIndex}
-                      variant="secondary"
-                      className="bg-blue-50 text-blue-700 hover:bg-blue-100 transition-colors duration-200"
+                      className="bg-gradient-to-r from-blue-100 to-purple-100 text-blue-700 hover:from-blue-200 hover:to-purple-200 transition-all duration-200 transform hover:scale-105 border-0"
                     >
                       {tech}
                     </Badge>
@@ -97,31 +103,22 @@ const Projects = () => {
                   <h4 className="font-semibold text-gray-900">Key Features:</h4>
                   <ul className="text-sm text-gray-600 space-y-1">
                     {project.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-center">
-                        <span className="w-2 h-2 bg-blue-500 rounded-full mr-2 flex-shrink-0"></span>
+                      <li key={featureIndex} className="flex items-start">
+                        <span className="w-2 h-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mr-2 flex-shrink-0 mt-2"></span>
                         {feature}
                       </li>
                     ))}
                   </ul>
                 </div>
 
-                {/* Action Buttons */}
-                <div className="flex space-x-3 pt-4">
+                {/* Action Button - Only GitHub */}
+                <div className="pt-4">
                   <Button
-                    variant="outline"
-                    size="sm"
-                    className="flex items-center space-x-2 hover:bg-gray-900 hover:text-white transition-colors duration-200"
+                    className="w-full bg-gradient-to-r from-gray-800 to-gray-900 hover:from-gray-900 hover:to-black text-white transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
                     onClick={() => window.open(project.github, "_blank")}
                   >
-                    <Github size={16} />
-                    <span>GitHub</span>
-                  </Button>
-                  <Button
-                    size="sm"
-                    className="flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 transition-colors duration-200"
-                  >
-                    <ExternalLink size={16} />
-                    <span>Demo</span>
+                    <Github size={16} className="mr-2" />
+                    <span>View on GitHub</span>
                   </Button>
                 </div>
               </CardContent>
