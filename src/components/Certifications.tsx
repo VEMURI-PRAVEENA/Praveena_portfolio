@@ -2,18 +2,20 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, Award, Calendar, Star } from "lucide-react";
+import { ExternalLink, Award, Calendar, Star, Shield } from "lucide-react";
 
 const Certifications = () => {
   const certifications = [
     {
-      title: "Oracle AI Associate",
-      issuer: "Oracle",
-      date: "February 2025",
-      description: "Gained expertise in machine learning concepts, OCR, classification, and chatbot services on OCI.",
-      skills: ["Machine Learning", "OCR", "Classification", "Chatbot Services", "Oracle Cloud"],
+      title: "Oracle Certified Foundations Associate",
+      issuer: "Oracle Corporation",
+      date: "February 14, 2025",
+      description: "Oracle Cloud Infrastructure 2024 Certified AI Foundations Associate. Gained expertise in machine learning concepts, OCR, classification, and chatbot services on OCI.",
+      skills: ["Machine Learning", "OCR", "Classification", "Chatbot Services", "Oracle Cloud Infrastructure"],
       logo: "🔵",
-      verified: true
+      verified: true,
+      certificateImage: "/lovable-uploads/e65abdeb-29a8-4028-8f4a-dc194b664bae.png",
+      hasImage: true
     },
     {
       title: "AWS Academy Cloud Architecting",
@@ -22,7 +24,8 @@ const Certifications = () => {
       description: "Completed 40+ hours of training on scalable AWS architecture design. Mastered core AWS services and best practices.",
       skills: ["EC2", "S3", "IAM", "RDS", "VPC", "Auto Scaling", "CloudFormation"],
       logo: "🟠",
-      verified: true
+      verified: true,
+      credlyLink: "https://www.credly.com/badges/ccd123a3-5223-4402-87bb-66c0f663cfa4"
     }
   ];
 
@@ -42,6 +45,14 @@ const Certifications = () => {
       impact: ["8.88/10 CGPA", "AI & ML Specialization", "Dean's List"]
     }
   ];
+
+  const handleCertificateClick = (cert: any) => {
+    if (cert.hasImage && cert.certificateImage) {
+      window.open(cert.certificateImage, '_blank');
+    } else if (cert.credlyLink) {
+      window.open(cert.credlyLink, '_blank');
+    }
+  };
 
   return (
     <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
@@ -65,7 +76,8 @@ const Certifications = () => {
             {certifications.map((cert, index) => (
               <Card
                 key={index}
-                className="group hover:shadow-xl transition-all duration-300 transform hover:scale-102 border-l-4 border-l-blue-500"
+                className="group hover:shadow-xl transition-all duration-300 transform hover:scale-102 border-l-4 border-l-blue-500 cursor-pointer"
+                onClick={() => handleCertificateClick(cert)}
               >
                 <CardHeader>
                   <div className="flex items-start justify-between">
@@ -78,7 +90,8 @@ const Certifications = () => {
                         <CardDescription className="flex items-center space-x-2 text-gray-600">
                           <span>{cert.issuer}</span>
                           {cert.verified && (
-                            <Badge className="bg-green-100 text-green-700 text-xs">
+                            <Badge className="bg-green-100 text-green-700 text-xs flex items-center">
+                              <Shield size={12} className="mr-1" />
                               Verified
                             </Badge>
                           )}
@@ -93,6 +106,16 @@ const Certifications = () => {
                 </CardHeader>
 
                 <CardContent className="space-y-4">
+                  {cert.hasImage && cert.certificateImage && (
+                    <div className="mb-4">
+                      <img
+                        src={cert.certificateImage}
+                        alt={`${cert.title} Certificate`}
+                        className="w-full h-48 object-cover rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
+                      />
+                    </div>
+                  )}
+
                   <p className="text-gray-600 leading-relaxed">
                     {cert.description}
                   </p>
@@ -113,9 +136,15 @@ const Certifications = () => {
                     variant="outline"
                     size="sm"
                     className="flex items-center space-x-2 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleCertificateClick(cert);
+                    }}
                   >
                     <ExternalLink size={16} />
-                    <span>View Certificate</span>
+                    <span>
+                      {cert.credlyLink ? "Verify Credential" : "View Certificate"}
+                    </span>
                   </Button>
                 </CardContent>
               </Card>
