@@ -29,26 +29,26 @@ const Hero = () => {
       setShowCursor1(true);
       setShowCursor2(false);
 
-      // Type first text
+      // Type first text letter by letter
       let i = 0;
       const typeText1 = () => {
         if (i < text1.length) {
           setTypewriterText1(text1.slice(0, i + 1));
           i++;
-          setTimeout(typeText1, 100);
+          setTimeout(typeText1, 80); // Smooth letter-by-letter timing
         } else {
           // Brief pause, then hide first cursor and start second text
           setTimeout(() => {
             setShowCursor1(false);
             setShowCursor2(true);
             
-            // Type second text
+            // Type second text letter by letter
             let j = 0;
             const typeText2 = () => {
               if (j < text2.length) {
                 setTypewriterText2(text2.slice(0, j + 1));
                 j++;
-                setTimeout(typeText2, 80);
+                setTimeout(typeText2, 60); // Slightly faster for the longer text
               } else {
                 // Show complete text for 5 seconds, then restart
                 setTimeout(() => {
