@@ -1,17 +1,16 @@
-
 import { useState, useEffect } from "react";
 import { ArrowDown, Github, Linkedin, Mail, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [textIndex, setTextIndex] = useState(0);
-  const [showTypewriter, setShowTypewriter] = useState(false);
+  const [typewriterText1, setTypewriterText1] = useState("");
+  const [typewriterText2, setTypewriterText2] = useState("");
+  const [showCursor1, setShowCursor1] = useState(true);
+  const [showCursor2, setShowCursor2] = useState(false);
 
-  const typewriterTexts = [
-    "Hi, I'm Praveena",
-    "AI & Machine Learning Engineer"
-  ];
+  const text1 = "Hi, I'm Praveena";
+  const text2 = "AI & Machine Learning Engineer";
 
   useEffect(() => {
     const timer = setTimeout(() => setIsVisible(true), 300);
@@ -19,12 +18,52 @@ const Hero = () => {
   }, []);
 
   useEffect(() => {
-    if (isVisible) {
-      const typewriterTimer = setTimeout(() => {
-        setShowTypewriter(true);
-      }, 800);
-      return () => clearTimeout(typewriterTimer);
-    }
+    if (!isVisible) return;
+
+    const runTypewriterAnimation = () => {
+      // Reset states
+      setTypewriterText1("");
+      setTypewriterText2("");
+      setShowCursor1(true);
+      setShowCursor2(false);
+
+      // Type first text
+      let i = 0;
+      const typeText1 = () => {
+        if (i < text1.length) {
+          setTypewriterText1(text1.slice(0, i + 1));
+          i++;
+          setTimeout(typeText1, 100);
+        } else {
+          // Hide first cursor and start second text after a brief pause
+          setTimeout(() => {
+            setShowCursor1(false);
+            setShowCursor2(true);
+            
+            // Type second text
+            let j = 0;
+            const typeText2 = () => {
+              if (j < text2.length) {
+                setTypewriterText2(text2.slice(0, j + 1));
+                j++;
+                setTimeout(typeText2, 80);
+              } else {
+                // Keep cursor blinking for a moment, then restart the whole animation
+                setTimeout(() => {
+                  runTypewriterAnimation();
+                }, 5000);
+              }
+            };
+            typeText2();
+          }, 500);
+        }
+      };
+      typeText1();
+    };
+
+    // Start the animation after initial delay
+    const initialTimer = setTimeout(runTypewriterAnimation, 800);
+    return () => clearTimeout(initialTimer);
   }, [isVisible]);
 
   const scrollToProjects = () => {
@@ -44,20 +83,20 @@ const Hero = () => {
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="flex flex-col items-center text-center space-y-12">
           
-          {/* Profile Image - Now at the top */}
+          {/* Profile Image with Enhanced Animations */}
           <div
             className={`transition-all duration-1000 ${
               isVisible ? "opacity-100 scale-100 translate-y-0" : "opacity-0 scale-95 translate-y-8"
             }`}
           >
             <div className="relative group">
-              <div className="w-64 h-64 md:w-80 md:h-80 rounded-full bg-gradient-to-br from-blue-400 via-purple-500 to-pink-400 p-2 animate-pulse-glow">
+              <div className="w-64 h-64 md:w-80 md:h-80 rounded-full bg-gradient-to-br from-blue-400 via-purple-500 to-pink-400 p-2 animate-pulse-glow profile-container">
                 <div className="w-full h-full rounded-full bg-white p-2 shadow-2xl group-hover:shadow-purple-200 transition-all duration-500">
-                  <div className="w-full h-full rounded-full overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200 group-hover:scale-105 transition-transform duration-500">
+                  <div className="w-full h-full rounded-full overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200 group-hover:scale-105 transition-transform duration-500 profile-image">
                     <img
                       src="/lovable-uploads/8053af38-8789-4260-a47c-0d37687a1fee.png"
                       alt="Praveena Vemuri"
-                      className="w-full h-full object-cover animate-float"
+                      className="w-full h-full object-cover animate-gentle-float"
                     />
                   </div>
                 </div>
@@ -76,7 +115,7 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Animated Text Content */}
+          {/* Animated Text Content with Typewriter Effect */}
           <div
             className={`space-y-6 transition-all duration-1000 delay-500 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
@@ -85,22 +124,19 @@ const Hero = () => {
             <div className="space-y-4">
               {/* Typewriter Animation */}
               <div className="min-h-[4rem] md:min-h-[6rem]">
-                {showTypewriter && (
-                  <h1 className="text-4xl md:text-6xl font-bold text-gray-900 leading-tight typewriter-animation">
-                    Hi, I'm{" "}
-                    <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent animate-gradient">
-                      Praveena
-                    </span>
-                  </h1>
-                )}
+                <h1 className="text-4xl md:text-6xl font-bold text-gray-900 leading-tight">
+                  <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent animate-gradient">
+                    {typewriterText1}
+                  </span>
+                  {showCursor1 && <span className="animate-blink-cursor">|</span>}
+                </h1>
               </div>
               
               <div className="min-h-[2rem] md:min-h-[3rem]">
-                {showTypewriter && (
-                  <h2 className="text-xl md:text-2xl text-gray-600 font-medium typewriter-animation-delayed">
-                    AI & Machine Learning Engineer
-                  </h2>
-                )}
+                <h2 className="text-xl md:text-2xl text-gray-600 font-medium">
+                  {typewriterText2}
+                  {showCursor2 && <span className="animate-blink-cursor">|</span>}
+                </h2>
               </div>
               
               <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed animate-fade-in-up delay-1000">

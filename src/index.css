@@ -92,7 +92,49 @@ All colors MUST be HSL.
   }
 }
 
-/* Custom Animations */
+/* Enhanced Custom Animations */
+@keyframes gentle-float {
+  0%, 100% { 
+    transform: translateY(0px) translateX(0px); 
+  }
+  25% { 
+    transform: translateY(-8px) translateX(4px); 
+  }
+  50% { 
+    transform: translateY(-12px) translateX(0px); 
+  }
+  75% { 
+    transform: translateY(-8px) translateX(-4px); 
+  }
+}
+
+@keyframes hover-lift {
+  0% { 
+    transform: translateY(0px) scale(1); 
+  }
+  100% { 
+    transform: translateY(-15px) scale(1.08); 
+  }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { 
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.4), 0 0 40px rgba(147, 51, 234, 0.2); 
+  }
+  50% { 
+    box-shadow: 0 0 40px rgba(59, 130, 246, 0.8), 0 0 60px rgba(147, 51, 234, 0.5), 0 0 80px rgba(236, 72, 153, 0.3); 
+  }
+}
+
+@keyframes blink-cursor {
+  0%, 50% { 
+    opacity: 1; 
+  }
+  51%, 100% { 
+    opacity: 0; 
+  }
+}
+
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
   50% { transform: translateY(-10px); }
@@ -129,6 +171,11 @@ All colors MUST be HSL.
   51%, 100% { border-color: currentColor; }
 }
 
+/* Animation Classes */
+.animate-gentle-float {
+  animation: gentle-float 8s ease-in-out infinite;
+}
+
 .animate-float {
   animation: float 6s ease-in-out infinite;
 }
@@ -144,6 +191,19 @@ All colors MUST be HSL.
 
 .animate-fade-in-up {
   animation: fade-in-up 0.6s ease-out forwards;
+}
+
+.animate-blink-cursor {
+  animation: blink-cursor 1s infinite;
+}
+
+/* Profile Image Hover Effects */
+.profile-container:hover .profile-image {
+  animation: hover-lift 0.6s ease-out forwards;
+}
+
+.profile-container:hover {
+  animation: glow-pulse 2s ease-in-out infinite;
 }
 
 .typewriter-animation {
