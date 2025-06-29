@@ -1,0 +1,61 @@
+
+/* Utility classes for delays */
+.delay-200 { animation-delay: 200ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+.delay-700 { animation-delay: 700ms; }
+.delay-1000 { animation-delay: 1000ms; }
+.delay-1200 { animation-delay: 1200ms; }
+.delay-1400 { animation-delay: 1400ms; }
+.delay-1600 { animation-delay: 1600ms; }
+
+/* Animation Delays */
+.animation-delay-1s {
+  animation-delay: 1s;
+}
+
+.animation-delay-2s {
+  animation-delay: 2s;
+}
+
+.animation-delay-4s {
+  animation-delay: 4s;
+}
+
+/* Glassmorphism effect */
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Accessibility - Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .animate-gentle-float,
+  .animate-bounce-gentle,
+  .animate-pulse-gentle,
+  .animate-gradient-slow,
+  .hover\:shadow-glow:hover {
+    animation: none;
+  }
+  
+  .animate-cursor-blink {
+    animation: cursor-blink 2s infinite; /* Keep cursor but slower */
+  }
+  
+  .profile-hover-container:hover .animate-gentle-float {
+    animation: none;
+    transform: scale(1.02); /* Subtle static effect instead */
+  }
+}
+
+/* Enhanced Responsive Design */
+@media (max-width: 768px) {
+  .animate-gentle-float {
+    animation: gentle-float 12s ease-in-out infinite; /* Slower on mobile */
+  }
+  
+  .animate-bounce-gentle {
+    animation: bounce-gentle 4s ease-in-out infinite; /* Slower on mobile */
+  }
+}
