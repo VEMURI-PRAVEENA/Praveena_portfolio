@@ -1,6 +1,6 @@
-
 import { useState, useEffect } from "react";
 import { Menu, X, Github, Linkedin, Mail, Phone } from "lucide-react";
+import { TooltipProvider, Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip";
 
 interface NavigationProps {
   activeSection: string;
@@ -24,25 +24,29 @@ const Navigation = ({ activeSection }: NavigationProps) => {
       icon: Github,
       href: "https://github.com/VEMURI-PRAVEENA",
       label: "GitHub",
-      color: "hover:text-gray-300"
+      color: "text-white hover:text-white",
+      bgHover: "hover:bg-gray-700"
     },
     {
       icon: Linkedin,
       href: "https://linkedin.com/in/vemuri-praveena-22m26f11c",
       label: "LinkedIn",
-      color: "hover:text-blue-400"
+      color: "text-white hover:text-[#0A66C2]",
+      bgHover: "hover:bg-[#0A66C2]/20"
     },
     {
       icon: Mail,
       href: "mailto:vempuripraveena2226@gmail.com",
       label: "Email",
-      color: "hover:text-red-400"
+      color: "text-white hover:text-white",
+      bgHover: "hover:bg-red-600/20"
     },
     {
       icon: Phone,
       href: "tel:+918639414811",
       label: "Phone",
-      color: "hover:text-green-400"
+      color: "text-white hover:text-white",
+      bgHover: "hover:bg-green-600/20"
     }
   ];
 
@@ -127,21 +131,29 @@ const Navigation = ({ activeSection }: NavigationProps) => {
         </div>
       </nav>
 
-      {/* Quick Links - Always Visible */}
-      <div className="fixed right-6 top-1/2 transform -translate-y-1/2 z-40 hidden lg:flex flex-col space-y-4">
-        {quickLinks.map((link, index) => (
-          <a
-            key={index}
-            href={link.href}
-            target={link.href.startsWith('http') ? "_blank" : undefined}
-            rel={link.href.startsWith('http') ? "noopener noreferrer" : undefined}
-            className={`group p-3 rounded-full bg-gray-800/90 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 ${link.color} border border-gray-600`}
-            title={link.label}
-          >
-            <link.icon size={20} className="transition-colors duration-300" />
-          </a>
-        ))}
-      </div>
+      {/* Enhanced Quick Links - Always Visible */}
+      <TooltipProvider>
+        <div className="fixed right-6 top-1/2 transform -translate-y-1/2 z-40 hidden lg:flex flex-col space-y-4">
+          {quickLinks.map((link, index) => (
+            <Tooltip key={index}>
+              <TooltipTrigger asChild>
+                <a
+                  href={link.href}
+                  target={link.href.startsWith('http') ? "_blank" : undefined}
+                  rel={link.href.startsWith('http') ? "noopener noreferrer" : undefined}
+                  className={`group p-4 rounded-full bg-[#2a2d35] backdrop-blur-sm shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-110 ${link.color} ${link.bgHover} border border-gray-500/30 hover:border-gray-300/50 hover:shadow-white/10`}
+                >
+                  <link.icon size={22} className="transition-all duration-300 drop-shadow-lg" />
+                  <div className="absolute inset-0 rounded-full bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </a>
+              </TooltipTrigger>
+              <TooltipContent side="left" className="bg-[#2a2d35] text-white border-gray-500/30">
+                <p>{link.label}</p>
+              </TooltipContent>
+            </Tooltip>
+          ))}
+        </div>
+      </TooltipProvider>
     </>
   );
 };
