@@ -57,7 +57,7 @@ const Projects = () => {
   ];
 
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-900 via-slate-900 to-gray-800 font-serif relative overflow-hidden">
+    <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 bg-[#0d1117] font-serif relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute top-0 left-0 w-full h-full">
         <div className="absolute top-20 right-20 w-64 h-64 bg-blue-600/20 rounded-full mix-blend-screen filter blur-xl opacity-30 animate-pulse"></div>
@@ -78,7 +78,7 @@ const Projects = () => {
           {projects.map((project, index) => (
             <Card
               key={index}
-              className={`group cursor-pointer transition-all duration-500 transform hover:scale-105 bg-gray-800/80 backdrop-blur-sm border-gray-700 shadow-lg hover:shadow-2xl animate-fade-in-up ${
+              className={`group cursor-pointer transition-all duration-500 transform hover:scale-105 bg-gray-800/80 backdrop-blur-sm border-gray-600 shadow-lg hover:shadow-2xl animate-fade-in-up ${
                 hoveredProject === index 
                   ? "shadow-2xl scale-105 bg-gradient-to-br from-gray-800 to-gray-700 shadow-blue-500/25" 
                   : ""

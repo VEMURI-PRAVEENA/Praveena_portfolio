@@ -24,25 +24,25 @@ const Navigation = ({ activeSection }: NavigationProps) => {
       icon: Github,
       href: "https://github.com/VEMURI-PRAVEENA",
       label: "GitHub",
-      color: "hover:text-gray-900"
+      color: "hover:text-gray-300"
     },
     {
       icon: Linkedin,
       href: "https://linkedin.com/in/vemuri-praveena-22m26f11c",
       label: "LinkedIn",
-      color: "hover:text-blue-600"
+      color: "hover:text-blue-400"
     },
     {
       icon: Mail,
       href: "mailto:vempuripraveena2226@gmail.com",
       label: "Email",
-      color: "hover:text-red-500"
+      color: "hover:text-red-400"
     },
     {
       icon: Phone,
       href: "tel:+918639414811",
       label: "Phone",
-      color: "hover:text-green-600"
+      color: "hover:text-green-400"
     }
   ];
 
@@ -68,14 +68,14 @@ const Navigation = ({ activeSection }: NavigationProps) => {
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 font-serif ${
           isScrolled
-            ? "bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-100"
+            ? "bg-[#0d1117]/95 backdrop-blur-md shadow-lg border-b border-gray-700"
             : "bg-transparent"
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            <div className="text-2xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
-              Praveena
+            <div className="text-2xl font-bold text-white" style={{ fontFamily: 'Times New Roman, Times, serif', letterSpacing: '0.05em' }}>
+              PRAVEENA VEMURI
             </div>
 
             {/* Desktop Navigation */}
@@ -86,8 +86,8 @@ const Navigation = ({ activeSection }: NavigationProps) => {
                   onClick={() => scrollToSection(item.id)}
                   className={`px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 hover:scale-105 ${
                     activeSection === item.id
-                      ? "text-blue-600 bg-blue-50 font-bold shadow-sm"
-                      : "text-gray-700 hover:text-blue-600 hover:bg-blue-50/50"
+                      ? "text-blue-400 bg-blue-400/10 font-bold shadow-sm"
+                      : "text-gray-300 hover:text-blue-400 hover:bg-blue-400/10"
                   }`}
                 >
                   {item.label}
@@ -99,7 +99,7 @@ const Navigation = ({ activeSection }: NavigationProps) => {
             <div className="md:hidden">
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="text-gray-700 hover:text-blue-600 transition-colors p-2 rounded-md hover:bg-blue-50"
+                className="text-gray-300 hover:text-blue-400 transition-colors p-2 rounded-md hover:bg-blue-400/10"
               >
                 {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
               </button>
@@ -108,15 +108,15 @@ const Navigation = ({ activeSection }: NavigationProps) => {
 
           {/* Mobile Menu */}
           {isMobileMenuOpen && (
-            <div className="md:hidden bg-white/95 backdrop-blur-md shadow-lg rounded-lg mt-2 py-4 border border-gray-100">
+            <div className="md:hidden bg-[#0d1117]/95 backdrop-blur-md shadow-lg rounded-lg mt-2 py-4 border border-gray-700">
               {navItems.map((item) => (
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
                   className={`block w-full text-left px-4 py-3 text-sm font-medium transition-all duration-200 ${
                     activeSection === item.id
-                      ? "text-blue-600 bg-blue-50 font-bold border-l-4 border-blue-600"
-                      : "text-gray-700 hover:text-blue-600 hover:bg-blue-50/50"
+                      ? "text-blue-400 bg-blue-400/10 font-bold border-l-4 border-blue-400"
+                      : "text-gray-300 hover:text-blue-400 hover:bg-blue-400/10"
                   }`}
                 >
                   {item.label}
@@ -135,7 +135,7 @@ const Navigation = ({ activeSection }: NavigationProps) => {
             href={link.href}
             target={link.href.startsWith('http') ? "_blank" : undefined}
             rel={link.href.startsWith('http') ? "noopener noreferrer" : undefined}
-            className={`group p-3 rounded-full bg-white/90 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 ${link.color} border border-gray-100`}
+            className={`group p-3 rounded-full bg-gray-800/90 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 ${link.color} border border-gray-600`}
             title={link.label}
           >
             <link.icon size={20} className="transition-colors duration-300" />

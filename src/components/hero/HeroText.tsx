@@ -7,7 +7,7 @@ const HeroText = () => {
   const [typewriterText2, setTypewriterText2] = useState("");
   const [showCursor1, setShowCursor1] = useState(true);
   const [showCursor2, setShowCursor2] = useState(false);
-  const [animationCycle, setAnimationCycle] = useState(0);
+  const [animationComplete, setAnimationComplete] = useState(false);
 
   const text1 = "Hi, I'm Praveena";
   const text2 = "AI & Machine Learning Engineer";
@@ -18,15 +18,9 @@ const HeroText = () => {
   }, []);
 
   useEffect(() => {
-    if (!isVisible) return;
+    if (!isVisible || animationComplete) return;
 
     const runTypewriterAnimation = () => {
-      // Reset states
-      setTypewriterText1("");
-      setTypewriterText2("");
-      setShowCursor1(true);
-      setShowCursor2(false);
-
       // Type first text letter by letter
       let i = 0;
       const typeText1 = () => {
@@ -47,13 +41,13 @@ const HeroText = () => {
                 setTimeout(typeText2, 60);
               } else {
                 setTimeout(() => {
-                  setAnimationCycle(prev => prev + 1);
-                  runTypewriterAnimation();
-                }, 5000);
+                  setShowCursor2(false);
+                  setAnimationComplete(true);
+                }, 1000);
               }
             };
             typeText2();
-          }, 500);
+          }, 1000);
         }
       };
       typeText1();
@@ -61,7 +55,7 @@ const HeroText = () => {
 
     const initialTimer = setTimeout(runTypewriterAnimation, 800);
     return () => clearTimeout(initialTimer);
-  }, [isVisible, animationCycle]);
+  }, [isVisible, animationComplete]);
 
   return (
     <div
@@ -73,7 +67,7 @@ const HeroText = () => {
         {/* Main Title with Typewriter Animation */}
         <div className="min-h-[3rem] md:min-h-[4rem] lg:min-h-[5rem] flex items-center justify-center">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight">
-            <span className="bg-gradient-to-r from-blue-400 via-violet-400 to-emerald-400 bg-clip-text text-transparent animate-gradient-slow">
+            <span className="bg-gradient-to-r from-blue-400 via-violet-400 to-emerald-400 bg-clip-text text-transparent">
               {typewriterText1}
             </span>
             {showCursor1 && <span className="animate-cursor-blink text-blue-400">|</span>}
