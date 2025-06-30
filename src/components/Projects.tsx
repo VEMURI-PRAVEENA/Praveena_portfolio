@@ -10,6 +10,18 @@ const Projects = () => {
 
   const projects = [
     {
+      title: "Brain Tumor Detection using YOLOv8",
+      description: "An AI-powered deep learning solution that detects and localizes brain tumors in MRI scans using the YOLOv8 object detection model.",
+      technologies: ["YOLOv8", "Python", "OpenCV", "PyTorch", "TensorFlow", "Keras", "Matplotlib"],
+      github: "https://github.com/VEMURI-PRAVEENA/brain_tumor_detection",
+      features: [
+        "Trained YOLOv8 (yolov8n.pt) on custom-labeled brain MRI dataset",
+        "Achieved high accuracy, precision, recall, and mAP during evaluation",
+        "Visualized detection results, bounding boxes, and performance metrics",
+        "Exported models for deployment: PyTorch .pt, TensorFlow SavedModel, Keras .h5"
+      ]
+    },
+    {
       title: "Face Mask Detection using CNN",
       description: "Developed and trained a CNN model to classify facial images into 'mask' and 'no mask' with 92%+ accuracy. Implemented real-time video stream detection using OpenCV and deployed .h5 model.",
       technologies: ["TensorFlow", "Keras", "OpenCV", "Matplotlib"],
@@ -45,30 +57,30 @@ const Projects = () => {
   ];
 
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-white via-blue-50 to-purple-50 font-serif relative overflow-hidden">
+    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-900 via-slate-900 to-gray-800 font-serif relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute top-0 left-0 w-full h-full">
-        <div className="absolute top-20 right-20 w-64 h-64 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
-        <div className="absolute bottom-20 left-20 w-72 h-72 bg-purple-200 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse delay-700"></div>
+        <div className="absolute top-20 right-20 w-64 h-64 bg-blue-600/20 rounded-full mix-blend-screen filter blur-xl opacity-30 animate-pulse"></div>
+        <div className="absolute bottom-20 left-20 w-72 h-72 bg-violet-600/20 rounded-full mix-blend-screen filter blur-xl opacity-30 animate-pulse delay-700"></div>
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 animate-fade-in-up">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 animate-fade-in-up">
             Featured Projects
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto animate-fade-in-up delay-200">
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto animate-fade-in-up delay-200">
             Showcasing expertise in AI/ML through hands-on projects that solve real-world problems
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 gap-8">
           {projects.map((project, index) => (
             <Card
               key={index}
-              className={`group cursor-pointer transition-all duration-500 transform hover:scale-105 bg-white/80 backdrop-blur-sm border-0 shadow-lg hover:shadow-2xl animate-fade-in-up ${
+              className={`group cursor-pointer transition-all duration-500 transform hover:scale-105 bg-gray-800/80 backdrop-blur-sm border-gray-700 shadow-lg hover:shadow-2xl animate-fade-in-up ${
                 hoveredProject === index 
-                  ? "shadow-2xl scale-105 bg-gradient-to-br from-white to-blue-50" 
+                  ? "shadow-2xl scale-105 bg-gradient-to-br from-gray-800 to-gray-700 shadow-blue-500/25" 
                   : ""
               }`}
               style={{ animationDelay: `${index * 200}ms` }}
@@ -76,11 +88,11 @@ const Projects = () => {
               onMouseLeave={() => setHoveredProject(null)}
             >
               <CardHeader className="relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 to-purple-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <CardTitle className="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors duration-300 relative z-10">
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 to-violet-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <CardTitle className="text-xl font-bold text-white group-hover:text-blue-400 transition-colors duration-300 relative z-10">
                   {project.title}
                 </CardTitle>
-                <CardDescription className="text-gray-600 leading-relaxed relative z-10">
+                <CardDescription className="text-gray-300 leading-relaxed relative z-10">
                   {project.description}
                 </CardDescription>
               </CardHeader>
@@ -91,7 +103,7 @@ const Projects = () => {
                   {project.technologies.map((tech, techIndex) => (
                     <Badge
                       key={techIndex}
-                      className="bg-gradient-to-r from-blue-100 to-purple-100 text-blue-700 hover:from-blue-200 hover:to-purple-200 transition-all duration-200 transform hover:scale-105 border-0"
+                      className="bg-gradient-to-r from-blue-600/20 to-violet-600/20 text-blue-300 hover:from-blue-600/30 hover:to-violet-600/30 transition-all duration-200 transform hover:scale-105 border-blue-500/30"
                     >
                       {tech}
                     </Badge>
@@ -100,11 +112,11 @@ const Projects = () => {
 
                 {/* Key Features */}
                 <div className="space-y-2">
-                  <h4 className="font-semibold text-gray-900">Key Features:</h4>
-                  <ul className="text-sm text-gray-600 space-y-1">
+                  <h4 className="font-semibold text-white">Key Features:</h4>
+                  <ul className="text-sm text-gray-300 space-y-1">
                     {project.features.map((feature, featureIndex) => (
                       <li key={featureIndex} className="flex items-start">
-                        <span className="w-2 h-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mr-2 flex-shrink-0 mt-2"></span>
+                        <span className="w-2 h-2 bg-gradient-to-r from-blue-400 to-violet-400 rounded-full mr-2 flex-shrink-0 mt-2"></span>
                         {feature}
                       </li>
                     ))}
@@ -114,7 +126,7 @@ const Projects = () => {
                 {/* Action Button - Only GitHub */}
                 <div className="pt-4">
                   <Button
-                    className="w-full bg-gradient-to-r from-gray-800 to-gray-900 hover:from-gray-900 hover:to-black text-white transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                    className="w-full bg-gradient-to-r from-gray-700 to-gray-600 hover:from-gray-600 hover:to-gray-500 text-white transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl hover:shadow-blue-500/25"
                     onClick={() => window.open(project.github, "_blank")}
                   >
                     <Github size={16} className="mr-2" />
