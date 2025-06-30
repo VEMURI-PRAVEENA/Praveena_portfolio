@@ -3,7 +3,6 @@ import ProfileImage from "@/components/hero/ProfileImage";
 import HeroText from "@/components/hero/HeroText";
 import QuickLinks from "@/components/hero/QuickLinks";
 import SocialLinks from "@/components/hero/SocialLinks";
-import ScrollIndicator from "@/components/hero/ScrollIndicator";
 
 const Hero = () => {
   return (
@@ -30,9 +29,6 @@ const Hero = () => {
           {/* Social Links */}
           <SocialLinks />
         </div>
-
-        {/* Enhanced Scroll Indicator */}
-        <ScrollIndicator />
       </div>
     </section>
   );
