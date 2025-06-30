@@ -5,9 +5,7 @@ const HeroText = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [typewriterText1, setTypewriterText1] = useState("");
   const [typewriterText2, setTypewriterText2] = useState("");
-  const [showCursor1, setShowCursor1] = useState(true);
-  const [showCursor2, setShowCursor2] = useState(false);
-  const [animationComplete, setAnimationComplete] = useState(false);
+  const [currentAnimation, setCurrentAnimation] = useState("waiting"); // waiting, typing1, pause1, typing2, pause2
 
   const text1 = "Hi, I'm Praveena";
   const text2 = "AI & Machine Learning Engineer";
@@ -18,10 +16,14 @@ const HeroText = () => {
   }, []);
 
   useEffect(() => {
-    if (!isVisible || animationComplete) return;
+    if (!isVisible) return;
 
-    const runTypewriterAnimation = () => {
-      // Type first text letter by letter
+    const runAnimation = () => {
+      setCurrentAnimation("typing1");
+      setTypewriterText1("");
+      setTypewriterText2("");
+      
+      // Type first text
       let i = 0;
       const typeText1 = () => {
         if (i < text1.length) {
@@ -29,10 +31,9 @@ const HeroText = () => {
           i++;
           setTimeout(typeText1, 80);
         } else {
+          setCurrentAnimation("pause1");
           setTimeout(() => {
-            setShowCursor1(false);
-            setShowCursor2(true);
-            
+            setCurrentAnimation("typing2");
             let j = 0;
             const typeText2 = () => {
               if (j < text2.length) {
@@ -40,10 +41,10 @@ const HeroText = () => {
                 j++;
                 setTimeout(typeText2, 60);
               } else {
+                setCurrentAnimation("pause2");
                 setTimeout(() => {
-                  setShowCursor2(false);
-                  setAnimationComplete(true);
-                }, 1000);
+                  runAnimation(); // Restart the animation
+                }, 4000);
               }
             };
             typeText2();
@@ -53,9 +54,9 @@ const HeroText = () => {
       typeText1();
     };
 
-    const initialTimer = setTimeout(runTypewriterAnimation, 800);
+    const initialTimer = setTimeout(runAnimation, 800);
     return () => clearTimeout(initialTimer);
-  }, [isVisible, animationComplete]);
+  }, [isVisible]);
 
   return (
     <div
@@ -70,7 +71,6 @@ const HeroText = () => {
             <span className="bg-gradient-to-r from-blue-400 via-violet-400 to-emerald-400 bg-clip-text text-transparent">
               {typewriterText1}
             </span>
-            {showCursor1 && <span className="animate-cursor-blink text-blue-400">|</span>}
           </h1>
         </div>
         
@@ -78,7 +78,6 @@ const HeroText = () => {
         <div className="min-h-[2rem] md:min-h-[2.5rem] lg:min-h-[3rem] flex items-center justify-center">
           <h2 className="text-lg md:text-xl lg:text-2xl text-gray-300 font-medium">
             {typewriterText2}
-            {showCursor2 && <span className="animate-cursor-blink text-violet-400">|</span>}
           </h2>
         </div>
         

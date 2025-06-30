@@ -37,7 +37,7 @@ const TechStack = () => {
   ];
 
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-900 to-gray-900">
+    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-[#1a1a1a] relative overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
@@ -52,7 +52,7 @@ const TechStack = () => {
           {techCategories.map((category, index) => (
             <Card
               key={index}
-              className="group hover:shadow-2xl hover:shadow-blue-500/20 transition-all duration-500 transform hover:scale-105 bg-[#1e1e2f] border-gray-700 hover:border-blue-500/50 animate-fade-in-up"
+              className="group hover:shadow-2xl hover:shadow-blue-500/20 transition-all duration-500 transform hover:scale-105 bg-[#1e1e2f] border-gray-600 hover:border-blue-500/50 animate-fade-in-up"
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <CardContent className="p-6">

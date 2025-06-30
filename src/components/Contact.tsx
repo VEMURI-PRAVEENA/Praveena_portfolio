@@ -22,35 +22,35 @@ const Contact = () => {
       label: "Email",
       value: "vempuripraveena2226@gmail.com",
       href: "mailto:vempuripraveena2226@gmail.com",
-      color: "text-blue-600"
+      color: "text-blue-400"
     },
     {
       icon: Phone,
       label: "Phone",
       value: "+91 8639414811",
       href: "tel:+918639414811",
-      color: "text-green-600"
+      color: "text-green-400"
     },
     {
       icon: Linkedin,
       label: "LinkedIn",
       value: "vemuri-praveena-22m26f11c",
       href: "https://linkedin.com/in/vemuri-praveena-22m26f11c",
-      color: "text-blue-700"
+      color: "text-blue-400"
     },
     {
       icon: Github,
       label: "GitHub",
       value: "VEMURI-PRAVEENA",
       href: "https://github.com/VEMURI-PRAVEENA",
-      color: "text-gray-900"
+      color: "text-gray-300"
     },
     {
       icon: MapPin,
       label: "Location",
       value: "Ongole, Andhra Pradesh, India",
       href: null,
-      color: "text-red-600"
+      color: "text-red-400"
     }
   ];
 
@@ -90,8 +90,15 @@ const Contact = () => {
     });
   };
 
+  const scrollToProjects = () => {
+    const projectsSection = document.getElementById("projects");
+    if (projectsSection) {
+      projectsSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-900 to-blue-900 text-white">
+    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-[#0d1117] text-white">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
@@ -143,14 +150,22 @@ const Contact = () => {
               <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
               <div className="flex space-x-4">
                 <Button
+                  asChild
+                  className="border-white/30 text-white hover:bg-white hover:text-gray-900 transition-colors duration-300 hover:scale-105 hover:shadow-lg"
                   variant="outline"
-                  className="border-white/30 text-white hover:bg-white hover:text-gray-900 transition-colors duration-300"
                 >
-                  View Resume
+                  <a 
+                    href="https://drive.google.com/file/d/1bRQhvIoZg4J4ry-J440x2y9J4SYnvSen/view?usp=share_link" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                  >
+                    View Resume
+                  </a>
                 </Button>
                 <Button
+                  onClick={scrollToProjects}
                   variant="outline"
-                  className="border-white/30 text-white hover:bg-white hover:text-gray-900 transition-colors duration-300"
+                  className="border-white/30 text-white hover:bg-white hover:text-gray-900 transition-colors duration-300 hover:scale-105 hover:shadow-lg"
                 >
                   My Projects
                 </Button>
@@ -159,7 +174,7 @@ const Contact = () => {
           </div>
 
           {/* Contact Form */}
-          <Card className="bg-white/10 backdrop-blur-sm border-white/20">
+          <Card className="bg-[#1e1e2f]/80 backdrop-blur-sm border-gray-600">
             <CardHeader>
               <CardTitle className="text-2xl font-bold text-white">Send me a message</CardTitle>
               <CardDescription className="text-gray-300">
@@ -179,7 +194,7 @@ const Contact = () => {
                       type="text"
                       value={formData.name}
                       onChange={handleInputChange}
-                      className="bg-white/10 border-white/30 text-white placeholder:text-gray-400 focus:border-blue-400"
+                      className="bg-white/10 border-gray-600 text-white placeholder:text-gray-400 focus:border-blue-400"
                       placeholder="Your full name"
                     />
                   </div>
@@ -193,7 +208,7 @@ const Contact = () => {
                       type="email"
                       value={formData.email}
                       onChange={handleInputChange}
-                      className="bg-white/10 border-white/30 text-white placeholder:text-gray-400 focus:border-blue-400"
+                      className="bg-white/10 border-gray-600 text-white placeholder:text-gray-400 focus:border-blue-400"
                       placeholder="your.email@example.com"
                     />
                   </div>
@@ -209,7 +224,7 @@ const Contact = () => {
                     type="text"
                     value={formData.subject}
                     onChange={handleInputChange}
-                    className="bg-white/10 border-white/30 text-white placeholder:text-gray-400 focus:border-blue-400"
+                    className="bg-white/10 border-gray-600 text-white placeholder:text-gray-400 focus:border-blue-400"
                     placeholder="What's this about?"
                   />
                 </div>
@@ -224,14 +239,14 @@ const Contact = () => {
                     value={formData.message}
                     onChange={handleInputChange}
                     rows={5}
-                    className="bg-white/10 border-white/30 text-white placeholder:text-gray-400 focus:border-blue-400 resize-none"
+                    className="bg-white/10 border-gray-600 text-white placeholder:text-gray-400 focus:border-blue-400 resize-none"
                     placeholder="Tell me about your project, opportunity, or just say hello!"
                   />
                 </div>
 
                 <Button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-3 transition-all duration-300 transform hover:scale-102"
+                  className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-3 transition-all duration-300 transform hover:scale-102 hover:shadow-xl hover:shadow-blue-500/25"
                 >
                   <Send className="mr-2" size={20} />
                   Send Message

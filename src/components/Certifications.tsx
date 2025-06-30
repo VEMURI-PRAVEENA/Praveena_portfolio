@@ -66,34 +66,34 @@ const Certifications = () => {
   };
 
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-white via-purple-50 to-blue-50 font-serif relative overflow-hidden">
+    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-[#1a1a1a] font-serif relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute top-0 left-0 w-full h-full">
-        <div className="absolute top-32 left-20 w-80 h-80 bg-purple-200 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
-        <div className="absolute bottom-32 right-20 w-96 h-96 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse delay-1000"></div>
+        <div className="absolute top-32 left-20 w-80 h-80 bg-purple-600/10 rounded-full mix-blend-screen filter blur-xl opacity-30 animate-pulse"></div>
+        <div className="absolute bottom-32 right-20 w-96 h-96 bg-blue-600/10 rounded-full mix-blend-screen filter blur-xl opacity-30 animate-pulse delay-1000"></div>
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 animate-fade-in-up">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 animate-fade-in-up">
             Certifications & Achievements
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto animate-fade-in-up delay-200">
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto animate-fade-in-up delay-200">
             Recognized expertise and continuous learning in AI, cloud technologies, and leadership
           </p>
         </div>
 
         {/* Certifications */}
         <div className="mb-16">
-          <h3 className="text-2xl font-bold text-gray-900 mb-8 flex items-center justify-center animate-fade-in-up delay-300">
-            <Award className="mr-3 text-blue-600" size={28} />
+          <h3 className="text-2xl font-bold text-white mb-8 flex items-center justify-center animate-fade-in-up delay-300">
+            <Award className="mr-3 text-blue-400" size={28} />
             Professional Certifications
           </h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {certifications.map((cert, index) => (
               <Card
                 key={index}
-                className={`group hover:shadow-2xl transition-all duration-500 transform hover:scale-105 border-0 bg-white/80 backdrop-blur-sm shadow-lg cursor-pointer animate-fade-in-up`}
+                className={`group hover:shadow-2xl transition-all duration-500 transform hover:scale-105 border-gray-600 bg-[#1e1e2f] backdrop-blur-sm shadow-lg cursor-pointer animate-fade-in-up hover:shadow-blue-500/25`}
                 style={{ animationDelay: `${(index + 4) * 200}ms` }}
                 onClick={() => handleCertificateClick(cert)}
               >
@@ -102,13 +102,13 @@ const Certifications = () => {
                     <div className="flex items-center space-x-3">
                       <span className="text-3xl">{cert.logo}</span>
                       <div>
-                        <CardTitle className="text-lg font-bold text-gray-900 group-hover:text-blue-600 transition-colors duration-300">
+                        <CardTitle className="text-lg font-bold text-white group-hover:text-blue-400 transition-colors duration-300">
                           {cert.title}
                         </CardTitle>
-                        <CardDescription className="flex items-center space-x-2 text-gray-600">
+                        <CardDescription className="flex items-center space-x-2 text-gray-300">
                           <span>{cert.issuer}</span>
                           {cert.verified && (
-                            <Badge className="bg-green-100 text-green-700 text-xs flex items-center border-0">
+                            <Badge className="bg-green-600/20 text-green-300 text-xs flex items-center border-green-500/30">
                               <Shield size={12} className="mr-1" />
                               Verified
                             </Badge>
@@ -116,7 +116,7 @@ const Certifications = () => {
                         </CardDescription>
                       </div>
                     </div>
-                    <div className="flex items-center text-sm text-gray-500">
+                    <div className="flex items-center text-sm text-gray-400">
                       <Calendar size={16} className="mr-1" />
                       {cert.date}
                     </div>
@@ -145,7 +145,7 @@ const Certifications = () => {
                     </div>
                   )}
 
-                  <p className="text-gray-600 leading-relaxed">
+                  <p className="text-gray-300 leading-relaxed">
                     {cert.description}
                   </p>
 
@@ -153,7 +153,7 @@ const Certifications = () => {
                     {cert.skills.map((skill, skillIndex) => (
                       <Badge
                         key={skillIndex}
-                        className="bg-gradient-to-r from-blue-100 to-purple-100 text-blue-700 hover:from-blue-200 hover:to-purple-200 transition-all duration-200 border-0"
+                        className="bg-gradient-to-r from-blue-600/20 to-purple-600/20 text-blue-300 hover:from-blue-600/30 hover:to-purple-600/30 transition-all duration-200 border-blue-500/30"
                       >
                         {skill}
                       </Badge>
@@ -161,7 +161,7 @@ const Certifications = () => {
                   </div>
 
                   <Button
-                    className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white transition-all duration-300 transform hover:scale-105 shadow-lg"
+                    className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl hover:shadow-blue-500/25"
                     onClick={(e) => {
                       e.stopPropagation();
                       handleCertificateClick(cert);
@@ -180,34 +180,34 @@ const Certifications = () => {
 
         {/* Achievements */}
         <div>
-          <h3 className="text-2xl font-bold text-gray-900 mb-8 flex items-center justify-center animate-fade-in-up delay-700">
-            <Star className="mr-3 text-purple-600" size={28} />
+          <h3 className="text-2xl font-bold text-white mb-8 flex items-center justify-center animate-fade-in-up delay-700">
+            <Star className="mr-3 text-purple-400" size={28} />
             Leadership & Achievements
           </h3>
           <div className="grid md:grid-cols-2 gap-8">
             {achievements.map((achievement, index) => (
               <Card
                 key={index}
-                className={`group hover:shadow-2xl transition-all duration-500 transform hover:scale-105 border-0 bg-white/80 backdrop-blur-sm shadow-lg animate-fade-in-up`}
+                className={`group hover:shadow-2xl transition-all duration-500 transform hover:scale-105 border-gray-600 bg-[#1e1e2f] backdrop-blur-sm shadow-lg animate-fade-in-up hover:shadow-purple-500/25`}
                 style={{ animationDelay: `${(index + 7) * 200}ms` }}
               >
                 <CardHeader>
-                  <CardTitle className="text-xl font-bold text-gray-900 group-hover:text-purple-600 transition-colors duration-300">
+                  <CardTitle className="text-xl font-bold text-white group-hover:text-purple-400 transition-colors duration-300">
                     {achievement.title}
                   </CardTitle>
-                  <CardDescription className="text-gray-600">
+                  <CardDescription className="text-gray-300">
                     {achievement.organization} • {achievement.period}
                   </CardDescription>
                 </CardHeader>
 
                 <CardContent className="space-y-4">
-                  <p className="text-gray-600 leading-relaxed">
+                  <p className="text-gray-300 leading-relaxed">
                     {achievement.description}
                   </p>
 
                   <div className="space-y-2">
-                    <h4 className="font-semibold text-gray-900">Key Impact:</h4>
-                    <ul className="text-sm text-gray-600 space-y-1">
+                    <h4 className="font-semibold text-white">Key Impact:</h4>
+                    <ul className="text-sm text-gray-300 space-y-1">
                       {achievement.impact.map((item, itemIndex) => (
                         <li key={itemIndex} className="flex items-center">
                           <span className="w-2 h-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full mr-2 flex-shrink-0"></span>
