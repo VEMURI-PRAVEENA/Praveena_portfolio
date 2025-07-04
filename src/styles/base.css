@@ -63,4 +63,14 @@ All colors MUST be HSL.
   html {
     scroll-behavior: smooth;
   }
+
+  /* Ensure all text uses Inter font */
+  h1, h2, h3, h4, h5, h6, p, span, div, button, input, textarea, label {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  /* Override any Times New Roman usage */
+  .font-sans, .font-mono, .font-serif {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
 }

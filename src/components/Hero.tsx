@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Github, Linkedin, Mail, Phone, FileText, ArrowDown } from "lucide-react";
+import { Github, Linkedin, Mail, Phone, FileText, ArrowDown, Eye } from "lucide-react";
 
 const Hero = () => {
   const [currentRole, setCurrentRole] = useState(0);
@@ -54,10 +54,10 @@ const Hero = () => {
       </div>
 
       <div className="text-center z-10 max-w-5xl mx-auto">
-        {/* Profile Image */}
-        <div className="mb-12 animate-fade-in-up">
+        {/* Profile Image - Moved down */}
+        <div className="mb-8 mt-16 animate-fade-in-up">
           <div className="relative inline-block">
-            <div className="w-40 h-40 md:w-48 md:h-48 mx-auto rounded-full bg-gradient-to-br from-purple-500 via-teal-500 to-blue-500 p-1 shadow-2xl shadow-purple-500/25">
+            <div className="w-32 h-32 md:w-40 md:h-40 mx-auto rounded-full bg-gradient-to-br from-purple-500 via-teal-500 to-blue-500 p-1 shadow-2xl shadow-purple-500/25">
               <div className="w-full h-full rounded-full overflow-hidden bg-gray-900 border-2 border-gray-800">
                 <img
                   src="/lovable-uploads/8053af38-8789-4260-a47c-0d37687a1fee.png"
@@ -71,18 +71,18 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* Main Heading - Decreased size */}
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 animate-fade-in-up delay-200">
+        {/* Main Heading */}
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 animate-fade-in-up delay-200 font-sans">
           Hi, I'm <span className="bg-gradient-to-r from-purple-400 via-teal-400 to-blue-400 bg-clip-text text-transparent">Vemuri Praveena</span>
         </h1>
 
-        {/* Animated Role Text - Removed pipe symbols */}
-        <div className="text-2xl md:text-3xl lg:text-4xl text-gray-300 mb-12 h-16 flex items-center justify-center animate-fade-in-up delay-400">
+        {/* Animated Role Text */}
+        <div className="text-2xl md:text-3xl lg:text-4xl text-gray-300 mb-12 h-16 flex items-center justify-center animate-fade-in-up delay-400 font-sans">
           <span className="text-teal-400">{displayText}</span>
         </div>
 
-        {/* Description */}
-        <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto mb-12 leading-relaxed animate-fade-in-up delay-600">
+        {/* Career Objective */}
+        <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto mb-12 leading-relaxed animate-fade-in-up delay-600 font-sans">
           Passionate about building intelligent systems and data-driven solutions. 
           Currently pursuing B.Tech in CSE (AI & ML) at VIT-AP with hands-on experience in 
           cloud-native applications and deep learning technologies.
@@ -91,7 +91,22 @@ const Hero = () => {
         {/* Action Buttons */}
         <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16 animate-fade-in-up delay-800">
           <Button
-            className="bg-gradient-to-r from-purple-600 to-teal-600 hover:from-purple-700 hover:to-teal-700 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl border border-purple-500/20"
+            className="bg-gradient-to-r from-purple-600 to-teal-600 hover:from-purple-700 hover:to-teal-700 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl border border-purple-500/20 font-sans"
+            asChild
+          >
+            <a 
+              href="https://drive.google.com/file/d/1bRQhvIoZg4J4ry-J440x2y9J4SYnvSen/view?usp=sharing" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex items-center gap-3"
+            >
+              <Eye size={20} />
+              View Resume
+            </a>
+          </Button>
+          
+          <Button
+            className="bg-gradient-to-r from-gray-800 to-gray-700 hover:from-gray-700 hover:to-gray-600 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl border border-gray-600 font-sans"
             asChild
           >
             <a 
@@ -103,14 +118,6 @@ const Hero = () => {
               <FileText size={20} />
               Download Resume
             </a>
-          </Button>
-          
-          <Button
-            onClick={() => scrollToSection('projects')}
-            variant="outline"
-            className="border-2 border-teal-400/50 text-teal-400 hover:bg-teal-400/10 hover:border-teal-400 px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 bg-transparent"
-          >
-            View Projects
           </Button>
         </div>
 

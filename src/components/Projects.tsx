@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Github, ExternalLink } from "lucide-react";
+import { Github } from "lucide-react";
 
 const Projects = () => {
   const [hoveredProject, setHoveredProject] = useState<number | null>(null);
@@ -53,10 +53,10 @@ const Projects = () => {
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-teal-400 bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-teal-400 bg-clip-text text-transparent font-sans">
             Featured Projects
           </h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-400 max-w-3xl mx-auto font-sans">
             Showcasing expertise in AI/ML through hands-on projects that solve real-world problems
           </p>
         </div>
@@ -83,28 +83,28 @@ const Projects = () => {
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                     <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent lg:from-transparent lg:to-black/60"></div>
-                    <Badge className="absolute top-4 left-4 bg-gradient-to-r from-purple-600/80 to-teal-600/80 text-white border-none backdrop-blur-sm">
+                    <Badge className="absolute top-4 left-4 bg-gradient-to-r from-purple-600/80 to-teal-600/80 text-white border-none backdrop-blur-sm font-sans">
                       {project.category}
                     </Badge>
                   </div>
 
                   {/* Project Details */}
                   <div className="lg:w-1/2 p-8 flex flex-col justify-center">
-                    <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-purple-400 transition-colors duration-300">
+                    <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-purple-400 transition-colors duration-300 font-sans">
                       {project.title}
                     </h3>
                     
-                    <p className="text-gray-300 leading-relaxed mb-6">
+                    <p className="text-gray-300 leading-relaxed mb-6 font-sans">
                       {project.description}
                     </p>
 
-                    {/* Scrolling Technologies */}
+                    {/* Technologies */}
                     <div className="mb-6">
                       <div className="flex flex-wrap gap-2">
                         {project.technologies.map((tech, techIndex) => (
                           <Badge
                             key={techIndex}
-                            className="bg-gradient-to-r from-purple-600/20 to-teal-600/20 text-purple-300 hover:from-purple-600/30 hover:to-teal-600/30 transition-all duration-200 border-purple-500/30 text-sm"
+                            className="bg-gradient-to-r from-purple-600/20 to-teal-600/20 text-purple-300 hover:from-purple-600/30 hover:to-teal-600/30 transition-all duration-200 border-purple-500/30 text-sm font-sans"
                           >
                             {tech}
                           </Badge>
@@ -112,22 +112,14 @@ const Projects = () => {
                       </div>
                     </div>
 
-                    {/* Action Buttons */}
+                    {/* GitHub Button Only */}
                     <div className="flex gap-4">
                       <Button
-                        className="bg-gradient-to-r from-gray-800 to-gray-700 hover:from-gray-700 hover:to-gray-600 text-white transition-all duration-300 transform hover:scale-105 border border-gray-600"
+                        className="bg-gradient-to-r from-gray-800 to-gray-700 hover:from-gray-700 hover:to-gray-600 text-white transition-all duration-300 transform hover:scale-105 border border-gray-600 font-sans"
                         onClick={() => window.open(project.github, "_blank")}
                       >
                         <Github size={16} className="mr-2" />
-                        <span>GitHub</span>
-                      </Button>
-                      <Button
-                        variant="outline"
-                        className="border-teal-500/50 text-teal-400 hover:bg-teal-500/10 hover:border-teal-400 transition-all duration-300 transform hover:scale-105"
-                        onClick={() => window.open(project.github, "_blank")}
-                      >
-                        <ExternalLink size={16} className="mr-2" />
-                        <span>Live Demo</span>
+                        <span>View Code</span>
                       </Button>
                     </div>
                   </div>
