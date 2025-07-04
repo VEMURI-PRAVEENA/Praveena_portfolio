@@ -15,7 +15,7 @@ const Index = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["home", "projects", "skills", "techstack", "certifications", "about", "contact"];
+      const sections = ["home", "about", "projects", "skills", "techstack", "certifications", "contact"];
       const scrollPosition = window.scrollY + 100;
 
       for (const section of sections) {
@@ -35,11 +35,14 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#0d1117]">
+    <div className="min-h-screen bg-black">
       <Navigation activeSection={activeSection} />
       <main>
         <section id="home">
           <Hero />
+        </section>
+        <section id="about">
+          <About />
         </section>
         <section id="projects">
           <Projects />
@@ -52,9 +55,6 @@ const Index = () => {
         </section>
         <section id="certifications">
           <Certifications />
-        </section>
-        <section id="about">
-          <About />
         </section>
         <section id="contact">
           <Contact />

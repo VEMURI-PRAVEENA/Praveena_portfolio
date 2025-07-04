@@ -65,7 +65,6 @@ const Contact = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Form validation
     if (!formData.name || !formData.email || !formData.message) {
       toast({
         title: "Please fill in all required fields",
@@ -75,13 +74,11 @@ const Contact = () => {
       return;
     }
 
-    // Simulate form submission
     toast({
       title: "Message sent successfully!",
       description: "Thank you for reaching out. I'll get back to you soon.",
     });
 
-    // Reset form
     setFormData({
       name: "",
       email: "",
@@ -90,21 +87,14 @@ const Contact = () => {
     });
   };
 
-  const scrollToProjects = () => {
-    const projectsSection = document.getElementById("projects");
-    if (projectsSection) {
-      projectsSection.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-[#0d1117] text-white">
+    <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 bg-black text-white">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
             Let's Connect
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
             I'm always excited to discuss AI/ML projects, collaboration opportunities, or just have a great conversation about technology
           </p>
         </div>
@@ -114,7 +104,7 @@ const Contact = () => {
           <div className="space-y-8">
             <div>
               <h3 className="text-2xl font-bold mb-6">Get in Touch</h3>
-              <p className="text-gray-300 text-lg leading-relaxed mb-8">
+              <p className="text-gray-400 text-lg leading-relaxed mb-8">
                 Whether you're looking to collaborate on exciting AI projects, discuss opportunities, 
                 or just want to chat about the latest in machine learning, I'd love to hear from you!
               </p>
@@ -144,40 +134,13 @@ const Contact = () => {
                 </div>
               ))}
             </div>
-
-            {/* Quick Links */}
-            <div className="pt-8">
-              <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
-              <div className="flex space-x-4">
-                <Button
-                  asChild
-                  className="border-white/30 text-white hover:bg-white hover:text-gray-900 transition-colors duration-300 hover:scale-105 hover:shadow-lg"
-                  variant="outline"
-                >
-                  <a 
-                    href="https://drive.google.com/file/d/1bRQhvIoZg4J4ry-J440x2y9J4SYnvSen/view?usp=share_link" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                  >
-                    View Resume
-                  </a>
-                </Button>
-                <Button
-                  onClick={scrollToProjects}
-                  variant="outline"
-                  className="border-white/30 text-white hover:bg-white hover:text-gray-900 transition-colors duration-300 hover:scale-105 hover:shadow-lg"
-                >
-                  My Projects
-                </Button>
-              </div>
-            </div>
           </div>
 
           {/* Contact Form */}
-          <Card className="bg-[#1e1e2f]/80 backdrop-blur-sm border-gray-600">
+          <Card className="bg-gray-900/50 border-gray-800">
             <CardHeader>
               <CardTitle className="text-2xl font-bold text-white">Send me a message</CardTitle>
-              <CardDescription className="text-gray-300">
+              <CardDescription className="text-gray-400">
                 Fill out the form below and I'll get back to you as soon as possible.
               </CardDescription>
             </CardHeader>
@@ -194,7 +157,7 @@ const Contact = () => {
                       type="text"
                       value={formData.name}
                       onChange={handleInputChange}
-                      className="bg-white/10 border-gray-600 text-white placeholder:text-gray-400 focus:border-blue-400"
+                      className="bg-white/10 border-gray-700 text-white placeholder:text-gray-400 focus:border-blue-400"
                       placeholder="Your full name"
                     />
                   </div>
@@ -208,7 +171,7 @@ const Contact = () => {
                       type="email"
                       value={formData.email}
                       onChange={handleInputChange}
-                      className="bg-white/10 border-gray-600 text-white placeholder:text-gray-400 focus:border-blue-400"
+                      className="bg-white/10 border-gray-700 text-white placeholder:text-gray-400 focus:border-blue-400"
                       placeholder="your.email@example.com"
                     />
                   </div>
@@ -224,7 +187,7 @@ const Contact = () => {
                     type="text"
                     value={formData.subject}
                     onChange={handleInputChange}
-                    className="bg-white/10 border-gray-600 text-white placeholder:text-gray-400 focus:border-blue-400"
+                    className="bg-white/10 border-gray-700 text-white placeholder:text-gray-400 focus:border-blue-400"
                     placeholder="What's this about?"
                   />
                 </div>
@@ -239,14 +202,14 @@ const Contact = () => {
                     value={formData.message}
                     onChange={handleInputChange}
                     rows={5}
-                    className="bg-white/10 border-gray-600 text-white placeholder:text-gray-400 focus:border-blue-400 resize-none"
+                    className="bg-white/10 border-gray-700 text-white placeholder:text-gray-400 focus:border-blue-400 resize-none"
                     placeholder="Tell me about your project, opportunity, or just say hello!"
                   />
                 </div>
 
                 <Button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-3 transition-all duration-300 transform hover:scale-102 hover:shadow-xl hover:shadow-blue-500/25"
+                  className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-3 transition-all duration-300 transform hover:scale-105"
                 >
                   <Send className="mr-2" size={20} />
                   Send Message

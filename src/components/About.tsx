@@ -1,67 +1,48 @@
 
 import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Download, MapPin, GraduationCap, Target } from "lucide-react";
+import { MapPin, GraduationCap, Target } from "lucide-react";
 
 const About = () => {
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-[#0d1117] font-serif">
-      <div className="max-w-7xl mx-auto">
+    <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 bg-black text-white">
+      <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
             About Me
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
             Passionate AI & ML Engineer building intelligent systems that solve real-world problems
           </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left Column - Photo and Quick Info */}
+          {/* Left Column - Photo and Info */}
           <div className="space-y-8">
             <div className="relative">
-              <div className="w-80 h-80 mx-auto bg-gradient-to-br from-blue-400 to-purple-500 rounded-full flex items-center justify-center overflow-hidden shadow-2xl">
+              <div className="w-80 h-80 mx-auto bg-gradient-to-br from-blue-400 to-purple-500 rounded-2xl flex items-center justify-center overflow-hidden shadow-2xl">
                 <img
                   src="/lovable-uploads/8053af38-8789-4260-a47c-0d37687a1fee.png"
                   alt="Praveena Vemuri"
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2">
-                <Card className="px-6 py-3 bg-[#1e1e2f] shadow-lg border-gray-600">
-                  <p className="text-gray-300 flex items-center">
-                    <MapPin className="mr-2" size={16} />
-                    Ongole, Andhra Pradesh, India
-                  </p>
-                </Card>
-              </div>
             </div>
 
-            <div className="text-center">
-              <Button 
-                asChild
-                className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 text-lg font-semibold hover:scale-105 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/25"
-              >
-                <a 
-                  href="https://drive.google.com/file/d/1bRQhvIoZg4J4ry-J440x2y9J4SYnvSen/view?usp=sharing" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="flex items-center space-x-2"
-                >
-                  <Download size={20} />
-                  <span>Download Resume</span>
-                </a>
-              </Button>
+            <div className="text-center space-y-4">
+              <div className="flex items-center justify-center text-gray-300">
+                <MapPin className="mr-2" size={20} />
+                Ongole, Andhra Pradesh, India
+              </div>
             </div>
           </div>
 
           {/* Right Column - About Content */}
           <div className="space-y-8">
             {/* Career Objective */}
-            <Card className="hover:shadow-xl transition-all duration-300 bg-[#1e1e2f] border-gray-600 hover:shadow-blue-500/20">
+            <Card className="bg-gray-900/50 border-gray-800 hover:bg-gray-900/70 transition-all duration-300">
               <CardContent className="p-8">
                 <div className="flex items-center mb-4">
-                  <Target className="text-blue-400 mr-3" size={24} />
+                  <Target className="text-blue-400 mr-3" size={28} />
                   <h3 className="text-2xl font-bold text-white">Career Objective</h3>
                 </div>
                 <p className="text-gray-300 leading-relaxed">
@@ -74,10 +55,10 @@ const About = () => {
             </Card>
 
             {/* Education */}
-            <Card className="hover:shadow-xl transition-all duration-300 bg-[#1e1e2f] border-gray-600 hover:shadow-purple-500/20">
+            <Card className="bg-gray-900/50 border-gray-800 hover:bg-gray-900/70 transition-all duration-300">
               <CardContent className="p-8">
                 <div className="flex items-center mb-6">
-                  <GraduationCap className="text-purple-400 mr-3" size={24} />
+                  <GraduationCap className="text-purple-400 mr-3" size={28} />
                   <h3 className="text-2xl font-bold text-white">Education</h3>
                 </div>
                 
@@ -105,12 +86,12 @@ const About = () => {
 
             {/* Quick Stats */}
             <div className="grid grid-cols-2 gap-4">
-              <Card className="text-center p-6 hover:shadow-lg transition-all duration-300 bg-[#1e1e2f] border-gray-600 hover:shadow-blue-500/20">
+              <Card className="text-center p-6 bg-gray-900/50 border-gray-800 hover:bg-gray-900/70 transition-all duration-300">
                 <div className="text-3xl font-bold text-blue-400 mb-2">8.88</div>
                 <p className="text-gray-300">Current CGPA</p>
               </Card>
-              <Card className="text-center p-6 hover:shadow-lg transition-all duration-300 bg-[#1e1e2f] border-gray-600 hover:shadow-purple-500/20">
-                <div className="text-3xl font-bold text-purple-400 mb-2">3+</div>
+              <Card className="text-center p-6 bg-gray-900/50 border-gray-800 hover:bg-gray-900/70 transition-all duration-300">
+                <div className="text-3xl font-bold text-purple-400 mb-2">4+</div>
                 <p className="text-gray-300">Major Projects</p>
               </Card>
             </div>
