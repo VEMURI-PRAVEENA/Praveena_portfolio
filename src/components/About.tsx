@@ -14,77 +14,43 @@ const About = () => {
 
       <div className="max-w-4xl mx-auto relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-teal-400 to-purple-400 bg-clip-text text-transparent font-sans">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-teal-400 to-purple-400 bg-clip-text text-transparent" style={{ fontFamily: 'Times New Roman, serif' }}>
             About Me
           </h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto font-sans">
+          <p className="text-xl text-gray-400 max-w-3xl mx-auto" style={{ fontFamily: 'Times New Roman, serif' }}>
             Passionate AI & ML enthusiast with a focus on building intelligent systems
           </p>
+        </div>
+
+        {/* Profile Image */}
+        <div className="flex justify-center mb-12">
+          <div className="relative">
+            <div className="w-48 h-48 md:w-56 md:h-56 rounded-full bg-gradient-to-br from-purple-500 via-teal-500 to-blue-500 p-1 shadow-2xl shadow-purple-500/25">
+              <div className="w-full h-full rounded-full overflow-hidden bg-gray-900 border-2 border-gray-800">
+                <img
+                  src="/lovable-uploads/8053af38-8789-4260-a47c-0d37687a1fee.png"
+                  alt="Praveena Vemuri"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+            {/* Glow Effect */}
+            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-purple-500/20 via-teal-500/20 to-blue-500/20 blur-xl animate-pulse"></div>
+          </div>
         </div>
 
         {/* Career Objective */}
         <Card className="mb-12 bg-gradient-to-r from-purple-600/20 to-teal-600/20 border-purple-500/30 relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-teal-500/10"></div>
           <CardContent className="p-8 relative z-10">
-            <h3 className="text-2xl font-bold mb-6 text-white font-sans">Career Objective</h3>
-            <p className="text-gray-300 leading-relaxed text-lg font-sans">
+            <h3 className="text-2xl font-bold mb-6 text-white" style={{ fontFamily: 'Times New Roman, serif' }}>Career Objective</h3>
+            <p className="text-gray-300 leading-relaxed text-lg" style={{ fontFamily: 'Times New Roman, serif' }}>
               Passionate about building intelligent systems and data-driven solutions. 
               Currently pursuing B.Tech in CSE (AI & ML) at VIT-AP with hands-on experience in 
               cloud-native applications and deep learning technologies. Seeking opportunities to 
               apply my knowledge in artificial intelligence, machine learning, and software development 
               to create innovative solutions that make a positive impact on society.
             </p>
-          </CardContent>
-        </Card>
-
-        {/* Education */}
-        <Card className="bg-gray-900/50 border-gray-800 hover:bg-gray-900/70 transition-all duration-500 transform hover:scale-105 relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-teal-500/5 to-purple-500/5"></div>
-          <CardContent className="p-8 relative z-10">
-            <h3 className="text-2xl font-bold mb-8 text-white font-sans flex items-center gap-3">
-              <GraduationCap className="text-teal-400" size={28} />
-              Education
-            </h3>
-            
-            <div className="space-y-6">
-              <div className="border-l-4 border-teal-500 pl-6 pb-6">
-                <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-3">
-                  <h4 className="text-xl font-bold text-white font-sans">B.Tech in Computer Science & Engineering</h4>
-                  <Badge className="bg-teal-600/20 text-teal-300 border-teal-500/30 w-fit font-sans">
-                    2022 - 2026
-                  </Badge>
-                </div>
-                <p className="text-lg text-purple-300 mb-2 font-sans">Specialization: Artificial Intelligence & Machine Learning</p>
-                <p className="text-gray-400 mb-3 font-sans flex items-center gap-2">
-                  <MapPin size={16} />
-                  VIT-AP University, Amaravati, Andhra Pradesh
-                </p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {["Artificial Intelligence", "Machine Learning", "Deep Learning", "Data Structures", "Cloud Computing", "Software Engineering"].map((subject, index) => (
-                    <Badge
-                      key={index}
-                      className="bg-purple-600/20 text-purple-300 border-purple-500/30 text-sm font-sans"
-                    >
-                      {subject}
-                    </Badge>
-                  ))}
-                </div>
-              </div>
-
-              <div className="border-l-4 border-purple-500 pl-6">
-                <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-3">
-                  <h4 className="text-xl font-bold text-white font-sans">Intermediate (12th Grade)</h4>
-                  <Badge className="bg-purple-600/20 text-purple-300 border-purple-500/30 w-fit font-sans">
-                    2020 - 2022
-                  </Badge>
-                </div>
-                <p className="text-lg text-teal-300 mb-2 font-sans">Mathematics, Physics, Chemistry</p>
-                <p className="text-gray-400 font-sans flex items-center gap-2">
-                  <MapPin size={16} />
-                  Narayana Junior College, Andhra Pradesh
-                </p>
-              </div>
-            </div>
           </CardContent>
         </Card>
       </div>

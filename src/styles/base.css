@@ -55,7 +55,7 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: 'Times New Roman', serif;
     background: #000000;
     color: #ffffff;
   }
@@ -64,13 +64,13 @@ All colors MUST be HSL.
     scroll-behavior: smooth;
   }
 
-  /* Ensure all text uses Inter font */
+  /* Ensure all text uses Times New Roman font */
   h1, h2, h3, h4, h5, h6, p, span, div, button, input, textarea, label {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: 'Times New Roman', serif;
   }
 
-  /* Override any Times New Roman usage */
+  /* Override any other font usage */
   .font-sans, .font-mono, .font-serif {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: 'Times New Roman', serif;
   }
 }
