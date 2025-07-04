@@ -71,16 +71,14 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* Main Heading */}
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-8 animate-fade-in-up delay-200">
+        {/* Main Heading - Decreased size */}
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 animate-fade-in-up delay-200">
           Hi, I'm <span className="bg-gradient-to-r from-purple-400 via-teal-400 to-blue-400 bg-clip-text text-transparent">Vemuri Praveena</span>
         </h1>
 
-        {/* Animated Role Text */}
+        {/* Animated Role Text - Removed pipe symbols */}
         <div className="text-2xl md:text-3xl lg:text-4xl text-gray-300 mb-12 h-16 flex items-center justify-center animate-fade-in-up delay-400">
-          <span className="text-teal-400">| </span>
-          <span className="mx-2">{displayText}</span>
-          <span className="text-teal-400"> |</span>
+          <span className="text-teal-400">{displayText}</span>
         </div>
 
         {/* Description */}
