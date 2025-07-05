@@ -6,6 +6,8 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, Phone, Linkedin, Github, MapPin, Send } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { motion } from "framer-motion";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -15,6 +17,7 @@ const Contact = () => {
     message: ""
   });
   const { toast } = useToast();
+  const { ref: sectionRef, isVisible } = useScrollReveal();
 
   const contactInfo = [
     {
@@ -65,7 +68,6 @@ const Contact = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Form validation
     if (!formData.name || !formData.email || !formData.message) {
       toast({
         title: "Please fill in all required fields",
@@ -75,13 +77,11 @@ const Contact = () => {
       return;
     }
 
-    // Simulate form submission
     toast({
       title: "Message sent successfully!",
       description: "Thank you for reaching out. I'll get back to you soon.",
     });
 
-    // Reset form
     setFormData({
       name: "",
       email: "",
@@ -98,20 +98,30 @@ const Contact = () => {
   };
 
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-[#0d1117] text-white">
+    <section ref={sectionRef} className="py-20 px-4 sm:px-6 lg:px-8 bg-[#0d1117] text-white">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={isVisible ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16"
+        >
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             Let's Connect
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             I'm always excited to discuss AI/ML projects, collaboration opportunities, or just have a great conversation about technology
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Contact Information */}
-          <div className="space-y-8">
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={isVisible ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="space-y-8"
+          >
             <div>
               <h3 className="text-2xl font-bold mb-6">Get in Touch</h3>
               <p className="text-gray-300 text-lg leading-relaxed mb-8">
@@ -122,10 +132,25 @@ const Contact = () => {
 
             <div className="space-y-6">
               {contactInfo.map((info, index) => (
-                <div key={index} className="flex items-center space-x-4 group">
-                  <div className={`${info.color} p-3 rounded-lg bg-white/10 group-hover:bg-white/20 transition-colors duration-300`}>
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: -30 }}
+                  animate={isVisible ? { opacity: 1, x: 0 } : {}}
+                  transition={{ duration: 0.6, delay: 0.4 + (index * 0.1) }}
+                  whileHover={{ x: 10, scale: 1.02 }}
+                  className="flex items-center space-x-4 group"
+                >
+                  <motion.div
+                    whileHover={{ 
+                      scale: 1.1,
+                      rotate: [0, -5, 5, 0],
+                      backgroundColor: "rgba(255, 255, 255, 0.2)"
+                    }}
+                    transition={{ duration: 0.3 }}
+                    className={`${info.color} p-3 rounded-lg bg-white/10 group-hover:bg-white/20 transition-colors duration-300`}
+                  >
                     <info.icon size={24} />
-                  </div>
+                  </motion.div>
                   <div>
                     <p className="text-sm text-gray-300 uppercase tracking-wide">{info.label}</p>
                     {info.href ? (
@@ -141,119 +166,190 @@ const Contact = () => {
                       <p className="text-white font-medium">{info.value}</p>
                     )}
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
 
             {/* Quick Links */}
-            <div className="pt-8">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={isVisible ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.8, delay: 0.8 }}
+              className="pt-8"
+            >
               <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
               <div className="flex space-x-4">
-                <Button
-                  asChild
-                  className="border-white/30 text-white hover:bg-white hover:text-gray-900 transition-colors duration-300 hover:scale-105 hover:shadow-lg"
-                  variant="outline"
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.98 }}
                 >
-                  <a 
-                    href="https://drive.google.com/file/d/1bRQhvIoZg4J4ry-J440x2y9J4SYnvSen/view?usp=share_link" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
+                  <Button
+                    asChild
+                    className="border-white/30 text-white hover:bg-white hover:text-gray-900 transition-colors duration-300 hover:shadow-lg"
+                    variant="outline"
                   >
-                    View Resume
-                  </a>
-                </Button>
-                <Button
-                  onClick={scrollToProjects}
-                  variant="outline"
-                  className="border-white/30 text-white hover:bg-white hover:text-gray-900 transition-colors duration-300 hover:scale-105 hover:shadow-lg"
+                    <a 
+                      href="https://drive.google.com/file/d/1bRQhvIoZg4J4ry-J440x2y9J4SYnvSen/view?usp=share_link" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                    >
+                      View Resume
+                    </a>
+                  </Button>
+                </motion.div>
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.98 }}
                 >
-                  My Projects
-                </Button>
+                  <Button
+                    onClick={scrollToProjects}
+                    variant="outline"
+                    className="border-white/30 text-white hover:bg-white hover:text-gray-900 transition-colors duration-300 hover:shadow-lg"
+                  >
+                    My Projects
+                  </Button>
+                </motion.div>
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
           {/* Contact Form */}
-          <Card className="bg-[#1e1e2f]/80 backdrop-blur-sm border-gray-600">
-            <CardHeader>
-              <CardTitle className="text-2xl font-bold text-white">Send me a message</CardTitle>
-              <CardDescription className="text-gray-300">
-                Fill out the form below and I'll get back to you as soon as possible.
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
-                      Name *
-                    </label>
-                    <Input
-                      id="name"
-                      name="name"
-                      type="text"
-                      value={formData.name}
-                      onChange={handleInputChange}
-                      className="bg-white/10 border-gray-600 text-white placeholder:text-gray-400 focus:border-blue-400"
-                      placeholder="Your full name"
-                    />
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            animate={isVisible ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
+            <Card className="bg-[#1e1e2f]/80 backdrop-blur-sm border-gray-600">
+              <CardHeader>
+                <CardTitle className="text-2xl font-bold text-white">Send me a message</CardTitle>
+                <CardDescription className="text-gray-300">
+                  Fill out the form below and I'll get back to you as soon as possible.
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={isVisible ? { opacity: 1, y: 0 } : {}}
+                      transition={{ duration: 0.6, delay: 0.6 }}
+                    >
+                      <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
+                        Name *
+                      </label>
+                      <motion.div
+                        whileFocus={{ scale: 1.02 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        <Input
+                          id="name"
+                          name="name"
+                          type="text"
+                          value={formData.name}
+                          onChange={handleInputChange}
+                          className="bg-white/10 border-gray-600 text-white placeholder:text-gray-400 focus:border-blue-400 focus:ring-2 focus:ring-blue-400/20 transition-all duration-300"
+                          placeholder="Your full name"
+                        />
+                      </motion.div>
+                    </motion.div>
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={isVisible ? { opacity: 1, y: 0 } : {}}
+                      transition={{ duration: 0.6, delay: 0.7 }}
+                    >
+                      <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+                        Email *
+                      </label>
+                      <motion.div
+                        whileFocus={{ scale: 1.02 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        <Input
+                          id="email"
+                          name="email"
+                          type="email"
+                          value={formData.email}
+                          onChange={handleInputChange}
+                          className="bg-white/10 border-gray-600 text-white placeholder:text-gray-400 focus:border-blue-400 focus:ring-2 focus:ring-blue-400/20 transition-all duration-300"
+                          placeholder="your.email@example.com"
+                        />
+                      </motion.div>
+                    </motion.div>
                   </div>
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
-                      Email *
+
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={isVisible ? { opacity: 1, y: 0 } : {}}
+                    transition={{ duration: 0.6, delay: 0.8 }}
+                  >
+                    <label htmlFor="subject" className="block text-sm font-medium text-gray-300 mb-2">
+                      Subject
                     </label>
-                    <Input
-                      id="email"
-                      name="email"
-                      type="email"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      className="bg-white/10 border-gray-600 text-white placeholder:text-gray-400 focus:border-blue-400"
-                      placeholder="your.email@example.com"
-                    />
-                  </div>
-                </div>
+                    <motion.div
+                      whileFocus={{ scale: 1.02 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <Input
+                        id="subject"
+                        name="subject"
+                        type="text"
+                        value={formData.subject}
+                        onChange={handleInputChange}
+                        className="bg-white/10 border-gray-600 text-white placeholder:text-gray-400 focus:border-blue-400 focus:ring-2 focus:ring-blue-400/20 transition-all duration-300"
+                        placeholder="What's this about?"
+                      />
+                    </motion.div>
+                  </motion.div>
 
-                <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-gray-300 mb-2">
-                    Subject
-                  </label>
-                  <Input
-                    id="subject"
-                    name="subject"
-                    type="text"
-                    value={formData.subject}
-                    onChange={handleInputChange}
-                    className="bg-white/10 border-gray-600 text-white placeholder:text-gray-400 focus:border-blue-400"
-                    placeholder="What's this about?"
-                  />
-                </div>
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={isVisible ? { opacity: 1, y: 0 } : {}}
+                    transition={{ duration: 0.6, delay: 0.9 }}
+                  >
+                    <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
+                      Message *
+                    </label>
+                    <motion.div
+                      whileFocus={{ scale: 1.02 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <Textarea
+                        id="message"
+                        name="message"
+                        value={formData.message}
+                        onChange={handleInputChange}
+                        rows={5}
+                        className="bg-white/10 border-gray-600 text-white placeholder:text-gray-400 focus:border-blue-400 focus:ring-2 focus:ring-blue-400/20 resize-none transition-all duration-300"
+                        placeholder="Tell me about your project, opportunity, or just say hello!"
+                      />
+                    </motion.div>
+                  </motion.div>
 
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
-                    Message *
-                  </label>
-                  <Textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    rows={5}
-                    className="bg-white/10 border-gray-600 text-white placeholder:text-gray-400 focus:border-blue-400 resize-none"
-                    placeholder="Tell me about your project, opportunity, or just say hello!"
-                  />
-                </div>
-
-                <Button
-                  type="submit"
-                  className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-3 transition-all duration-300 transform hover:scale-102 hover:shadow-xl hover:shadow-blue-500/25"
-                >
-                  <Send className="mr-2" size={20} />
-                  Send Message
-                </Button>
-              </form>
-            </CardContent>
-          </Card>
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={isVisible ? { opacity: 1, y: 0 } : {}}
+                    transition={{ duration: 0.6, delay: 1.0 }}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    <Button
+                      type="submit"
+                      className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-3 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/25"
+                    >
+                      <motion.div
+                        animate={{ x: [0, 3, 0] }}
+                        transition={{ duration: 1.5, repeat: Infinity }}
+                        className="mr-2"
+                      >
+                        <Send size={20} />
+                      </motion.div>
+                      Send Message
+                    </Button>
+                  </motion.div>
+                </form>
+              </CardContent>
+            </Card>
+          </motion.div>
         </div>
       </div>
     </section>

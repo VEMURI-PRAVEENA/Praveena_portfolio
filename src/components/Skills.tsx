@@ -1,8 +1,12 @@
 
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
+import { motion } from "framer-motion";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const Skills = () => {
+  const { ref: sectionRef, isVisible } = useScrollReveal();
+
   const skillCategories = [
     {
       category: "Programming Languages",
@@ -37,60 +41,122 @@ const Skills = () => {
   ];
 
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-[#1a1a1a]">
+    <section ref={sectionRef} className="py-20 px-4 sm:px-6 lg:px-8 bg-[#1a1a1a]">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={isVisible ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16"
+        >
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
             Skills & Expertise
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             A comprehensive toolkit spanning AI/ML, cloud technologies, and data science
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {skillCategories.map((category, index) => (
-            <Card
+            <motion.div
               key={index}
-              className="group hover:shadow-xl transition-all duration-300 transform hover:scale-102 bg-gray-800/70 backdrop-blur-sm border-gray-600"
+              initial={{ opacity: 0, y: 50 }}
+              animate={isVisible ? { opacity: 1, y: 0 } : {}}
+              transition={{ 
+                duration: 0.6, 
+                delay: index * 0.1,
+                ease: "easeOut"
+              }}
             >
-              <CardContent className="p-6">
-                <h3 className="text-xl font-bold text-white mb-4 group-hover:text-blue-400 transition-colors duration-300">
-                  {category.category}
-                </h3>
-                <div className="flex flex-wrap gap-2">
-                  {category.skills.map((skill, skillIndex) => (
-                    <Badge
-                      key={skillIndex}
-                      className={`${category.color} hover:scale-105 transition-transform duration-200 cursor-default`}
+              <motion.div
+                whileHover={{ 
+                  scale: 1.02,
+                  y: -5,
+                  boxShadow: "0 15px 30px rgba(59, 130, 246, 0.1)"
+                }}
+                transition={{ duration: 0.3 }}
+              >
+                <Card className="group transition-all duration-300 bg-gray-800/70 backdrop-blur-sm border-gray-600">
+                  <CardContent className="p-6">
+                    <motion.h3
+                      whileHover={{ color: "#60a5fa" }}
+                      transition={{ duration: 0.3 }}
+                      className="text-xl font-bold text-white mb-4 group-hover:text-blue-400 transition-colors duration-300"
                     >
-                      {skill}
-                    </Badge>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+                      {category.category}
+                    </motion.h3>
+                    <div className="flex flex-wrap gap-2">
+                      {category.skills.map((skill, skillIndex) => (
+                        <motion.div
+                          key={skillIndex}
+                          initial={{ opacity: 0, scale: 0.8 }}
+                          animate={isVisible ? { opacity: 1, scale: 1 } : {}}
+                          transition={{ 
+                            duration: 0.3, 
+                            delay: (index * 0.1) + (skillIndex * 0.05) + 0.2
+                          }}
+                          whileHover={{ 
+                            scale: 1.1,
+                            boxShadow: "0 5px 15px rgba(59, 130, 246, 0.3)"
+                          }}
+                          whileTap={{ scale: 0.95 }}
+                        >
+                          <Badge
+                            className={`${category.color} transition-transform duration-200 cursor-default`}
+                          >
+                            {skill}
+                          </Badge>
+                        </motion.div>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            </motion.div>
           ))}
         </div>
 
         {/* Soft Skills Section */}
-        <div className="mt-16">
-          <Card className="bg-gradient-to-r from-blue-600 to-purple-600 text-white border-none">
-            <CardContent className="p-8 text-center">
-              <h3 className="text-2xl font-bold mb-4">Soft Skills</h3>
-              <div className="flex flex-wrap justify-center gap-3">
-                {["Leadership", "Problem-solving", "Communication", "Adaptability", "Team Collaboration"].map((skill, index) => (
-                  <Badge
-                    key={index}
-                    className="bg-white/20 text-white border-white/30 hover:bg-white/30 transition-colors duration-200"
-                  >
-                    {skill}
-                  </Badge>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
-        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isVisible ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.8 }}
+          className="mt-16"
+        >
+          <motion.div
+            whileHover={{ 
+              scale: 1.01,
+              boxShadow: "0 20px 40px rgba(147, 51, 234, 0.2)"
+            }}
+            transition={{ duration: 0.3 }}
+          >
+            <Card className="bg-gradient-to-r from-blue-600 to-purple-600 text-white border-none">
+              <CardContent className="p-8 text-center">
+                <h3 className="text-2xl font-bold mb-4">Soft Skills</h3>
+                <div className="flex flex-wrap justify-center gap-3">
+                  {["Leadership", "Problem-solving", "Communication", "Adaptability", "Team Collaboration"].map((skill, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={isVisible ? { opacity: 1, y: 0 } : {}}
+                      transition={{ duration: 0.4, delay: 1 + (index * 0.1) }}
+                      whileHover={{ 
+                        scale: 1.1,
+                        backgroundColor: "rgba(255, 255, 255, 0.4)"
+                      }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <Badge className="bg-white/20 text-white border-white/30 transition-colors duration-200">
+                        {skill}
+                      </Badge>
+                    </motion.div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );
