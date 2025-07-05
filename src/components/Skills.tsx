@@ -69,7 +69,7 @@ const Skills = () => {
       y: 0,
       rotateX: 0,
       transition: {
-        type: "spring",
+        type: "spring" as const,
         stiffness: 100,
         damping: 15,
         duration: 0.6
@@ -82,7 +82,11 @@ const Skills = () => {
     visible: { 
       opacity: 1, 
       scale: 1,
-      transition: { type: "spring", stiffness: 200, damping: 15 }
+      transition: { 
+        type: "spring" as const, 
+        stiffness: 200, 
+        damping: 15 
+      }
     }
   };
 
@@ -192,7 +196,6 @@ const Skills = () => {
                         }}
                         whileTap={{ scale: 0.9 }}
                         transition={{ duration: 0.2 }}
-                        style={{ delay: (skillIndex * 0.05) + "s" }}
                       >
                         <Badge
                           className={`${category.color} transition-all duration-200 cursor-pointer hover:shadow-lg relative overflow-hidden`}

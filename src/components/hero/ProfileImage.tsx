@@ -39,7 +39,7 @@ const ProfileImage = () => {
             <div className="w-full h-full rounded-full bg-gradient-to-br from-blue-400 via-violet-500 to-emerald-400 p-1 animate-gradient-slow shadow-lg">
               <div className="w-full h-full rounded-full overflow-hidden bg-gray-800 relative group-hover:scale-105 transition-transform duration-700 shadow-inner">
                 <img
-                  src="/lovable-uploads/8053af38-8789-4260-a47c-0d37687a1fee.png"
+                  src="/lovable-uploads/1b8e3cb7-95d3-45dd-ab73-d19db0680dfc.png"
                   alt="Praveena profile photo"
                   className="w-full h-full object-cover"
                 />

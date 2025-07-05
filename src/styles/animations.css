@@ -40,6 +40,15 @@
   }
 }
 
+@keyframes tech-scroll {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
 /* Animation Classes */
 .animate-gentle-pulse {
   animation: gentle-pulse 6s ease-in-out infinite;
@@ -56,6 +65,10 @@
 
 .animate-fade-in-up {
   animation: fade-in-up 0.6s ease-out forwards;
+}
+
+.animate-tech-scroll {
+  animation: tech-scroll 20s linear infinite;
 }
 
 /* Animation Delays */

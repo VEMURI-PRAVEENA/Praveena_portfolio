@@ -18,6 +18,7 @@ const Projects = () => {
       description: "Built an RAG-based chatbot using Mistral-7B for over 93% semantic accuracy. Processed 200+ pages of medical PDFs into 500+ semantic chunks using Sentence Transformers + FAISS.",
       technologies: ["LangChain", "HuggingFace", "FAISS", "Streamlit", "Mistral-7B"],
       github: "https://github.com/VEMURI-PRAVEENA/AI-RAG-based-chatbot",
+      image: "/lovable-uploads/1b8e3cb7-95d3-45dd-ab73-d19db0680dfc.png",
       features: [
         "93%+ semantic accuracy",
         "Processed 200+ pages of medical PDFs → 500+ semantic chunks using Sentence Transformers + FAISS",
@@ -30,6 +31,7 @@ const Projects = () => {
       description: "An AI-powered deep learning solution that detects and localizes brain tumors in MRI scans using the YOLOv8 object detection model.",
       technologies: ["YOLOv8", "Python", "OpenCV", "PyTorch", "TensorFlow", "Keras", "Matplotlib"],
       github: "https://github.com/VEMURI-PRAVEENA/brain_tumor_detection",
+      image: "/lovable-uploads/8053af38-8789-4260-a47c-0d37687a1fee.png",
       features: [
         "Trained YOLOv8 (yolov8n.pt) on custom-labeled brain MRI dataset",
         "Achieved high accuracy, precision, recall, and mAP during evaluation",
@@ -43,6 +45,7 @@ const Projects = () => {
       description: "Developed and trained a CNN model to classify facial images into 'mask' and 'no mask' with 92%+ accuracy. Implemented real-time video stream detection using OpenCV and deployed .h5 model.",
       technologies: ["TensorFlow", "Keras", "OpenCV", "Matplotlib"],
       github: "https://github.com/VEMURI-PRAVEENA/face-mask--detection",
+      image: "/lovable-uploads/25563a4a-4ff6-4515-bd5c-e24295030ce2.png",
       features: [
         "92%+ accuracy CNN model",
         "Real-time video stream detection",
@@ -55,6 +58,7 @@ const Projects = () => {
       description: "Implemented both Q-Learning and Policy Gradient on FrozenLake-v1 using custom rewards. Compared convergence, stability, and average rewards with detailed performance analysis.",
       technologies: ["OpenAI Gym", "NumPy", "Matplotlib"],
       github: "https://github.com/VEMURI-PRAVEENA/Frozen--lake",
+      image: "/lovable-uploads/aae95038-cdf6-498a-a2a8-7fe195e62fc6.png",
       features: [
         "Custom reward function implementation",
         "Compared convergence, stability, and average rewards",
@@ -92,7 +96,7 @@ const Projects = () => {
       y: 0,
       scale: 1,
       transition: {
-        type: "spring",
+        type: "spring" as const,
         stiffness: 100,
         damping: 15,
         duration: 0.6
@@ -180,6 +184,20 @@ const Projects = () => {
                 onMouseEnter={() => setHoveredProject(index)}
                 onMouseLeave={() => setHoveredProject(null)}
               >
+                {/* Project Image */}
+                <div className="relative h-48 overflow-hidden">
+                  <motion.img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover"
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ duration: 0.3 }}
+                  />
+                  <motion.div 
+                    className="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  />
+                </div>
+
                 <CardHeader className="relative overflow-hidden">
                   <motion.div 
                     className="absolute inset-0 bg-gradient-to-r from-blue-600/5 to-violet-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
@@ -291,64 +309,6 @@ const Projects = () => {
               </Card>
             </motion.div>
           ))}
-
-          {/* Enhanced Coming Soon Card */}
-          <motion.div variants={cardVariants}>
-            <motion.div
-              whileHover={{ 
-                scale: 1.03,
-                y: -10,
-                boxShadow: "0 25px 50px rgba(147, 51, 234, 0.3)"
-              }}
-              transition={{ duration: 0.3 }}
-            >
-              <Card className="group cursor-pointer transition-all duration-500 bg-gray-800/60 backdrop-blur-sm border-gray-600 border-dashed shadow-lg hover:shadow-xl hover:shadow-purple-500/25 relative overflow-hidden">
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-br from-purple-600/10 to-blue-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                  whileHover={{ scale: 1.05 }}
-                />
-                <CardContent className="flex flex-col items-center justify-center h-full py-16 space-y-4 relative z-10">
-                  <motion.div
-                    animate={{ 
-                      scale: [1, 1.2, 1],
-                      rotate: [0, 10, -10, 0]
-                    }}
-                    transition={{
-                      duration: 4,
-                      repeat: Infinity,
-                      ease: "easeInOut"
-                    }}
-                    className="w-16 h-16 bg-gradient-to-r from-purple-600/20 to-blue-600/20 rounded-full flex items-center justify-center mb-4 relative"
-                  >
-                    <motion.span 
-                      className="text-2xl"
-                      animate={{ rotate: [0, 360] }}
-                      transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-                    >
-                      🚀
-                    </motion.span>
-                    <motion.div
-                      className="absolute inset-0 rounded-full border-2 border-purple-400/30"
-                      animate={{ scale: [1, 1.3, 1], opacity: [1, 0, 1] }}
-                      transition={{ duration: 2, repeat: Infinity }}
-                    />
-                  </motion.div>
-                  <h3 className="text-xl font-bold text-white group-hover:text-purple-400 transition-colors">More Projects Coming Soon</h3>
-                  <p className="text-gray-400 text-center">
-                    Currently working on exciting new AI/ML projects that will be showcased here.
-                  </p>
-                  <motion.div
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <Badge className="bg-gradient-to-r from-purple-600/20 to-blue-600/20 text-purple-200 border-purple-500/30">
-                      In Development
-                    </Badge>
-                  </motion.div>
-                </CardContent>
-              </Card>
-            </motion.div>
-          </motion.div>
         </motion.div>
       </div>
     </section>

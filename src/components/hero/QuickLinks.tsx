@@ -1,7 +1,6 @@
 
 import { Button } from "@/components/ui/button";
-import { FileText, FolderOpen, ExternalLink, QrCode } from "lucide-react";
-import ResumeQR from "@/components/ResumeQR";
+import { FileText, FolderOpen, ExternalLink } from "lucide-react";
 import { motion } from "framer-motion";
 
 const QuickLinks = () => {
@@ -102,16 +101,6 @@ const QuickLinks = () => {
           </Button>
         </motion.div>
       </div>
-
-      {/* QR Code Section */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.6, delay: 1.6 }}
-        className="flex items-center justify-center pt-4"
-      >
-        <ResumeQR />
-      </motion.div>
     </motion.div>
   );
 };
