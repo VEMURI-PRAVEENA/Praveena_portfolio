@@ -46,17 +46,20 @@ const SocialLinks = () => {
           className={`group p-4 rounded-full bg-[#21262d] backdrop-blur-sm shadow-lg transition-all duration-300 border border-gray-600/50 ${item.hoverColor}`}
           aria-label={item.label}
           whileHover={{ 
-            scale: 1.1,
-            rotate: [0, -5, 5, 0],
-            y: -5
+            scale: 1.15,
+            rotate: [0, -8, 8, 0],
+            y: -8,
+            boxShadow: "0 15px 35px rgba(59, 130, 246, 0.4)"
           }}
-          whileTap={{ scale: 0.95 }}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileTap={{ scale: 0.9 }}
+          initial={{ opacity: 0, y: 20, scale: 0.8 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ 
-            duration: 0.5, 
-            delay: 1.6 + (index * 0.1),
-            hover: { duration: 0.3 }
+            duration: 0.6, 
+            delay: 1.6 + (index * 0.15),
+            type: "spring",
+            stiffness: 200,
+            damping: 15
           }}
         >
           <motion.div
@@ -64,15 +67,18 @@ const SocialLinks = () => {
               rotateY: [0, 360],
             }}
             transition={{
-              duration: 4,
+              duration: 6,
               repeat: Infinity,
               ease: "linear",
               delay: index * 0.5
             }}
           >
-            <item.icon size={22} className="md:w-6 md:h-6 text-gray-200 group-hover:text-white transition-colors" />
+            <item.icon size={22} className="md:w-6 md:h-6 text-gray-200 group-hover:text-white transition-colors drop-shadow-lg" />
           </motion.div>
-          <div className="absolute inset-0 rounded-full bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <motion.div 
+            className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-400/20 to-purple-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+            whileHover={{ scale: 1.1 }}
+          />
         </motion.a>
       ))}
     </motion.div>
