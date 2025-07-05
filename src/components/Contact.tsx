@@ -1,10 +1,11 @@
 
 import { useState } from "react";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, Phone, Github, Linkedin, MapPin, Send } from "lucide-react";
+import { Mail, Phone, Linkedin, Github, MapPin, Send } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -13,6 +14,45 @@ const Contact = () => {
     subject: "",
     message: ""
   });
+  const { toast } = useToast();
+
+  const contactInfo = [
+    {
+      icon: Mail,
+      label: "Email",
+      value: "vempuripraveena2226@gmail.com",
+      href: "mailto:vempuripraveena2226@gmail.com",
+      color: "text-blue-400"
+    },
+    {
+      icon: Phone,
+      label: "Phone",
+      value: "+91 8639414811",
+      href: "tel:+918639414811",
+      color: "text-green-400"
+    },
+    {
+      icon: Linkedin,
+      label: "LinkedIn",
+      value: "vemuri-praveena-22m26f11c",
+      href: "https://linkedin.com/in/vemuri-praveena-22m26f11c",
+      color: "text-blue-400"
+    },
+    {
+      icon: Github,
+      label: "GitHub",
+      value: "VEMURI-PRAVEENA",
+      href: "https://github.com/VEMURI-PRAVEENA",
+      color: "text-gray-300"
+    },
+    {
+      icon: MapPin,
+      label: "Location",
+      value: "Ongole, Andhra Pradesh, India",
+      href: null,
+      color: "text-red-400"
+    }
+  ];
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -24,175 +64,196 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log("Form submitted:", formData);
-    // You can integrate with email service or backend here
+    
+    // Form validation
+    if (!formData.name || !formData.email || !formData.message) {
+      toast({
+        title: "Please fill in all required fields",
+        description: "Name, email, and message are required.",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    // Simulate form submission
+    toast({
+      title: "Message sent successfully!",
+      description: "Thank you for reaching out. I'll get back to you soon.",
+    });
+
+    // Reset form
+    setFormData({
+      name: "",
+      email: "",
+      subject: "",
+      message: ""
+    });
+  };
+
+  const scrollToProjects = () => {
+    const projectsSection = document.getElementById("projects");
+    if (projectsSection) {
+      projectsSection.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   return (
-    <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 bg-black text-white relative overflow-hidden">
-      {/* Background Effects */}
-      <div className="absolute inset-0">
-        <div className="absolute top-20 left-10 w-64 h-64 bg-green-500/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-10 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl"></div>
-      </div>
-
-      <div className="max-w-6xl mx-auto relative z-10">
+    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-[#0d1117] text-white">
+      <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent font-sans">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">
             Let's Connect
           </h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto font-sans">
-            I'm always interested in discussing new opportunities, collaborations, and innovative projects
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            I'm always excited to discuss AI/ML projects, collaboration opportunities, or just have a great conversation about technology
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12">
+        <div className="grid lg:grid-cols-2 gap-12">
           {/* Contact Information */}
           <div className="space-y-8">
-            <Card className="bg-gray-900/50 border-gray-800 hover:bg-gray-900/70 transition-all duration-500 transform hover:scale-105">
-              <CardContent className="p-8">
-                <h3 className="text-2xl font-bold mb-6 text-white font-sans">Get In Touch</h3>
-                
-                <div className="space-y-6">
-                  <div className="flex items-center gap-4">
-                    <div className="p-3 rounded-full bg-red-600/20 border border-red-500/30">
-                      <Mail className="text-red-400" size={20} />
-                    </div>
-                    <div>
-                      <p className="text-gray-400 text-sm font-sans">Email</p>
-                      <a 
-                        href="mailto:vempuripraveena2226@gmail.com"
-                        className="text-white hover:text-red-400 transition-colors font-sans"
-                      >
-                        vempuripraveena2226@gmail.com
-                      </a>
-                    </div>
-                  </div>
+            <div>
+              <h3 className="text-2xl font-bold mb-6">Get in Touch</h3>
+              <p className="text-gray-300 text-lg leading-relaxed mb-8">
+                Whether you're looking to collaborate on exciting AI projects, discuss opportunities, 
+                or just want to chat about the latest in machine learning, I'd love to hear from you!
+              </p>
+            </div>
 
-                  <div className="flex items-center gap-4">
-                    <div className="p-3 rounded-full bg-green-600/20 border border-green-500/30">
-                      <Phone className="text-green-400" size={20} />
-                    </div>
-                    <div>
-                      <p className="text-gray-400 text-sm font-sans">Phone</p>
-                      <a 
-                        href="tel:+918639414811"
-                        className="text-white hover:text-green-400 transition-colors font-sans"
-                      >
-                        +91 8639414811
-                      </a>
-                    </div>
+            <div className="space-y-6">
+              {contactInfo.map((info, index) => (
+                <div key={index} className="flex items-center space-x-4 group">
+                  <div className={`${info.color} p-3 rounded-lg bg-white/10 group-hover:bg-white/20 transition-colors duration-300`}>
+                    <info.icon size={24} />
                   </div>
-
-                  <div className="flex items-center gap-4">
-                    <div className="p-3 rounded-full bg-purple-600/20 border border-purple-500/30">
-                      <MapPin className="text-purple-400" size={20} />
-                    </div>
-                    <div>
-                      <p className="text-gray-400 text-sm font-sans">Location</p>
-                      <p className="text-white font-sans">Amaravati, Andhra Pradesh, India</p>
-                    </div>
+                  <div>
+                    <p className="text-sm text-gray-300 uppercase tracking-wide">{info.label}</p>
+                    {info.href ? (
+                      <a
+                        href={info.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-white hover:text-blue-300 transition-colors duration-300 font-medium"
+                      >
+                        {info.value}
+                      </a>
+                    ) : (
+                      <p className="text-white font-medium">{info.value}</p>
+                    )}
                   </div>
                 </div>
+              ))}
+            </div>
 
-                {/* Social Links */}
-                <div className="mt-8 pt-8 border-t border-gray-700">
-                  <h4 className="text-lg font-semibold mb-4 text-white font-sans">Follow Me</h4>
-                  <div className="flex gap-4">
-                    <a
-                      href="https://github.com/VEMURI-PRAVEENA"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-3 rounded-full bg-gray-800/50 hover:bg-gray-700 transition-all duration-300 transform hover:scale-110 border border-gray-700 hover:border-gray-600"
-                    >
-                      <Github size={20} className="text-white" />
-                    </a>
-                    <a
-                      href="https://linkedin.com/in/vemuri-praveena-22m26f11c"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-3 rounded-full bg-blue-600/20 hover:bg-blue-600 transition-all duration-300 transform hover:scale-110 border border-blue-500/30 hover:border-blue-500"
-                    >
-                      <Linkedin size={20} className="text-blue-400 hover:text-white" />
-                    </a>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-
-          {/* Message Form */}
-          <div>
-            <Card className="bg-gray-900/50 border-gray-800 hover:bg-gray-900/70 transition-all duration-500">
-              <CardContent className="p-8">
-                <h3 className="text-2xl font-bold mb-6 text-white font-sans">Send Me a Message</h3>
-                
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-gray-400 text-sm mb-2 font-sans">Your Name</label>
-                      <Input
-                        type="text"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleInputChange}
-                        placeholder="Enter your name"
-                        className="bg-gray-800/50 border-gray-700 text-white placeholder-gray-500 focus:border-purple-500 focus:ring-purple-500/20 font-sans"
-                        required
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-gray-400 text-sm mb-2 font-sans">Your Email</label>
-                      <Input
-                        type="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleInputChange}
-                        placeholder="Enter your email"
-                        className="bg-gray-800/50 border-gray-700 text-white placeholder-gray-500 focus:border-purple-500 focus:ring-purple-500/20 font-sans"
-                        required
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-gray-400 text-sm mb-2 font-sans">Subject</label>
-                    <Input
-                      type="text"
-                      name="subject"
-                      value={formData.subject}
-                      onChange={handleInputChange}
-                      placeholder="What's this about?"
-                      className="bg-gray-800/50 border-gray-700 text-white placeholder-gray-500 focus:border-purple-500 focus:ring-purple-500/20 font-sans"
-                      required
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-gray-400 text-sm mb-2 font-sans">Message</label>
-                    <Textarea
-                      name="message"
-                      value={formData.message}
-                      onChange={handleInputChange}
-                      placeholder="Tell me about your project or how we can collaborate..."
-                      rows={6}
-                      className="bg-gray-800/50 border-gray-700 text-white placeholder-gray-500 focus:border-purple-500 focus:ring-purple-500/20 resize-none font-sans"
-                      required
-                    />
-                  </div>
-
-                  <Button
-                    type="submit"
-                    className="w-full bg-gradient-to-r from-purple-600 to-teal-600 hover:from-purple-700 hover:to-teal-700 text-white font-semibold py-3 transition-all duration-300 transform hover:scale-105 font-sans"
+            {/* Quick Links */}
+            <div className="pt-8">
+              <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
+              <div className="flex space-x-4">
+                <Button
+                  asChild
+                  className="border-white/30 text-white hover:bg-white hover:text-gray-900 transition-colors duration-300 hover:scale-105 hover:shadow-lg"
+                  variant="outline"
+                >
+                  <a 
+                    href="https://drive.google.com/file/d/1bRQhvIoZg4J4ry-J440x2y9J4SYnvSen/view?usp=share_link" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
                   >
-                    <Send size={20} className="mr-2" />
-                    Send Message
-                  </Button>
-                </form>
-              </CardContent>
-            </Card>
+                    View Resume
+                  </a>
+                </Button>
+                <Button
+                  onClick={scrollToProjects}
+                  variant="outline"
+                  className="border-white/30 text-white hover:bg-white hover:text-gray-900 transition-colors duration-300 hover:scale-105 hover:shadow-lg"
+                >
+                  My Projects
+                </Button>
+              </div>
+            </div>
           </div>
+
+          {/* Contact Form */}
+          <Card className="bg-[#1e1e2f]/80 backdrop-blur-sm border-gray-600">
+            <CardHeader>
+              <CardTitle className="text-2xl font-bold text-white">Send me a message</CardTitle>
+              <CardDescription className="text-gray-300">
+                Fill out the form below and I'll get back to you as soon as possible.
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div>
+                    <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
+                      Name *
+                    </label>
+                    <Input
+                      id="name"
+                      name="name"
+                      type="text"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      className="bg-white/10 border-gray-600 text-white placeholder:text-gray-400 focus:border-blue-400"
+                      placeholder="Your full name"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+                      Email *
+                    </label>
+                    <Input
+                      id="email"
+                      name="email"
+                      type="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      className="bg-white/10 border-gray-600 text-white placeholder:text-gray-400 focus:border-blue-400"
+                      placeholder="your.email@example.com"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label htmlFor="subject" className="block text-sm font-medium text-gray-300 mb-2">
+                    Subject
+                  </label>
+                  <Input
+                    id="subject"
+                    name="subject"
+                    type="text"
+                    value={formData.subject}
+                    onChange={handleInputChange}
+                    className="bg-white/10 border-gray-600 text-white placeholder:text-gray-400 focus:border-blue-400"
+                    placeholder="What's this about?"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
+                    Message *
+                  </label>
+                  <Textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    rows={5}
+                    className="bg-white/10 border-gray-600 text-white placeholder:text-gray-400 focus:border-blue-400 resize-none"
+                    placeholder="Tell me about your project, opportunity, or just say hello!"
+                  />
+                </div>
+
+                <Button
+                  type="submit"
+                  className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-3 transition-all duration-300 transform hover:scale-102 hover:shadow-xl hover:shadow-blue-500/25"
+                >
+                  <Send className="mr-2" size={20} />
+                  Send Message
+                </Button>
+              </form>
+            </CardContent>
+          </Card>
         </div>
       </div>
     </section>

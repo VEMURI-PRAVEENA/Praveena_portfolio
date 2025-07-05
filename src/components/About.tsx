@@ -1,58 +1,121 @@
 
 import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { GraduationCap, MapPin, Calendar } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Download, MapPin, GraduationCap, Target } from "lucide-react";
 
 const About = () => {
   return (
-    <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 bg-black text-white relative overflow-hidden">
-      {/* Background Effects */}
-      <div className="absolute inset-0">
-        <div className="absolute top-20 right-10 w-64 h-64 bg-teal-500/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 left-10 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl"></div>
-      </div>
-
-      <div className="max-w-4xl mx-auto relative z-10">
+    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-[#0d1117] font-serif">
+      <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-teal-400 to-purple-400 bg-clip-text text-transparent" style={{ fontFamily: 'Times New Roman, serif' }}>
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
             About Me
           </h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto" style={{ fontFamily: 'Times New Roman, serif' }}>
-            Passionate AI & ML enthusiast with a focus on building intelligent systems
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            Passionate AI & ML Engineer building intelligent systems that solve real-world problems
           </p>
         </div>
 
-        {/* Profile Image */}
-        <div className="flex justify-center mb-12">
-          <div className="relative">
-            <div className="w-48 h-48 md:w-56 md:h-56 rounded-full bg-gradient-to-br from-purple-500 via-teal-500 to-blue-500 p-1 shadow-2xl shadow-purple-500/25">
-              <div className="w-full h-full rounded-full overflow-hidden bg-gray-900 border-2 border-gray-800">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Left Column - Photo and Quick Info */}
+          <div className="space-y-8">
+            <div className="relative">
+              <div className="w-80 h-80 mx-auto bg-gradient-to-br from-blue-400 to-purple-500 rounded-full flex items-center justify-center overflow-hidden shadow-2xl">
                 <img
                   src="/lovable-uploads/8053af38-8789-4260-a47c-0d37687a1fee.png"
                   alt="Praveena Vemuri"
                   className="w-full h-full object-cover"
                 />
               </div>
+              <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2">
+                <Card className="px-6 py-3 bg-[#1e1e2f] shadow-lg border-gray-600">
+                  <p className="text-gray-300 flex items-center">
+                    <MapPin className="mr-2" size={16} />
+                    Ongole, Andhra Pradesh, India
+                  </p>
+                </Card>
+              </div>
             </div>
-            {/* Glow Effect */}
-            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-purple-500/20 via-teal-500/20 to-blue-500/20 blur-xl animate-pulse"></div>
+
+            <div className="text-center">
+              <Button 
+                asChild
+                className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 text-lg font-semibold hover:scale-105 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/25"
+              >
+                <a 
+                  href="https://drive.google.com/file/d/1bRQhvIoZg4J4ry-J440x2y9J4SYnvSen/view?usp=sharing" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center space-x-2"
+                >
+                  <Download size={20} />
+                  <span>Download Resume</span>
+                </a>
+              </Button>
+            </div>
+          </div>
+
+          {/* Right Column - About Content */}
+          <div className="space-y-8">
+            {/* Career Objective */}
+            <Card className="hover:shadow-xl transition-all duration-300 bg-[#1e1e2f] border-gray-600 hover:shadow-blue-500/20">
+              <CardContent className="p-8">
+                <div className="flex items-center mb-4">
+                  <Target className="text-blue-400 mr-3" size={24} />
+                  <h3 className="text-2xl font-bold text-white">Career Objective</h3>
+                </div>
+                <p className="text-gray-300 leading-relaxed">
+                  Goal-driven AI and Data Science enthusiast with hands-on experience in building 
+                  intelligent systems, cloud-native applications, and data-driven solutions. 
+                  Passionate about developing impactful ML models, deploying at scale, and 
+                  contributing to the AI ecosystem.
+                </p>
+              </CardContent>
+            </Card>
+
+            {/* Education */}
+            <Card className="hover:shadow-xl transition-all duration-300 bg-[#1e1e2f] border-gray-600 hover:shadow-purple-500/20">
+              <CardContent className="p-8">
+                <div className="flex items-center mb-6">
+                  <GraduationCap className="text-purple-400 mr-3" size={24} />
+                  <h3 className="text-2xl font-bold text-white">Education</h3>
+                </div>
+                
+                <div className="space-y-6">
+                  <div className="border-l-4 border-blue-500 pl-6">
+                    <h4 className="text-lg font-semibold text-white">B.Tech in CSE (AI & ML)</h4>
+                    <p className="text-blue-400 font-medium">VIT AP University, Amaravati</p>
+                    <p className="text-gray-300">2022 – 2026 • CGPA: 8.88/10</p>
+                  </div>
+                  
+                  <div className="border-l-4 border-purple-500 pl-6">
+                    <h4 className="text-lg font-semibold text-white">Class XII (MPC)</h4>
+                    <p className="text-purple-400 font-medium">Narayana Junior College, Guntur</p>
+                    <p className="text-gray-300">2018 – 2020 • CGPA: 9.88/10</p>
+                  </div>
+                  
+                  <div className="border-l-4 border-green-500 pl-6">
+                    <h4 className="text-lg font-semibold text-white">Class X</h4>
+                    <p className="text-green-400 font-medium">Ravindra Bharathi School, Singarayakonda</p>
+                    <p className="text-gray-300">2017 – 2018 • CGPA: 10.0/10</p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Quick Stats */}
+            <div className="grid grid-cols-2 gap-4">
+              <Card className="text-center p-6 hover:shadow-lg transition-all duration-300 bg-[#1e1e2f] border-gray-600 hover:shadow-blue-500/20">
+                <div className="text-3xl font-bold text-blue-400 mb-2">8.88</div>
+                <p className="text-gray-300">Current CGPA</p>
+              </Card>
+              <Card className="text-center p-6 hover:shadow-lg transition-all duration-300 bg-[#1e1e2f] border-gray-600 hover:shadow-purple-500/20">
+                <div className="text-3xl font-bold text-purple-400 mb-2">3+</div>
+                <p className="text-gray-300">Major Projects</p>
+              </Card>
+            </div>
           </div>
         </div>
-
-        {/* Career Objective */}
-        <Card className="mb-12 bg-gradient-to-r from-purple-600/20 to-teal-600/20 border-purple-500/30 relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-teal-500/10"></div>
-          <CardContent className="p-8 relative z-10">
-            <h3 className="text-2xl font-bold mb-6 text-white" style={{ fontFamily: 'Times New Roman, serif' }}>Career Objective</h3>
-            <p className="text-gray-300 leading-relaxed text-lg" style={{ fontFamily: 'Times New Roman, serif' }}>
-              Passionate about building intelligent systems and data-driven solutions. 
-              Currently pursuing B.Tech in CSE (AI & ML) at VIT-AP with hands-on experience in 
-              cloud-native applications and deep learning technologies. Seeking opportunities to 
-              apply my knowledge in artificial intelligence, machine learning, and software development 
-              to create innovative solutions that make a positive impact on society.
-            </p>
-          </CardContent>
-        </Card>
       </div>
     </section>
   );

@@ -3,21 +3,20 @@ import { useState, useEffect } from "react";
 import Hero from "@/components/Hero";
 import Projects from "@/components/Projects";
 import Skills from "@/components/Skills";
+import TechStack from "@/components/TechStack";
 import Certifications from "@/components/Certifications";
 import About from "@/components/About";
-import Education from "@/components/Education";
-import ComingSoon from "@/components/ComingSoon";
 import Contact from "@/components/Contact";
+import Blog from "@/components/Blog";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import GitHubProfile from "@/components/GitHubProfile";
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["home", "about", "github", "projects", "skills", "certifications", "coming-soon", "education", "contact"];
+      const sections = ["home", "projects", "skills", "techstack", "blog", "certifications", "about", "contact"];
       const scrollPosition = window.scrollY + 100;
 
       for (const section of sections) {
@@ -37,17 +36,11 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-[#0d1117]">
       <Navigation activeSection={activeSection} />
       <main>
         <section id="home">
           <Hero />
-        </section>
-        <section id="about">
-          <About />
-        </section>
-        <section id="github">
-          <GitHubProfile />
         </section>
         <section id="projects">
           <Projects />
@@ -55,14 +48,17 @@ const Index = () => {
         <section id="skills">
           <Skills />
         </section>
+        <section id="techstack">
+          <TechStack />
+        </section>
+        <section id="blog">
+          <Blog />
+        </section>
         <section id="certifications">
           <Certifications />
         </section>
-        <section id="coming-soon">
-          <ComingSoon />
-        </section>
-        <section id="education">
-          <Education />
+        <section id="about">
+          <About />
         </section>
         <section id="contact">
           <Contact />
