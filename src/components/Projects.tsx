@@ -52,6 +52,19 @@ const Projects = () => {
         "Integrated LangChain QA pipeline for dynamic context retrieval from vector DB"
       ],
       category: "AI/ML"
+    },
+    {
+      title: "FrozenLake: Q-Learning vs Policy Gradient Comparison",
+      description: "Implemented both Q-Learning and Policy Gradient on FrozenLake-v1 using custom rewards. Compared convergence, stability, and average rewards with detailed performance analysis.",
+      technologies: ["OpenAI Gym", "NumPy", "Matplotlib"],
+      github: "#",
+      image: "/lovable-uploads/eb49cabb-6522-4d5d-940f-9675c92767da.png",
+      features: [
+        "Custom reward function implementation",
+        "Compared convergence, stability, and average rewards",
+        "Plotted agent path visualizations and performance metrics"
+      ],
+      category: "Reinforcement Learning"
     }
   ];
 
@@ -433,6 +446,85 @@ const Projects = () => {
                   </Button>
                 </motion.div>
               </div>
+            </div>
+          </Card>
+        </motion.div>
+
+        {/* Coming Soon Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 1.6 }}
+          className="mt-20"
+        >
+          <motion.h3 
+            className="text-3xl md:text-4xl font-bold text-white mb-8 text-center"
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={isInView ? { opacity: 1, scale: 1 } : {}}
+            transition={{ duration: 0.8, delay: 1.8 }}
+          >
+            Coming Soon
+          </motion.h3>
+          
+          <Card className="bg-gradient-to-r from-purple-600/10 to-blue-600/10 backdrop-blur-sm border-gray-600 shadow-xl overflow-hidden">
+            <div className="p-12 text-center">
+              <motion.div
+                animate={{ 
+                  scale: [1, 1.1, 1],
+                  rotate: [0, 5, -5, 0]
+                }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+                className="text-6xl mb-4"
+              >
+                🚀
+              </motion.div>
+              <motion.h4 
+                className="text-2xl font-bold text-white mb-4"
+                initial={{ opacity: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: 2.0 }}
+              >
+                Exciting Projects in Development
+              </motion.h4>
+              <motion.p 
+                className="text-lg text-gray-300 max-w-2xl mx-auto"
+                initial={{ opacity: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: 2.2 }}
+              >
+                Working on innovative AI solutions, advanced deep learning models, and cutting-edge applications. 
+                Stay tuned for more amazing projects!
+              </motion.p>
+              
+              <motion.div
+                className="mt-8 flex justify-center space-x-4"
+                initial={{ opacity: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: 2.4 }}
+              >
+                {["🤖", "🔬", "💡", "⚡"].map((emoji, index) => (
+                  <motion.div
+                    key={index}
+                    animate={{ 
+                      y: [0, -10, 0],
+                      scale: [1, 1.2, 1]
+                    }}
+                    transition={{
+                      duration: 2,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                      delay: index * 0.5
+                    }}
+                    className="text-2xl"
+                  >
+                    {emoji}
+                  </motion.div>
+                ))}
+              </motion.div>
             </div>
           </Card>
         </motion.div>

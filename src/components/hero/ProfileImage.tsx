@@ -1,17 +1,32 @@
 
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 const ProfileImage = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [currentRole, setCurrentRole] = useState(0);
+
+  const roles = [
+    "AI & ML Engineer",
+    "Data Science Enthusiast", 
+    "Software Engineer"
+  ];
 
   useEffect(() => {
     const timer = setTimeout(() => setIsVisible(true), 300);
     return () => clearTimeout(timer);
   }, []);
 
+  useEffect(() => {
+    const roleTimer = setInterval(() => {
+      setCurrentRole((prev) => (prev + 1) % roles.length);
+    }, 3000);
+    
+    return () => clearInterval(roleTimer);
+  }, []);
+
   return (
-    <div className="flex justify-center">
+    <div className="flex flex-col items-center">
       <motion.div
         initial={{ opacity: 0, scale: 0.95, y: 20 }}
         animate={isVisible ? { opacity: 1, scale: 1, y: 0 } : {}}
@@ -39,8 +54,8 @@ const ProfileImage = () => {
             <div className="w-full h-full rounded-full bg-gradient-to-br from-blue-400 via-violet-500 to-emerald-400 p-1 animate-gradient-slow shadow-lg">
               <div className="w-full h-full rounded-full overflow-hidden bg-gray-800 relative group-hover:scale-105 transition-transform duration-700 shadow-inner">
                 <img
-                  src="/lovable-uploads/1b8e3cb7-95d3-45dd-ab73-d19db0680dfc.png"
-                  alt="Praveena profile photo"
+                  src="/lovable-uploads/19346197-3c39-44a9-bade-fed3fb392a19.png"
+                  alt="Vemuri Praveena profile photo"
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-transparent via-transparent to-gray-800/10 group-hover:to-gray-800/20 transition-all duration-500"></div>
@@ -96,6 +111,29 @@ const ProfileImage = () => {
             <span className="text-xs md:text-sm">🧠</span>
           </motion.div>
         </motion.div>
+      </motion.div>
+
+      {/* Role Animation Text */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={isVisible ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.8, delay: 1.2 }}
+        className="mt-6 text-center"
+      >
+        <div className="h-8 flex items-center justify-center">
+          <AnimatePresence mode="wait">
+            <motion.p
+              key={currentRole}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.6 }}
+              className="text-lg md:text-xl text-gray-300 font-medium"
+            >
+              {roles[currentRole]}
+            </motion.p>
+          </AnimatePresence>
+        </div>
       </motion.div>
     </div>
   );
