@@ -23,7 +23,9 @@ const Projects = () => {
         "Real-time video stream detection",
         "Visualized feature maps and interpreted dense layer contributions"
       ],
-      category: "AI/ML"
+      category: "AI/ML",
+      gradient: "from-blue-600/20 to-cyan-600/20",
+      accentColor: "blue"
     },
     {
       title: "AI Chatbot using RAG with Mistral-7B",
@@ -36,7 +38,9 @@ const Projects = () => {
         "Processed 200+ pages of medical PDFs → 500+ semantic chunks",
         "Integrated LangChain QA pipeline for dynamic context retrieval"
       ],
-      category: "AI/ML"
+      category: "AI/ML",
+      gradient: "from-purple-600/20 to-pink-600/20",
+      accentColor: "purple"
     },
     {
       title: "Brain Tumor Detection using YOLOv8",
@@ -50,7 +54,9 @@ const Projects = () => {
         "Visualized bounding boxes and performance metrics",
         "Exported to: PyTorch .pt, TensorFlow SavedModel, Keras .h5"
       ],
-      category: "AI/ML"
+      category: "AI/ML",
+      gradient: "from-green-600/20 to-emerald-600/20",
+      accentColor: "green"
     },
     {
       title: "FrozenLake: Q-Learning vs Policy Gradient Comparison",
@@ -63,7 +69,9 @@ const Projects = () => {
         "Compared convergence, stability, and average rewards",
         "Plotted agent path visualizations and performance metrics"
       ],
-      category: "Reinforcement Learning"
+      category: "Reinforcement Learning",
+      gradient: "from-orange-600/20 to-red-600/20",
+      accentColor: "orange"
     }
   ];
 
@@ -72,7 +80,7 @@ const Projects = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
+        staggerChildren: 0.3,
         delayChildren: 0.2
       }
     }
@@ -81,282 +89,412 @@ const Projects = () => {
   const projectVariants = {
     hidden: { 
       opacity: 0, 
-      y: 40,
-      scale: 0.95
+      y: 60,
+      scale: 0.9,
+      rotateX: 15
     },
     visible: { 
       opacity: 1, 
       y: 0,
       scale: 1,
+      rotateX: 0,
       transition: {
         type: "spring" as const,
-        stiffness: 100,
-        damping: 15,
-        duration: 0.6
+        stiffness: 80,
+        damping: 20,
+        duration: 0.8
       }
     }
   };
 
+  const getAccentColors = (color: string) => {
+    const colors = {
+      blue: {
+        glow: "shadow-blue-500/25",
+        border: "border-blue-500/30",
+        text: "text-blue-300",
+        bg: "bg-blue-600/20"
+      },
+      purple: {
+        glow: "shadow-purple-500/25",
+        border: "border-purple-500/30",
+        text: "text-purple-300",
+        bg: "bg-purple-600/20"
+      },
+      green: {
+        glow: "shadow-green-500/25",
+        border: "border-green-500/30",
+        text: "text-green-300",
+        bg: "bg-green-600/20"
+      },
+      orange: {
+        glow: "shadow-orange-500/25",
+        border: "border-orange-500/30",
+        text: "text-orange-300",
+        bg: "bg-orange-600/20"
+      }
+    };
+    return colors[color as keyof typeof colors] || colors.blue;
+  };
+
   return (
-    <section ref={ref} id="projects" className="py-20 px-4 sm:px-6 lg:px-8 bg-[#0d1117] font-serif relative overflow-hidden">
-      {/* Background Effects */}
-      <motion.div
-        animate={{ 
-          scale: [1, 1.1, 1],
-          opacity: [0.1, 0.2, 0.1],
-          rotate: [0, 180, 360]
-        }}
-        transition={{
-          duration: 20,
-          repeat: Infinity,
-          ease: "linear"
-        }}
-        className="absolute top-20 right-20 w-64 h-64 bg-blue-600/10 rounded-full mix-blend-screen filter blur-xl"
-      />
-      <motion.div
-        animate={{ 
-          scale: [1, 1.2, 1],
-          opacity: [0.1, 0.2, 0.1],
-          rotate: [360, 180, 0]
-        }}
-        transition={{
-          duration: 25,
-          repeat: Infinity,
-          ease: "linear"
-        }}
-        className="absolute bottom-20 left-20 w-72 h-72 bg-violet-600/10 rounded-full mix-blend-screen filter blur-xl"
-      />
+    <section ref={ref} id="projects" className="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+      {/* Enhanced Background with Multiple Moving Elements */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[#0d1117] via-[#161b22] to-[#0d1117]">
+        <motion.div
+          animate={{ 
+            scale: [1, 1.2, 1],
+            opacity: [0.1, 0.3, 0.1],
+            rotate: [0, 180, 360],
+            x: [0, 100, 0],
+            y: [0, -50, 0]
+          }}
+          transition={{
+            duration: 25,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+          className="absolute top-20 right-20 w-96 h-96 bg-blue-600/10 rounded-full mix-blend-screen filter blur-xl"
+        />
+        <motion.div
+          animate={{ 
+            scale: [1, 1.3, 1],
+            opacity: [0.1, 0.25, 0.1],
+            rotate: [360, 180, 0],
+            x: [0, -80, 0],
+            y: [0, 80, 0]
+          }}
+          transition={{
+            duration: 30,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+          className="absolute bottom-20 left-20 w-80 h-80 bg-purple-600/10 rounded-full mix-blend-screen filter blur-xl"
+        />
+        <motion.div
+          animate={{ 
+            scale: [1, 1.1, 1],
+            opacity: [0.05, 0.2, 0.05],
+            rotate: [0, 90, 180, 270, 360],
+            x: [0, 50, -50, 0],
+            y: [0, -30, 30, 0]
+          }}
+          transition={{
+            duration: 35,
+            repeat: Infinity,
+            ease: "linear"
+          }}
+          className="absolute top-1/2 left-1/2 w-64 h-64 bg-green-600/10 rounded-full mix-blend-screen filter blur-xl"
+        />
+      </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
-        {/* Header */}
+        {/* Enhanced Header */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          transition={{ duration: 1 }}
+          className="text-center mb-20"
         >
-          <motion.h2 
-            className="text-4xl md:text-5xl font-bold text-white mb-4"
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={isInView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.5, rotateY: 90 }}
+            animate={isInView ? { opacity: 1, scale: 1, rotateY: 0 } : {}}
+            transition={{ duration: 1, delay: 0.2 }}
+            className="relative"
           >
-            Featured AI/ML Projects
-          </motion.h2>
+            <h2 className="text-5xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-200 to-purple-200 mb-6">
+              Featured AI/ML Projects
+            </h2>
+            <motion.div
+              className="absolute -inset-1 bg-gradient-to-r from-blue-600/20 to-purple-600/20 rounded-lg blur opacity-75"
+              animate={{
+                opacity: [0.3, 0.8, 0.3],
+                scale: [0.98, 1.02, 0.98]
+              }}
+              transition={{
+                duration: 4,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            />
+          </motion.div>
           <motion.p 
-            className="text-xl text-gray-300 max-w-3xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
+            className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed"
+            initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            transition={{ duration: 1, delay: 0.6 }}
           >
-            Showcasing expertise in AI/ML through hands-on projects that solve real-world problems
+            Showcasing cutting-edge AI/ML expertise through innovative projects that solve real-world challenges
           </motion.p>
         </motion.div>
 
-        {/* Projects Grid */}
+        {/* Enhanced Projects Grid */}
         <motion.div 
-          className="space-y-6"
+          className="space-y-8"
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
         >
-          {projects.map((project, index) => (
-            <motion.div
-              key={index}
-              variants={projectVariants}
-              className="w-full"
-            >
-              <Card className="bg-gray-800/60 backdrop-blur-sm border-gray-600 shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500">
-                <div className="grid lg:grid-cols-2 gap-6 p-6">
-                  {/* Left: Project Image */}
+          {projects.map((project, index) => {
+            const accentColors = getAccentColors(project.accentColor);
+            return (
+              <motion.div
+                key={index}
+                variants={projectVariants}
+                className="w-full"
+                onMouseEnter={() => setHoveredProject(index)}
+                onMouseLeave={() => setHoveredProject(null)}
+              >
+                <Card className={`relative overflow-hidden transition-all duration-700 transform ${hoveredProject === index ? 'scale-[1.02]' : ''} ${accentColors.glow} hover:shadow-2xl`}>
+                  {/* Animated Background Gradient */}
                   <motion.div
-                    className="relative group"
-                    onMouseEnter={() => setHoveredProject(index)}
-                    onMouseLeave={() => setHoveredProject(null)}
-                    whileHover={{ scale: 1.02 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <div className="relative h-64 lg:h-72 rounded-lg overflow-hidden">
-                      {/* Breathing Glow Border Animation */}
+                    className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-50`}
+                    animate={{
+                      opacity: hoveredProject === index ? [0.2, 0.4, 0.2] : [0.1, 0.2, 0.1]
+                    }}
+                    transition={{
+                      duration: 3,
+                      repeat: Infinity,
+                      ease: "easeInOut"
+                    }}
+                  />
+                  
+                  {/* Card Border Animation */}
+                  <motion.div
+                    className={`absolute inset-0 rounded-lg ${accentColors.border}`}
+                    animate={{
+                      boxShadow: [
+                        `0 0 0 1px rgba(255, 255, 255, 0.1), 0 0 20px rgba(255, 255, 255, 0.1)`,
+                        `0 0 0 2px rgba(255, 255, 255, 0.3), 0 0 40px rgba(255, 255, 255, 0.2)`,
+                        `0 0 0 1px rgba(255, 255, 255, 0.1), 0 0 20px rgba(255, 255, 255, 0.1)`
+                      ]
+                    }}
+                    transition={{
+                      duration: 4,
+                      repeat: Infinity,
+                      ease: "easeInOut"
+                    }}
+                  />
+
+                  <div className="relative bg-gray-800/80 backdrop-blur-sm border-gray-600">
+                    <div className="grid lg:grid-cols-2 gap-8 p-8">
+                      {/* Enhanced Project Image */}
                       <motion.div
-                        className="absolute inset-0 rounded-lg"
-                        animate={{
-                          boxShadow: [
-                            "0 0 0 2px rgba(255, 255, 255, 0.4), 0 0 25px rgba(255, 255, 255, 0.15)",
-                            "0 0 0 2px rgba(255, 255, 255, 0.8), 0 0 40px rgba(255, 255, 255, 0.25)",
-                            "0 0 0 2px rgba(255, 255, 255, 0.4), 0 0 25px rgba(255, 255, 255, 0.15)"
-                          ]
-                        }}
-                        transition={{
-                          duration: 3,
-                          repeat: Infinity,
-                          ease: "easeInOut"
-                        }}
-                      />
-                      <motion.img
-                        src={project.image}
-                        alt={project.title}
-                        className="w-full h-full object-cover object-center rounded-lg"
+                        className="relative group"
                         whileHover={{ scale: 1.05 }}
                         transition={{ duration: 0.4 }}
-                      />
-                    </div>
-                  </motion.div>
-
-                  {/* Right: Content */}
-                  <div className="flex flex-col">
-                    <CardHeader className="p-0 mb-4">
-                      <div className="flex items-center gap-3 mb-2">
-                        <motion.div
-                          whileHover={{ scale: 1.1 }}
-                          whileTap={{ scale: 0.95 }}
-                        >
-                          <Badge className="bg-gradient-to-r from-purple-600/20 to-blue-600/20 text-purple-200 border-purple-500/30">
-                            {project.category}
-                          </Badge>
-                        </motion.div>
-                      </div>
-                      <CardTitle className="text-xl font-bold text-white group-hover:text-blue-400 transition-colors duration-300">
-                        {project.title}
-                      </CardTitle>
-                      <CardDescription className="text-gray-300 leading-relaxed mt-2">
-                        {project.description}
-                      </CardDescription>
-                    </CardHeader>
-
-                    {/* Scrolling Technologies */}
-                    <div className="mb-4">
-                      <h4 className="text-sm font-semibold text-gray-400 mb-2">Technologies Used:</h4>
-                      <div className="relative overflow-hidden h-10 bg-gray-700/30 rounded-lg">
-                        <motion.div
-                          className="flex items-center gap-3 absolute"
-                          animate={{
-                            x: ["100%", "-100%"]
-                          }}
-                          transition={{
-                            duration: 12,
-                            repeat: Infinity,
-                            ease: "linear"
-                          }}
-                        >
-                          {[...project.technologies, ...project.technologies].map((tech, techIndex) => (
-                            <motion.div
-                              key={techIndex}
-                              className="flex-shrink-0"
-                              whileHover={{ scale: 1.1 }}
-                              transition={{ duration: 0.2 }}
-                            >
-                              <Badge className="bg-gradient-to-r from-blue-600/30 to-violet-600/30 text-blue-200 border-blue-500/30 whitespace-nowrap text-xs">
-                                {tech}
-                              </Badge>
-                            </motion.div>
-                          ))}
-                        </motion.div>
-                      </div>
-                    </div>
-
-                    {/* Key Features */}
-                    <div className="space-y-2 mb-6 flex-grow">
-                      <h4 className="font-semibold text-white text-sm">Key Features:</h4>
-                      <ul className="text-sm text-gray-300 space-y-1">
-                        {project.features.slice(0, 3).map((feature, featureIndex) => (
-                          <motion.li
-                            key={featureIndex}
-                            initial={{ opacity: 0, x: -20 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ 
-                              duration: 0.4, 
-                              delay: (index * 0.1) + (featureIndex * 0.05) + 0.6
-                            }}
-                            className="flex items-start"
-                          >
-                            <motion.span 
-                              className="w-1 h-1 bg-gradient-to-r from-blue-400 to-violet-400 rounded-full mr-2 flex-shrink-0 mt-2"
-                              whileHover={{ scale: 1.5 }}
-                            />
-                            {feature}
-                          </motion.li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    {/* GitHub Button */}
-                    <motion.div
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                      className="mt-auto"
-                    >
-                      <Button
-                        className="w-full bg-gradient-to-r from-gray-700 to-gray-600 hover:from-blue-600/80 hover:to-purple-600/80 text-white transition-all duration-300 shadow-lg hover:shadow-xl"
-                        onClick={() => window.open(project.github, "_blank")}
                       >
-                        <Github size={16} className="mr-2" />
-                        View on GitHub
-                        <motion.span
-                          className="ml-2"
-                          animate={{ x: [0, 3, 0] }}
-                          transition={{ duration: 1.5, repeat: Infinity }}
+                        <div className="relative h-64 lg:h-80 rounded-lg overflow-hidden">
+                          <motion.div
+                            className="absolute inset-0 rounded-lg"
+                            animate={{
+                              boxShadow: [
+                                "0 0 0 2px rgba(255, 255, 255, 0.3), 0 0 25px rgba(255, 255, 255, 0.15)",
+                                "0 0 0 3px rgba(255, 255, 255, 0.6), 0 0 50px rgba(255, 255, 255, 0.25)",
+                                "0 0 0 2px rgba(255, 255, 255, 0.3), 0 0 25px rgba(255, 255, 255, 0.15)"
+                              ]
+                            }}
+                            transition={{
+                              duration: 3,
+                              repeat: Infinity,
+                              ease: "easeInOut"
+                            }}
+                          />
+                          <motion.img
+                            src={project.image}
+                            alt={project.title}
+                            className="w-full h-full object-cover object-center rounded-lg"
+                            whileHover={{ scale: 1.1 }}
+                            transition={{ duration: 0.6 }}
+                          />
+                          {/* Overlay Effect */}
+                          <motion.div
+                            className={`absolute inset-0 bg-gradient-to-t ${project.gradient} opacity-0 rounded-lg`}
+                            whileHover={{ opacity: 0.3 }}
+                            transition={{ duration: 0.4 }}
+                          />
+                        </div>
+                      </motion.div>
+
+                      {/* Enhanced Content */}
+                      <div className="flex flex-col justify-between">
+                        <div>
+                          <CardHeader className="p-0 mb-6">
+                            <div className="flex items-center gap-3 mb-3">
+                              <motion.div
+                                whileHover={{ scale: 1.1, rotate: [0, -5, 5, 0] }}
+                                whileTap={{ scale: 0.95 }}
+                                transition={{ duration: 0.3 }}
+                              >
+                                <Badge className={`${accentColors.bg} ${accentColors.text} ${accentColors.border} text-sm px-3 py-1`}>
+                                  {project.category}
+                                </Badge>
+                              </motion.div>
+                            </div>
+                            <CardTitle className={`text-2xl font-bold text-white hover:${accentColors.text} transition-colors duration-300 mb-3`}>
+                              {project.title}
+                            </CardTitle>
+                            <CardDescription className="text-gray-300 leading-relaxed text-base">
+                              {project.description}
+                            </CardDescription>
+                          </CardHeader>
+
+                          {/* Enhanced Scrolling Technologies */}
+                          <div className="mb-6">
+                            <h4 className="text-sm font-semibold text-gray-400 mb-3">Technologies Used:</h4>
+                            <div className="relative overflow-hidden h-12 bg-gray-700/40 rounded-lg border border-gray-600/50">
+                              <motion.div
+                                className="flex items-center gap-4 absolute whitespace-nowrap"
+                                animate={{
+                                  x: ["100%", "-100%"]
+                                }}
+                                transition={{
+                                  duration: 15,
+                                  repeat: Infinity,
+                                  ease: "linear"
+                                }}
+                              >
+                                {[...project.technologies, ...project.technologies].map((tech, techIndex) => (
+                                  <motion.div
+                                    key={techIndex}
+                                    className="flex-shrink-0"
+                                    whileHover={{ scale: 1.2, y: -2 }}
+                                    transition={{ duration: 0.2 }}
+                                  >
+                                    <Badge className={`${accentColors.bg} ${accentColors.text} ${accentColors.border} whitespace-nowrap text-sm px-3 py-1`}>
+                                      {tech}
+                                    </Badge>
+                                  </motion.div>
+                                ))}
+                              </motion.div>
+                            </div>
+                          </div>
+
+                          {/* Enhanced Key Features */}
+                          <div className="space-y-3 mb-8">
+                            <h4 className="font-semibold text-white text-base">Key Features:</h4>
+                            <ul className="text-sm text-gray-300 space-y-2">
+                              {project.features.slice(0, 3).map((feature, featureIndex) => (
+                                <motion.li
+                                  key={featureIndex}
+                                  initial={{ opacity: 0, x: -30 }}
+                                  animate={{ opacity: 1, x: 0 }}
+                                  transition={{ 
+                                    duration: 0.5, 
+                                    delay: (index * 0.1) + (featureIndex * 0.1) + 0.8
+                                  }}
+                                  className="flex items-start"
+                                >
+                                  <motion.span 
+                                    className={`w-2 h-2 ${accentColors.bg} rounded-full mr-3 flex-shrink-0 mt-2`}
+                                    whileHover={{ scale: 2, rotate: 180 }}
+                                    transition={{ duration: 0.3 }}
+                                  />
+                                  <span className="leading-relaxed">{feature}</span>
+                                </motion.li>
+                              ))}
+                            </ul>
+                          </div>
+                        </div>
+
+                        {/* Enhanced GitHub Button */}
+                        <motion.div
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.98 }}
+                          className="mt-auto"
                         >
-                          →
-                        </motion.span>
-                      </Button>
-                    </motion.div>
+                          <Button
+                            className={`w-full bg-gradient-to-r from-gray-700 to-gray-600 hover:from-gray-600 hover:to-${project.accentColor}-600/80 text-white transition-all duration-500 shadow-lg hover:shadow-xl text-base py-3`}
+                            onClick={() => window.open(project.github, "_blank")}
+                          >
+                            <motion.div
+                              className="flex items-center justify-center"
+                              whileHover={{ x: 5 }}
+                              transition={{ duration: 0.3 }}
+                            >
+                              <Github size={18} className="mr-2" />
+                              View on GitHub
+                              <motion.span
+                                className="ml-2"
+                                animate={{ x: [0, 5, 0] }}
+                                transition={{ duration: 2, repeat: Infinity }}
+                              >
+                                →
+                              </motion.span>
+                            </motion.div>
+                          </Button>
+                        </motion.div>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </Card>
-            </motion.div>
-          ))}
+                </Card>
+              </motion.div>
+            );
+          })}
         </motion.div>
 
-        {/* Coming Soon Section */}
+        {/* Enhanced Coming Soon Section */}
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 60 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 1.4 }}
-          className="mt-16"
+          transition={{ duration: 1, delay: 2 }}
+          className="mt-20"
         >
           <motion.h3  
-            className="text-3xl md:text-4xl font-bold text-white mb-8 text-center"
+            className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white via-purple-200 to-blue-200 mb-12 text-center"
             initial={{ opacity: 0, scale: 0.5 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ duration: 0.8, delay: 1.6 }}
+            transition={{ duration: 1, delay: 2.2 }}
           >
             🚧 More Projects Coming Soon...
           </motion.h3>
           
-          <Card className="bg-gray-800/60 backdrop-blur-sm border-gray-600 shadow-xl overflow-hidden">
-            <div className="p-8 text-center">
+          <Card className="relative overflow-hidden">
+            <motion.div
+              className="absolute inset-0 bg-gradient-to-br from-indigo-600/10 to-purple-600/10"
+              animate={{
+                opacity: [0.1, 0.3, 0.1]
+              }}
+              transition={{
+                duration: 4,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            />
+            <div className="relative bg-gray-800/80 backdrop-blur-sm border-gray-600 p-12 text-center">
               <motion.div
                 animate={{ 
-                  scale: [1, 1.05, 1],
+                  scale: [1, 1.1, 1],
+                  rotate: [0, 10, -10, 0],
                   opacity: [0.7, 1, 0.7]
                 }}
                 transition={{
-                  duration: 2,
+                  duration: 3,
                   repeat: Infinity,
                   ease: "easeInOut"
                 }}
-                className="text-6xl mb-4"
+                className="text-8xl mb-6"
               >
                 🔬
               </motion.div>
-              <h4 className="text-xl font-semibold text-white mb-2">Under Development</h4>
-              <p className="text-gray-300 mb-6">
-                Exciting new AI/ML projects are currently in development. Stay tuned for updates!
+              <h4 className="text-2xl font-semibold text-white mb-4">Under Development</h4>
+              <p className="text-gray-300 mb-8 text-lg max-w-2xl mx-auto">
+                Exciting new AI/ML projects are currently in development. Stay tuned for groundbreaking innovations!
               </p>
-              <div className="flex justify-center space-x-2">
-                {[...Array(5)].map((_, i) => (
+              <div className="flex justify-center space-x-3">
+                {[...Array(7)].map((_, i) => (
                   <motion.div
                     key={i}
-                    className="w-2 h-2 bg-blue-400 rounded-full"
+                    className="w-3 h-3 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full"
                     animate={{ 
-                      scale: [1, 1.5, 1],
-                      opacity: [0.5, 1, 0.5]
+                      scale: [1, 1.8, 1],
+                      opacity: [0.5, 1, 0.5],
+                      y: [0, -10, 0]
                     }}
                     transition={{
-                      duration: 1.5,
+                      duration: 2,
                       repeat: Infinity,
-                      delay: i * 0.2,
+                      delay: i * 0.3,
                       ease: "easeInOut"
                     }}
                   />
@@ -366,41 +504,52 @@ const Projects = () => {
           </Card>
         </motion.div>
 
-        {/* GitHub Section */}
+        {/* Enhanced GitHub Section */}
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 60 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 1.8 }}
-          className="mt-16"
+          transition={{ duration: 1, delay: 2.4 }}
+          className="mt-20"
         >
           <motion.h3  
-            className="text-3xl md:text-4xl font-bold text-white mb-8 text-center"
+            className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white via-green-200 to-blue-200 mb-12 text-center"
             initial={{ opacity: 0, scale: 0.5 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ duration: 0.8, delay: 2.0 }}
+            transition={{ duration: 1, delay: 2.6 }}
           >
-            My GitHub
+            My GitHub Portfolio
           </motion.h3>
           
-          <Card className="bg-gray-800/60 backdrop-blur-sm border-gray-600 shadow-xl overflow-hidden">
-            <div className="p-8">
+          <Card className="relative overflow-hidden">
+            <motion.div
+              className="absolute inset-0 bg-gradient-to-br from-green-600/10 to-blue-600/10"
+              animate={{
+                opacity: [0.1, 0.3, 0.1]
+              }}
+              transition={{
+                duration: 4,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            />
+            <div className="relative bg-gray-800/80 backdrop-blur-sm border-gray-600 p-8">
               <motion.div
-                className="relative group mb-6"
+                className="relative group mb-8"
                 whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.3 }}
+                transition={{ duration: 0.4 }}
               >
                 <div className="relative rounded-lg overflow-hidden">
                   <motion.div
                     className="absolute inset-0 rounded-lg"
                     animate={{
                       boxShadow: [
-                        "0 0 0 2px rgba(255, 255, 255, 0.4), 0 0 25px rgba(255, 255, 255, 0.15)",
-                        "0 0 0 2px rgba(255, 255, 255, 0.8), 0 0 40px rgba(255, 255, 255, 0.25)",
-                        "0 0 0 2px rgba(255, 255, 255, 0.4), 0 0 25px rgba(255, 255, 255, 0.15)"
+                        "0 0 0 2px rgba(255, 255, 255, 0.3), 0 0 30px rgba(255, 255, 255, 0.15)",
+                        "0 0 0 4px rgba(255, 255, 255, 0.6), 0 0 60px rgba(255, 255, 255, 0.25)",
+                        "0 0 0 2px rgba(255, 255, 255, 0.3), 0 0 30px rgba(255, 255, 255, 0.15)"
                       ]
                     }}
                     transition={{
-                      duration: 3,
+                      duration: 4,
                       repeat: Infinity,
                       ease: "easeInOut"
                     }}
@@ -409,30 +558,37 @@ const Projects = () => {
                     src="/lovable-uploads/eb4dc249-3f27-4512-92ee-cb5ba19196f2.png"
                     alt="GitHub Profile"
                     className="w-full h-auto rounded-lg"
-                    whileHover={{ scale: 1.02 }}
-                    transition={{ duration: 0.4 }}
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.6 }}
                   />
                 </div>
               </motion.div>
 
               <div className="text-center">
                 <motion.div
-                  whileHover={{ scale: 1.05 }}
+                  whileHover={{ scale: 1.1, y: -5 }}
                   whileTap={{ scale: 0.95 }}
+                  transition={{ duration: 0.3 }}
                 >
                   <Button
-                    className="bg-gradient-to-r from-gray-700 to-gray-600 hover:from-blue-600/80 hover:to-purple-600/80 text-white transition-all duration-300 shadow-lg hover:shadow-xl px-8 py-3"
+                    className="bg-gradient-to-r from-gray-700 to-gray-600 hover:from-green-600/80 hover:to-blue-600/80 text-white transition-all duration-500 shadow-lg hover:shadow-xl px-10 py-4 text-lg"
                     onClick={() => window.open("https://github.com/VEMURI-PRAVEENA", "_blank")}
                   >
-                    <Github size={20} className="mr-2" />
-                    👉 View My GitHub
-                    <motion.span
-                      className="ml-2"
-                      animate={{ x: [0, 3, 0] }}
-                      transition={{ duration: 1.5, repeat: Infinity }}
+                    <motion.div
+                      className="flex items-center"
+                      whileHover={{ x: 5 }}
+                      transition={{ duration: 0.3 }}
                     >
-                      →
-                    </motion.span>
+                      <Github size={24} className="mr-3" />
+                      👉 View My GitHub
+                      <motion.span
+                        className="ml-3"
+                        animate={{ x: [0, 5, 0] }}
+                        transition={{ duration: 2, repeat: Infinity }}
+                      >
+                        →
+                      </motion.span>
+                    </motion.div>
                   </Button>
                 </motion.div>
               </div>
