@@ -1,4 +1,3 @@
-
 import { useState, useRef } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -9,7 +8,7 @@ import { motion, useInView } from "framer-motion";
 const Projects = () => {
   const [hoveredProject, setHoveredProject] = useState<number | null>(null);
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.2 });
+  const isInView = useInView(ref, { once: true, amount: 0.1 });
 
   const projects = [
     {
@@ -80,8 +79,8 @@ const Projects = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.3,
-        delayChildren: 0.2
+        staggerChildren: 0.1,
+        delayChildren: 0
       }
     }
   };
@@ -89,20 +88,18 @@ const Projects = () => {
   const projectVariants = {
     hidden: { 
       opacity: 0, 
-      y: 60,
-      scale: 0.9,
-      rotateX: 15
+      y: 20,
+      scale: 0.98
     },
     visible: { 
       opacity: 1, 
       y: 0,
       scale: 1,
-      rotateX: 0,
       transition: {
         type: "spring" as const,
-        stiffness: 80,
-        damping: 20,
-        duration: 0.8
+        stiffness: 100,
+        damping: 25,
+        duration: 0.4
       }
     }
   };
@@ -139,7 +136,6 @@ const Projects = () => {
 
   return (
     <section ref={ref} id="projects" className="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-      {/* Enhanced Background with Multiple Moving Elements */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#0d1117] via-[#161b22] to-[#0d1117]">
         <motion.div
           animate={{ 
@@ -189,17 +185,16 @@ const Projects = () => {
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
-        {/* Enhanced Header */}
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 1 }}
+          transition={{ duration: 0.5 }}
           className="text-center mb-20"
         >
           <motion.div
-            initial={{ opacity: 0, scale: 0.5, rotateY: 90 }}
-            animate={isInView ? { opacity: 1, scale: 1, rotateY: 0 } : {}}
-            transition={{ duration: 1, delay: 0.2 }}
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={isInView ? { opacity: 1, scale: 1 } : {}}
+            transition={{ duration: 0.6, delay: 0.1 }}
             className="relative"
           >
             <h2 className="text-5xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-200 to-purple-200 mb-6">
@@ -220,15 +215,14 @@ const Projects = () => {
           </motion.div>
           <motion.p 
             className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed"
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 1, delay: 0.6 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
           >
             Showcasing cutting-edge AI/ML expertise through innovative projects that solve real-world challenges
           </motion.p>
         </motion.div>
 
-        {/* Enhanced Projects Grid */}
         <motion.div 
           className="space-y-8"
           variants={containerVariants}
@@ -245,8 +239,7 @@ const Projects = () => {
                 onMouseEnter={() => setHoveredProject(index)}
                 onMouseLeave={() => setHoveredProject(null)}
               >
-                <Card className={`relative overflow-hidden transition-all duration-700 transform ${hoveredProject === index ? 'scale-[1.02]' : ''} ${accentColors.glow} hover:shadow-2xl`}>
-                  {/* Animated Background Gradient */}
+                <Card className={`relative overflow-hidden transition-all duration-500 transform ${hoveredProject === index ? 'scale-[1.01]' : ''} ${accentColors.glow} hover:shadow-2xl`}>
                   <motion.div
                     className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-50`}
                     animate={{
@@ -259,7 +252,6 @@ const Projects = () => {
                     }}
                   />
                   
-                  {/* Card Border Animation */}
                   <motion.div
                     className={`absolute inset-0 rounded-lg ${accentColors.border}`}
                     animate={{
@@ -278,7 +270,6 @@ const Projects = () => {
 
                   <div className="relative bg-gray-800/80 backdrop-blur-sm border-gray-600">
                     <div className="grid lg:grid-cols-2 gap-8 p-8">
-                      {/* Enhanced Project Image */}
                       <motion.div
                         className="relative group"
                         whileHover={{ scale: 1.05 }}
@@ -306,8 +297,8 @@ const Projects = () => {
                             className="w-full h-full object-cover object-center rounded-lg"
                             whileHover={{ scale: 1.1 }}
                             transition={{ duration: 0.6 }}
+                            loading="eager"
                           />
-                          {/* Overlay Effect */}
                           <motion.div
                             className={`absolute inset-0 bg-gradient-to-t ${project.gradient} opacity-0 rounded-lg`}
                             whileHover={{ opacity: 0.3 }}
@@ -316,7 +307,6 @@ const Projects = () => {
                         </div>
                       </motion.div>
 
-                      {/* Enhanced Content */}
                       <div className="flex flex-col justify-between">
                         <div>
                           <CardHeader className="p-0 mb-6">
@@ -339,7 +329,6 @@ const Projects = () => {
                             </CardDescription>
                           </CardHeader>
 
-                          {/* Enhanced Scrolling Technologies */}
                           <div className="mb-6">
                             <h4 className="text-sm font-semibold text-gray-400 mb-3">Technologies Used:</h4>
                             <div className="relative overflow-hidden h-12 bg-gray-700/40 rounded-lg border border-gray-600/50">
@@ -370,7 +359,6 @@ const Projects = () => {
                             </div>
                           </div>
 
-                          {/* Enhanced Key Features */}
                           <div className="space-y-3 mb-8">
                             <h4 className="font-semibold text-white text-base">Key Features:</h4>
                             <ul className="text-sm text-gray-300 space-y-2">
@@ -380,8 +368,8 @@ const Projects = () => {
                                   initial={{ opacity: 0, x: -30 }}
                                   animate={{ opacity: 1, x: 0 }}
                                   transition={{ 
-                                    duration: 0.5, 
-                                    delay: (index * 0.1) + (featureIndex * 0.1) + 0.8
+                                    duration: 0.3,
+                                    delay: (index * 0.05) + (featureIndex * 0.05) + 0.3
                                   }}
                                   className="flex items-start"
                                 >
@@ -397,7 +385,6 @@ const Projects = () => {
                           </div>
                         </div>
 
-                        {/* Enhanced GitHub Button */}
                         <motion.div
                           whileHover={{ scale: 1.05 }}
                           whileTap={{ scale: 0.98 }}
@@ -433,7 +420,6 @@ const Projects = () => {
           })}
         </motion.div>
 
-        {/* Enhanced Coming Soon Section */}
         <motion.div
           initial={{ opacity: 0, y: 60 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -504,7 +490,6 @@ const Projects = () => {
           </Card>
         </motion.div>
 
-        {/* Enhanced GitHub Section */}
         <motion.div
           initial={{ opacity: 0, y: 60 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -560,6 +545,7 @@ const Projects = () => {
                     className="w-full h-auto rounded-lg"
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.6 }}
+                    loading="eager"
                   />
                 </div>
               </motion.div>
