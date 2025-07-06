@@ -1,4 +1,3 @@
-
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -36,7 +35,8 @@ const Certifications = () => {
       skills: ["AWS Basics", "Cloud Computing", "EC2", "S3", "Security", "Pricing"],
       logo: "🟠",
       verified: true,
-      badgeImage: "/lovable-uploads/25563a4a-4ff6-4515-bd5c-e24295030ce2.png"
+      badgeImage: "/lovable-uploads/25563a4a-4ff6-4515-bd5c-e24295030ce2.png",
+      isCloudFoundations: true
     }
   ];
 
@@ -169,7 +169,7 @@ const Certifications = () => {
                   >
                     <ExternalLink size={16} className="mr-2" />
                     <span>
-                      {cert.credlyLink ? "Verify Credential" : "View Certificate"}
+                      {cert.isCloudFoundations ? "🔗 Verify Credential" : cert.credlyLink ? "Verify Credential" : "View Certificate"}
                     </span>
                   </Button>
                 </CardContent>

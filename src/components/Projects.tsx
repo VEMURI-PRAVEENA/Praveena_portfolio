@@ -1,3 +1,4 @@
+
 import { useState, useRef } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -154,7 +155,7 @@ const Projects = () => {
 
         {/* Projects Grid */}
         <motion.div 
-          className="space-y-8"
+          className="space-y-6"
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
@@ -175,15 +176,15 @@ const Projects = () => {
                     whileHover={{ scale: 1.02 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <div className="relative h-56 lg:h-64 rounded-lg overflow-hidden">
-                      {/* Enhanced Glowing White Border Animation */}
+                    <div className="relative h-64 lg:h-72 rounded-lg overflow-hidden">
+                      {/* Breathing Glow Border Animation */}
                       <motion.div
                         className="absolute inset-0 rounded-lg"
                         animate={{
                           boxShadow: [
-                            "0 0 0 2px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)",
-                            "0 0 0 2px rgba(255, 255, 255, 0.7), 0 0 30px rgba(255, 255, 255, 0.3)",
-                            "0 0 0 2px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)"
+                            "0 0 0 2px rgba(255, 255, 255, 0.4), 0 0 25px rgba(255, 255, 255, 0.15)",
+                            "0 0 0 2px rgba(255, 255, 255, 0.8), 0 0 40px rgba(255, 255, 255, 0.25)",
+                            "0 0 0 2px rgba(255, 255, 255, 0.4), 0 0 25px rgba(255, 255, 255, 0.15)"
                           ]
                         }}
                         transition={{
@@ -195,7 +196,7 @@ const Projects = () => {
                       <motion.img
                         src={project.image}
                         alt={project.title}
-                        className="w-full h-full object-cover rounded-lg"
+                        className="w-full h-full object-cover object-center rounded-lg"
                         whileHover={{ scale: 1.05 }}
                         transition={{ duration: 0.4 }}
                       />
@@ -203,88 +204,87 @@ const Projects = () => {
                   </motion.div>
 
                   {/* Right: Content */}
-                  <div className="flex flex-col justify-between">
-                    <div>
-                      <CardHeader className="p-0 mb-4">
-                        <div className="flex items-center gap-3 mb-2">
-                          <motion.div
-                            whileHover={{ scale: 1.1 }}
-                            whileTap={{ scale: 0.95 }}
-                          >
-                            <Badge className="bg-gradient-to-r from-purple-600/20 to-blue-600/20 text-purple-200 border-purple-500/30">
-                              {project.category}
-                            </Badge>
-                          </motion.div>
-                        </div>
-                        <CardTitle className="text-xl font-bold text-white group-hover:text-blue-400 transition-colors duration-300">
-                          {project.title}
-                        </CardTitle>
-                        <CardDescription className="text-gray-300 leading-relaxed mt-2">
-                          {project.description}
-                        </CardDescription>
-                      </CardHeader>
-
-                      {/* Scrolling Technologies */}
-                      <div className="mb-4">
-                        <h4 className="text-sm font-semibold text-gray-400 mb-2">Technologies Used:</h4>
-                        <div className="relative overflow-hidden h-10 bg-gray-700/30 rounded-lg">
-                          <motion.div
-                            className="flex items-center gap-3 absolute"
-                            animate={{
-                              x: ["100%", "-100%"]
-                            }}
-                            transition={{
-                              duration: 12,
-                              repeat: Infinity,
-                              ease: "linear"
-                            }}
-                          >
-                            {[...project.technologies, ...project.technologies].map((tech, techIndex) => (
-                              <motion.div
-                                key={techIndex}
-                                className="flex-shrink-0"
-                                whileHover={{ scale: 1.1 }}
-                                transition={{ duration: 0.2 }}
-                              >
-                                <Badge className="bg-gradient-to-r from-blue-600/30 to-violet-600/30 text-blue-200 border-blue-500/30 whitespace-nowrap text-xs">
-                                  {tech}
-                                </Badge>
-                              </motion.div>
-                            ))}
-                          </motion.div>
-                        </div>
+                  <div className="flex flex-col">
+                    <CardHeader className="p-0 mb-4">
+                      <div className="flex items-center gap-3 mb-2">
+                        <motion.div
+                          whileHover={{ scale: 1.1 }}
+                          whileTap={{ scale: 0.95 }}
+                        >
+                          <Badge className="bg-gradient-to-r from-purple-600/20 to-blue-600/20 text-purple-200 border-purple-500/30">
+                            {project.category}
+                          </Badge>
+                        </motion.div>
                       </div>
+                      <CardTitle className="text-xl font-bold text-white group-hover:text-blue-400 transition-colors duration-300">
+                        {project.title}
+                      </CardTitle>
+                      <CardDescription className="text-gray-300 leading-relaxed mt-2">
+                        {project.description}
+                      </CardDescription>
+                    </CardHeader>
 
-                      {/* Key Features */}
-                      <div className="space-y-2 mb-4">
-                        <h4 className="font-semibold text-white text-sm">Key Features:</h4>
-                        <ul className="text-sm text-gray-300 space-y-1">
-                          {project.features.slice(0, 3).map((feature, featureIndex) => (
-                            <motion.li
-                              key={featureIndex}
-                              initial={{ opacity: 0, x: -20 }}
-                              animate={{ opacity: 1, x: 0 }}
-                              transition={{ 
-                                duration: 0.4, 
-                                delay: (index * 0.1) + (featureIndex * 0.05) + 0.6
-                              }}
-                              className="flex items-start"
+                    {/* Scrolling Technologies */}
+                    <div className="mb-4">
+                      <h4 className="text-sm font-semibold text-gray-400 mb-2">Technologies Used:</h4>
+                      <div className="relative overflow-hidden h-10 bg-gray-700/30 rounded-lg">
+                        <motion.div
+                          className="flex items-center gap-3 absolute"
+                          animate={{
+                            x: ["100%", "-100%"]
+                          }}
+                          transition={{
+                            duration: 12,
+                            repeat: Infinity,
+                            ease: "linear"
+                          }}
+                        >
+                          {[...project.technologies, ...project.technologies].map((tech, techIndex) => (
+                            <motion.div
+                              key={techIndex}
+                              className="flex-shrink-0"
+                              whileHover={{ scale: 1.1 }}
+                              transition={{ duration: 0.2 }}
                             >
-                              <motion.span 
-                                className="w-1 h-1 bg-gradient-to-r from-blue-400 to-violet-400 rounded-full mr-2 flex-shrink-0 mt-2"
-                                whileHover={{ scale: 1.5 }}
-                              />
-                              {feature}
-                            </motion.li>
+                              <Badge className="bg-gradient-to-r from-blue-600/30 to-violet-600/30 text-blue-200 border-blue-500/30 whitespace-nowrap text-xs">
+                                {tech}
+                              </Badge>
+                            </motion.div>
                           ))}
-                        </ul>
+                        </motion.div>
                       </div>
+                    </div>
+
+                    {/* Key Features */}
+                    <div className="space-y-2 mb-6 flex-grow">
+                      <h4 className="font-semibold text-white text-sm">Key Features:</h4>
+                      <ul className="text-sm text-gray-300 space-y-1">
+                        {project.features.slice(0, 3).map((feature, featureIndex) => (
+                          <motion.li
+                            key={featureIndex}
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ 
+                              duration: 0.4, 
+                              delay: (index * 0.1) + (featureIndex * 0.05) + 0.6
+                            }}
+                            className="flex items-start"
+                          >
+                            <motion.span 
+                              className="w-1 h-1 bg-gradient-to-r from-blue-400 to-violet-400 rounded-full mr-2 flex-shrink-0 mt-2"
+                              whileHover={{ scale: 1.5 }}
+                            />
+                            {feature}
+                          </motion.li>
+                        ))}
+                      </ul>
                     </div>
 
                     {/* GitHub Button */}
                     <motion.div
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
+                      className="mt-auto"
                     >
                       <Button
                         className="w-full bg-gradient-to-r from-gray-700 to-gray-600 hover:from-blue-600/80 hover:to-purple-600/80 text-white transition-all duration-300 shadow-lg hover:shadow-xl"
@@ -394,9 +394,9 @@ const Projects = () => {
                     className="absolute inset-0 rounded-lg"
                     animate={{
                       boxShadow: [
-                        "0 0 0 2px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)",
-                        "0 0 0 2px rgba(255, 255, 255, 0.7), 0 0 30px rgba(255, 255, 255, 0.3)",
-                        "0 0 0 2px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)"
+                        "0 0 0 2px rgba(255, 255, 255, 0.4), 0 0 25px rgba(255, 255, 255, 0.15)",
+                        "0 0 0 2px rgba(255, 255, 255, 0.8), 0 0 40px rgba(255, 255, 255, 0.25)",
+                        "0 0 0 2px rgba(255, 255, 255, 0.4), 0 0 25px rgba(255, 255, 255, 0.15)"
                       ]
                     }}
                     transition={{
