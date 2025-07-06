@@ -1,7 +1,7 @@
 
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Download, Eye } from "lucide-react";
+import { Download, Eye, FileText } from "lucide-react";
 
 const QuickLinks = () => {
   const handleViewWork = () => {
@@ -11,8 +11,13 @@ const QuickLinks = () => {
     }
   };
 
+  const handleViewResume = () => {
+    // Replace with your actual resume URL
+    window.open("https://drive.google.com/file/d/your-resume-link", "_blank");
+  };
+
   const handleDownloadResume = () => {
-    // You can replace this with your actual resume URL
+    // Replace with your actual resume URL
     window.open("https://drive.google.com/file/d/your-resume-link", "_blank");
   };
 
@@ -26,10 +31,36 @@ const QuickLinks = () => {
       <motion.div
         whileHover={{ 
           scale: 1.05,
+          boxShadow: "0 10px 25px rgba(16, 185, 129, 0.3)"
+        }}
+        whileTap={{ scale: 0.95 }}
+        initial={{ opacity: 0, x: -40 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.6, delay: 1.3 }}
+      >
+        <Button
+          onClick={handleViewResume}
+          className="bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white px-8 py-3 rounded-full shadow-lg transition-all duration-300 font-semibold"
+        >
+          <FileText size={18} className="mr-2" />
+          View Resume
+          <motion.span
+            animate={{ x: [0, 3, 0] }}
+            transition={{ duration: 2, repeat: Infinity }}
+            className="ml-2"
+          >
+            →
+          </motion.span>
+        </Button>
+      </motion.div>
+
+      <motion.div
+        whileHover={{ 
+          scale: 1.05,
           boxShadow: "0 10px 25px rgba(59, 130, 246, 0.3)"
         }}
         whileTap={{ scale: 0.95 }}
-        initial={{ opacity: 0, x: -30 }}
+        initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.6, delay: 1.4 }}
       >
@@ -55,7 +86,7 @@ const QuickLinks = () => {
           boxShadow: "0 10px 25px rgba(16, 185, 129, 0.3)"
         }}
         whileTap={{ scale: 0.95 }}
-        initial={{ opacity: 0, x: 30 }}
+        initial={{ opacity: 0, x: 20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.6, delay: 1.6 }}
       >

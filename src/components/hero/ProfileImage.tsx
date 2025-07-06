@@ -9,7 +9,16 @@ const ProfileImage = () => {
   const roles = [
     "AI & ML Engineer",
     "Data Science Enthusiast", 
-    "Cloud Explorer"
+    "Cloud Explorer",
+    "Deep Learning Developer",
+    "Computer Vision Researcher",
+    "NLP Practitioner",
+    "Generative AI Learner",
+    "Python Programmer",
+    "Open Source Contributor",
+    "Hackathon Participant",
+    "Problem Solver",
+    "ML Research Explorer"
   ];
 
   useEffect(() => {

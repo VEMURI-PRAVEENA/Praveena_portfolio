@@ -1,11 +1,9 @@
-
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Github, ExternalLink } from "lucide-react";
+import { Github } from "lucide-react";
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
 
 const Projects = () => {
   const [hoveredProject, setHoveredProject] = useState<number | null>(null);
@@ -73,7 +71,7 @@ const Projects = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.3,
+        staggerChildren: 0.2,
         delayChildren: 0.2
       }
     }
@@ -82,7 +80,7 @@ const Projects = () => {
   const projectVariants = {
     hidden: { 
       opacity: 0, 
-      y: 60,
+      y: 40,
       scale: 0.95
     },
     visible: { 
@@ -93,7 +91,7 @@ const Projects = () => {
         type: "spring" as const,
         stiffness: 100,
         damping: 15,
-        duration: 0.8
+        duration: 0.6
       }
     }
   };
@@ -156,7 +154,7 @@ const Projects = () => {
 
         {/* Projects Grid */}
         <motion.div 
-          className="space-y-12"
+          className="space-y-8"
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
@@ -168,7 +166,7 @@ const Projects = () => {
               className="w-full"
             >
               <Card className="bg-gray-800/60 backdrop-blur-sm border-gray-600 shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500">
-                <div className="grid lg:grid-cols-2 gap-8 p-8">
+                <div className="grid lg:grid-cols-2 gap-6 p-6">
                   {/* Left: Project Image */}
                   <motion.div
                     className="relative group"
@@ -177,19 +175,19 @@ const Projects = () => {
                     whileHover={{ scale: 1.02 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <div className="relative h-64 lg:h-80 rounded-lg overflow-hidden">
-                      {/* Glowing White Border Animation */}
+                    <div className="relative h-56 lg:h-64 rounded-lg overflow-hidden">
+                      {/* Enhanced Glowing White Border Animation */}
                       <motion.div
                         className="absolute inset-0 rounded-lg"
                         animate={{
                           boxShadow: [
-                            "0 0 0 2px rgba(255, 255, 255, 0.2)",
-                            "0 0 0 2px rgba(255, 255, 255, 0.6)",
-                            "0 0 0 2px rgba(255, 255, 255, 0.2)"
+                            "0 0 0 2px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)",
+                            "0 0 0 2px rgba(255, 255, 255, 0.7), 0 0 30px rgba(255, 255, 255, 0.3)",
+                            "0 0 0 2px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)"
                           ]
                         }}
                         transition={{
-                          duration: 2,
+                          duration: 3,
                           repeat: Infinity,
                           ease: "easeInOut"
                         }}
@@ -200,9 +198,6 @@ const Projects = () => {
                         className="w-full h-full object-cover rounded-lg"
                         whileHover={{ scale: 1.05 }}
                         transition={{ duration: 0.4 }}
-                      />
-                      <motion.div 
-                        className="absolute inset-0 bg-gradient-to-t from-gray-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg"
                       />
                     </div>
                   </motion.div>
@@ -221,25 +216,25 @@ const Projects = () => {
                             </Badge>
                           </motion.div>
                         </div>
-                        <CardTitle className="text-2xl font-bold text-white group-hover:text-blue-400 transition-colors duration-300">
+                        <CardTitle className="text-xl font-bold text-white group-hover:text-blue-400 transition-colors duration-300">
                           {project.title}
                         </CardTitle>
-                        <CardDescription className="text-gray-300 leading-relaxed mt-3">
+                        <CardDescription className="text-gray-300 leading-relaxed mt-2">
                           {project.description}
                         </CardDescription>
                       </CardHeader>
 
                       {/* Scrolling Technologies */}
-                      <div className="mb-6">
-                        <h4 className="text-sm font-semibold text-gray-400 mb-3">Technologies Used:</h4>
-                        <div className="relative overflow-hidden h-12 bg-gray-700/30 rounded-lg">
+                      <div className="mb-4">
+                        <h4 className="text-sm font-semibold text-gray-400 mb-2">Technologies Used:</h4>
+                        <div className="relative overflow-hidden h-10 bg-gray-700/30 rounded-lg">
                           <motion.div
-                            className="flex items-center gap-4 absolute"
+                            className="flex items-center gap-3 absolute"
                             animate={{
                               x: ["100%", "-100%"]
                             }}
                             transition={{
-                              duration: 15,
+                              duration: 12,
                               repeat: Infinity,
                               ease: "linear"
                             }}
@@ -248,10 +243,10 @@ const Projects = () => {
                               <motion.div
                                 key={techIndex}
                                 className="flex-shrink-0"
-                                whileHover={{ scale: 1.2 }}
+                                whileHover={{ scale: 1.1 }}
                                 transition={{ duration: 0.2 }}
                               >
-                                <Badge className="bg-gradient-to-r from-blue-600/30 to-violet-600/30 text-blue-200 border-blue-500/30 whitespace-nowrap">
+                                <Badge className="bg-gradient-to-r from-blue-600/30 to-violet-600/30 text-blue-200 border-blue-500/30 whitespace-nowrap text-xs">
                                   {tech}
                                 </Badge>
                               </motion.div>
@@ -261,7 +256,7 @@ const Projects = () => {
                       </div>
 
                       {/* Key Features */}
-                      <div className="space-y-2 mb-6">
+                      <div className="space-y-2 mb-4">
                         <h4 className="font-semibold text-white text-sm">Key Features:</h4>
                         <ul className="text-sm text-gray-300 space-y-1">
                           {project.features.slice(0, 3).map((feature, featureIndex) => (
@@ -271,12 +266,12 @@ const Projects = () => {
                               animate={{ opacity: 1, x: 0 }}
                               transition={{ 
                                 duration: 0.4, 
-                                delay: (index * 0.2) + (featureIndex * 0.1) + 0.8
+                                delay: (index * 0.1) + (featureIndex * 0.05) + 0.6
                               }}
                               className="flex items-start"
                             >
                               <motion.span 
-                                className="w-1.5 h-1.5 bg-gradient-to-r from-blue-400 to-violet-400 rounded-full mr-2 flex-shrink-0 mt-2"
+                                className="w-1 h-1 bg-gradient-to-r from-blue-400 to-violet-400 rounded-full mr-2 flex-shrink-0 mt-2"
                                 whileHover={{ scale: 1.5 }}
                               />
                               {feature}
@@ -295,7 +290,7 @@ const Projects = () => {
                         className="w-full bg-gradient-to-r from-gray-700 to-gray-600 hover:from-blue-600/80 hover:to-purple-600/80 text-white transition-all duration-300 shadow-lg hover:shadow-xl"
                         onClick={() => window.open(project.github, "_blank")}
                       >
-                        <Github size={18} className="mr-2" />
+                        <Github size={16} className="mr-2" />
                         View on GitHub
                         <motion.span
                           className="ml-2"
@@ -313,12 +308,70 @@ const Projects = () => {
           ))}
         </motion.div>
 
+        {/* Coming Soon Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 1.4 }}
+          className="mt-16"
+        >
+          <motion.h3  
+            className="text-3xl md:text-4xl font-bold text-white mb-8 text-center"
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={isInView ? { opacity: 1, scale: 1 } : {}}
+            transition={{ duration: 0.8, delay: 1.6 }}
+          >
+            🚧 More Projects Coming Soon...
+          </motion.h3>
+          
+          <Card className="bg-gray-800/60 backdrop-blur-sm border-gray-600 shadow-xl overflow-hidden">
+            <div className="p-8 text-center">
+              <motion.div
+                animate={{ 
+                  scale: [1, 1.05, 1],
+                  opacity: [0.7, 1, 0.7]
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+                className="text-6xl mb-4"
+              >
+                🔬
+              </motion.div>
+              <h4 className="text-xl font-semibold text-white mb-2">Under Development</h4>
+              <p className="text-gray-300 mb-6">
+                Exciting new AI/ML projects are currently in development. Stay tuned for updates!
+              </p>
+              <div className="flex justify-center space-x-2">
+                {[...Array(5)].map((_, i) => (
+                  <motion.div
+                    key={i}
+                    className="w-2 h-2 bg-blue-400 rounded-full"
+                    animate={{ 
+                      scale: [1, 1.5, 1],
+                      opacity: [0.5, 1, 0.5]
+                    }}
+                    transition={{
+                      duration: 1.5,
+                      repeat: Infinity,
+                      delay: i * 0.2,
+                      ease: "easeInOut"
+                    }}
+                  />
+                ))}
+              </div>
+            </div>
+          </Card>
+        </motion.div>
+
         {/* GitHub Section */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 1.8 }}
-          className="mt-20"
+          className="mt-16"
         >
           <motion.h3  
             className="text-3xl md:text-4xl font-bold text-white mb-8 text-center"
@@ -341,13 +394,13 @@ const Projects = () => {
                     className="absolute inset-0 rounded-lg"
                     animate={{
                       boxShadow: [
-                        "0 0 0 2px rgba(255, 255, 255, 0.2)",
-                        "0 0 0 2px rgba(255, 255, 255, 0.6)",
-                        "0 0 0 2px rgba(255, 255, 255, 0.2)"
+                        "0 0 0 2px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)",
+                        "0 0 0 2px rgba(255, 255, 255, 0.7), 0 0 30px rgba(255, 255, 255, 0.3)",
+                        "0 0 0 2px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1)"
                       ]
                     }}
                     transition={{
-                      duration: 2,
+                      duration: 3,
                       repeat: Infinity,
                       ease: "easeInOut"
                     }}
