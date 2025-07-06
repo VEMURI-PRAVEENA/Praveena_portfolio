@@ -14,6 +14,46 @@ const Projects = () => {
 
   const projects = [
     {
+      title: "Face Mask Detection using CNN",
+      description: "Developed and trained a CNN model to classify facial images into 'mask' and 'no mask' with 92%+ accuracy. Implemented real-time video stream detection using OpenCV and deployed .h5 model.",
+      technologies: ["TensorFlow", "Keras", "OpenCV", "Matplotlib"],
+      github: "https://github.com/VEMURI-PRAVEENA/face-mask--detection",
+      image: "/lovable-uploads/19639909-0f20-4b2f-894f-5db10c76cb81.png",
+      features: [
+        "92%+ accuracy CNN model",
+        "Real-time video stream detection",
+        "Visualized feature maps and interpreted dense layer contributions"
+      ],
+      category: "AI/ML"
+    },
+    {
+      title: "AI Chatbot using RAG with Mistral-7B",
+      description: "Built an RAG-based chatbot using Mistral-7B for over 93% semantic accuracy. Processed 200+ pages of medical PDFs into 500+ semantic chunks using Sentence Transformers + FAISS.",
+      technologies: ["LangChain", "HuggingFace", "FAISS", "Streamlit", "Mistral-7B"],
+      github: "https://github.com/VEMURI-PRAVEENA/AI-RAG-based-chatbot",
+      image: "/lovable-uploads/da01228d-f053-4f34-9b13-58b3893eb599.png",
+      features: [
+        "93%+ semantic accuracy",
+        "Processed 200+ pages of medical PDFs → 500+ semantic chunks",
+        "Integrated LangChain QA pipeline for dynamic context retrieval"
+      ],
+      category: "AI/ML"
+    },
+    {
+      title: "Brain Tumor Detection using YOLOv8",
+      description: "An AI-powered deep learning solution that detects and localizes brain tumors in MRI scans using the YOLOv8 object detection model.",
+      technologies: ["YOLOv8", "Python", "OpenCV", "PyTorch", "TensorFlow", "Keras", "Matplotlib"],
+      github: "https://github.com/VEMURI-PRAVEENA/brain_tumor_detection",
+      image: "/lovable-uploads/3dea1b9d-5b49-4677-bd5d-f7cf1b5fab43.png",
+      features: [
+        "Trained YOLOv8 on custom-labeled MRI dataset",
+        "Achieved high accuracy, precision, recall, and mAP",
+        "Visualized bounding boxes and performance metrics",
+        "Exported to: PyTorch .pt, TensorFlow SavedModel, Keras .h5"
+      ],
+      category: "AI/ML"
+    },
+    {
       title: "FrozenLake: Q-Learning vs Policy Gradient Comparison",
       description: "Implemented both Q-Learning and Policy Gradient on FrozenLake-v1 using custom rewards. Compared convergence, stability, and average rewards with detailed performance analysis.",
       technologies: ["OpenAI Gym", "NumPy", "Matplotlib"],
@@ -25,21 +65,6 @@ const Projects = () => {
         "Plotted agent path visualizations and performance metrics"
       ],
       category: "Reinforcement Learning"
-    }
-  ];
-
-  const comingSoonProjects = [
-    {
-      title: "RAG-based Chatbot",
-      description: "AI-powered chatbot using Retrieval-Augmented Generation with advanced language models for enhanced conversational experiences.",
-      technologies: ["Python", "LangChain", "FAISS", "Mistral-7B", "HuggingFace", "Streamlit"],
-      category: "AI/ML"
-    },
-    {
-      title: "Face Mask Detection",
-      description: "Computer vision system for real-time face mask detection using deep learning and convolutional neural networks.",
-      technologies: ["TensorFlow", "Keras", "CNN", "OpenCV", "Python"],
-      category: "Computer Vision"
     }
   ];
 
@@ -117,7 +142,7 @@ const Projects = () => {
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Featured Projects
+            Featured AI/ML Projects
           </motion.h2>
           <motion.p 
             className="text-xl text-gray-300 max-w-3xl mx-auto"
@@ -239,7 +264,7 @@ const Projects = () => {
                       <div className="space-y-2 mb-6">
                         <h4 className="font-semibold text-white text-sm">Key Features:</h4>
                         <ul className="text-sm text-gray-300 space-y-1">
-                          {project.features.slice(0, 2).map((feature, featureIndex) => (
+                          {project.features.slice(0, 3).map((feature, featureIndex) => (
                             <motion.li
                               key={featureIndex}
                               initial={{ opacity: 0, x: -20 }}
@@ -286,79 +311,6 @@ const Projects = () => {
               </Card>
             </motion.div>
           ))}
-        </motion.div>
-
-        {/* Coming Soon Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 1.0 }}
-          className="mt-20"
-        >
-          <motion.h3 
-            className="text-3xl md:text-4xl font-bold text-white mb-8 text-center"
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={isInView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ duration: 0.8, delay: 1.2 }}
-          >
-            Coming Soon
-          </motion.h3>
-          
-          <div className="grid md:grid-cols-2 gap-8">
-            {comingSoonProjects.map((project, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 1.4 + (index * 0.2) }}
-              >
-                <Card className="bg-gradient-to-r from-purple-600/10 to-blue-600/10 backdrop-blur-sm border-gray-600 shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500">
-                  <div className="p-8">
-                    <div className="flex items-center gap-3 mb-4">
-                      <Badge className="bg-gradient-to-r from-orange-500/20 to-yellow-500/20 text-orange-200 border-orange-500/30">
-                        Coming Soon
-                      </Badge>
-                      <Badge className="bg-gradient-to-r from-purple-600/20 to-blue-600/20 text-purple-200 border-purple-500/30">
-                        {project.category}
-                      </Badge>
-                    </div>
-                    
-                    <h4 className="text-xl font-bold text-white mb-3">{project.title}</h4>
-                    <p className="text-gray-300 mb-6">{project.description}</p>
-                    
-                    <div className="mb-4">
-                      <h5 className="text-sm font-semibold text-gray-400 mb-3">Technologies:</h5>
-                      <div className="relative overflow-hidden h-10 bg-gray-700/30 rounded-lg">
-                        <motion.div
-                          className="flex items-center gap-3 absolute"
-                          animate={{
-                            x: ["100%", "-100%"]
-                          }}
-                          transition={{
-                            duration: 20,
-                            repeat: Infinity,
-                            ease: "linear"
-                          }}
-                        >
-                          {[...project.technologies, ...project.technologies].map((tech, techIndex) => (
-                            <motion.div
-                              key={techIndex}
-                              className="flex-shrink-0"
-                              whileHover={{ scale: 1.1 }}
-                            >
-                              <Badge className="bg-gradient-to-r from-blue-600/30 to-violet-600/30 text-blue-200 border-blue-500/30 whitespace-nowrap text-xs">
-                                {tech}
-                              </Badge>
-                            </motion.div>
-                          ))}
-                        </motion.div>
-                      </div>
-                    </div>
-                  </div>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
         </motion.div>
 
         {/* GitHub Section */}
