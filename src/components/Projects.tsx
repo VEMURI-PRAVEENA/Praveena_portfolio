@@ -12,11 +12,26 @@ const Projects = () => {
 
   const projects = [
     {
+      title: "FrozenLake: Q-Learning vs Policy Gradient Comparison",
+      description: "Implemented both Q-Learning and Policy Gradient on FrozenLake-v1 using custom rewards. Compared convergence, stability, and average rewards with detailed performance analysis.",
+      technologies: ["OpenAI Gym", "NumPy", "Matplotlib"],
+      github: "#",
+      image: "/lovable-uploads/23a3b416-da2e-4401-a0e6-fd4e28f0be87.png",
+      features: [
+        "Custom reward function implementation",
+        "Compared convergence, stability, and average rewards",
+        "Plotted agent path visualizations and performance metrics"
+      ],
+      category: "Reinforcement Learning",
+      gradient: "from-orange-600/20 to-red-600/20",
+      accentColor: "orange"
+    },
+    {
       title: "Face Mask Detection using CNN",
       description: "Developed and trained a CNN model to classify facial images into 'mask' and 'no mask' with 92%+ accuracy. Implemented real-time video stream detection using OpenCV and deployed .h5 model.",
       technologies: ["TensorFlow", "Keras", "OpenCV", "Matplotlib"],
       github: "https://github.com/VEMURI-PRAVEENA/face-mask--detection",
-      image: "/lovable-uploads/d59bf700-cd97-4455-bd99-d98ab994d176.png",
+      image: "/lovable-uploads/c8b9c2e3-fc6c-4104-9ecf-b758053f3107.png",
       features: [
         "92%+ accuracy CNN model",
         "Real-time video stream detection",
@@ -31,7 +46,7 @@ const Projects = () => {
       description: "Built an RAG-based chatbot using Mistral-7B for over 93% semantic accuracy. Processed 200+ pages of medical PDFs into 500+ semantic chunks using Sentence Transformers + FAISS.",
       technologies: ["LangChain", "HuggingFace", "FAISS", "Streamlit", "Mistral-7B"],
       github: "https://github.com/VEMURI-PRAVEENA/AI-RAG-based-chatbot",
-      image: "/lovable-uploads/040a527c-f572-4a8a-871e-3c809fb8babc.png",
+      image: "/lovable-uploads/45cc1680-66b9-489d-98e4-da000c8073f1.png",
       features: [
         "93%+ semantic accuracy",
         "Processed 200+ pages of medical PDFs → 500+ semantic chunks",
@@ -46,7 +61,7 @@ const Projects = () => {
       description: "An AI-powered deep learning solution that detects and localizes brain tumors in MRI scans using the YOLOv8 object detection model.",
       technologies: ["YOLOv8", "Python", "OpenCV", "PyTorch", "TensorFlow", "Keras", "Matplotlib"],
       github: "https://github.com/VEMURI-PRAVEENA/brain_tumor_detection",
-      image: "/lovable-uploads/13e7dba5-3fcc-4d91-9824-cbbbc32de131.png",
+      image: "/lovable-uploads/3086e08a-35b2-4f11-9f19-548ea6f85747.png",
       features: [
         "Trained YOLOv8 on custom-labeled MRI dataset",
         "Achieved high accuracy, precision, recall, and mAP",
@@ -56,21 +71,6 @@ const Projects = () => {
       category: "AI/ML",
       gradient: "from-green-600/20 to-emerald-600/20",
       accentColor: "green"
-    },
-    {
-      title: "FrozenLake: Q-Learning vs Policy Gradient Comparison",
-      description: "Implemented both Q-Learning and Policy Gradient on FrozenLake-v1 using custom rewards. Compared convergence, stability, and average rewards with detailed performance analysis.",
-      technologies: ["OpenAI Gym", "NumPy", "Matplotlib"],
-      github: "#",
-      image: "/lovable-uploads/e5c94a12-0cf5-4afc-8bb4-0e596ed8b685.png",
-      features: [
-        "Custom reward function implementation",
-        "Compared convergence, stability, and average rewards",
-        "Plotted agent path visualizations and performance metrics"
-      ],
-      category: "Reinforcement Learning",
-      gradient: "from-orange-600/20 to-red-600/20",
-      accentColor: "orange"
     }
   ];
 
@@ -294,7 +294,7 @@ const Projects = () => {
                           <motion.img
                             src={project.image}
                             alt={project.title}
-                            className="w-full h-full object-cover object-center rounded-lg"
+                            className="w-full h-full object-contain rounded-lg"
                             whileHover={{ scale: 1.1 }}
                             transition={{ duration: 0.6 }}
                             loading="eager"
