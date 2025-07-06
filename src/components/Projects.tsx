@@ -14,46 +14,6 @@ const Projects = () => {
 
   const projects = [
     {
-      title: "Face Mask Detection using CNN",
-      description: "Developed and trained a CNN model to classify facial images into 'mask' and 'no mask' with 92%+ accuracy. Implemented real-time video stream detection using OpenCV and deployed .h5 model.",
-      technologies: ["Python", "OpenCV", "Keras", "TensorFlow", "CNN"],
-      github: "https://github.com/VEMURI-PRAVEENA/face-mask--detection",
-      image: "/lovable-uploads/bee8e98b-c8c9-46f4-9aa4-a58047df931f.png",
-      features: [
-        "92%+ accuracy CNN model",
-        "Real-time video stream detection",
-        "Visualized feature maps and interpreted dense layer contributions"
-      ],
-      category: "AI/ML"
-    },
-    {
-      title: "Brain Tumor Detection using YOLOv8",
-      description: "An AI-powered deep learning solution that detects and localizes brain tumors in MRI scans using the YOLOv8 object detection model.",
-      technologies: ["Python", "PyTorch", "YOLOv8", "OpenCV", "TensorFlow"],
-      github: "https://github.com/VEMURI-PRAVEENA/brain_tumor_detection",
-      image: "/lovable-uploads/3354562a-11be-4571-a9e1-6236c2c4fc1e.png",
-      features: [
-        "Trained YOLOv8 (yolov8n.pt) on custom-labeled brain MRI dataset",
-        "Achieved high accuracy, precision, recall, and mAP during evaluation",
-        "Visualized detection results, bounding boxes, and performance metrics",
-        "Exported models for deployment: PyTorch .pt, TensorFlow SavedModel, Keras .h5"
-      ],
-      category: "AI/ML"
-    },
-    {
-      title: "AI Chatbot using RAG with Mistral-7B",
-      description: "Built an RAG-based chatbot using Mistral-7B for over 93% semantic accuracy. Processed 200+ pages of medical PDFs into 500+ semantic chunks using Sentence Transformers + FAISS.",
-      technologies: ["Python", "LangChain", "FAISS", "Mistral-7B", "HuggingFace", "Streamlit"],
-      github: "https://github.com/VEMURI-PRAVEENA/AI-RAG-based-chatbot",
-      image: "/lovable-uploads/671b7658-1179-41fa-b5af-4dff3f4f19c0.png",
-      features: [
-        "93%+ semantic accuracy",
-        "Processed 200+ pages of medical PDFs → 500+ semantic chunks using Sentence Transformers + FAISS",
-        "Integrated LangChain QA pipeline for dynamic context retrieval from vector DB"
-      ],
-      category: "AI/ML"
-    },
-    {
       title: "FrozenLake: Q-Learning vs Policy Gradient Comparison",
       description: "Implemented both Q-Learning and Policy Gradient on FrozenLake-v1 using custom rewards. Compared convergence, stability, and average rewards with detailed performance analysis.",
       technologies: ["OpenAI Gym", "NumPy", "Matplotlib"],
@@ -65,6 +25,21 @@ const Projects = () => {
         "Plotted agent path visualizations and performance metrics"
       ],
       category: "Reinforcement Learning"
+    }
+  ];
+
+  const comingSoonProjects = [
+    {
+      title: "RAG-based Chatbot",
+      description: "AI-powered chatbot using Retrieval-Augmented Generation with advanced language models for enhanced conversational experiences.",
+      technologies: ["Python", "LangChain", "FAISS", "Mistral-7B", "HuggingFace", "Streamlit"],
+      category: "AI/ML"
+    },
+    {
+      title: "Face Mask Detection",
+      description: "Computer vision system for real-time face mask detection using deep learning and convolutional neural networks.",
+      technologies: ["TensorFlow", "Keras", "CNN", "OpenCV", "Python"],
+      category: "Computer Vision"
     }
   ];
 
@@ -154,7 +129,7 @@ const Projects = () => {
           </motion.p>
         </motion.div>
 
-        {/* Projects Grid - Row Layout */}
+        {/* Projects Grid */}
         <motion.div 
           className="space-y-12"
           variants={containerVariants}
@@ -313,81 +288,91 @@ const Projects = () => {
           ))}
         </motion.div>
 
-        {/* Profile Section */}
+        {/* Coming Soon Section */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 1.2 }}
-          className="mt-20"
-        >
-          <Card className="bg-gradient-to-r from-blue-600/10 to-purple-600/10 backdrop-blur-sm border-gray-600 shadow-xl overflow-hidden">
-            <div className="grid lg:grid-cols-2 gap-8 p-8 items-center">
-              {/* Profile Image */}
-              <motion.div
-                className="flex justify-center lg:justify-start"
-                whileHover={{ scale: 1.05, y: -5 }}
-                transition={{ duration: 0.3 }}
-              >
-                <div className="relative">
-                  <motion.div
-                    className="w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden"
-                    animate={{
-                      boxShadow: [
-                        "0 0 0 3px rgba(255, 255, 255, 0.3)",
-                        "0 0 0 3px rgba(255, 255, 255, 0.8)",
-                        "0 0 0 3px rgba(255, 255, 255, 0.3)"
-                      ]
-                    }}
-                    transition={{
-                      duration: 2,
-                      repeat: Infinity,
-                      ease: "easeInOut"
-                    }}
-                  >
-                    <img
-                      src="/lovable-uploads/083d0974-fea5-443f-9825-24ec47cdcc70.png"
-                      alt="Vemuri Praveena"
-                      className="w-full h-full object-cover"
-                    />
-                  </motion.div>
-                </div>
-              </motion.div>
-
-              {/* Profile Text */}
-              <div className="text-center lg:text-left">
-                <motion.h3 
-                  className="text-3xl md:text-4xl font-bold text-white mb-3"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.6, delay: 1.4 }}
-                >
-                  Hi, I'm Vemuri Praveena
-                </motion.h3>
-                <motion.p 
-                  className="text-xl text-gray-300 mb-6"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.6, delay: 1.6 }}
-                >
-                  AI & ML Engineer | Data Science Enthusiast | Cloud Explorer
-                </motion.p>
-              </div>
-            </div>
-          </Card>
-        </motion.div>
-
-        {/* GitHub Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 1.4 }}
+          transition={{ duration: 0.8, delay: 1.0 }}
           className="mt-20"
         >
           <motion.h3 
             className="text-3xl md:text-4xl font-bold text-white mb-8 text-center"
             initial={{ opacity: 0, scale: 0.5 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ duration: 0.8, delay: 1.6 }}
+            transition={{ duration: 0.8, delay: 1.2 }}
+          >
+            Coming Soon
+          </motion.h3>
+          
+          <div className="grid md:grid-cols-2 gap-8">
+            {comingSoonProjects.map((project, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: 1.4 + (index * 0.2) }}
+              >
+                <Card className="bg-gradient-to-r from-purple-600/10 to-blue-600/10 backdrop-blur-sm border-gray-600 shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500">
+                  <div className="p-8">
+                    <div className="flex items-center gap-3 mb-4">
+                      <Badge className="bg-gradient-to-r from-orange-500/20 to-yellow-500/20 text-orange-200 border-orange-500/30">
+                        Coming Soon
+                      </Badge>
+                      <Badge className="bg-gradient-to-r from-purple-600/20 to-blue-600/20 text-purple-200 border-purple-500/30">
+                        {project.category}
+                      </Badge>
+                    </div>
+                    
+                    <h4 className="text-xl font-bold text-white mb-3">{project.title}</h4>
+                    <p className="text-gray-300 mb-6">{project.description}</p>
+                    
+                    <div className="mb-4">
+                      <h5 className="text-sm font-semibold text-gray-400 mb-3">Technologies:</h5>
+                      <div className="relative overflow-hidden h-10 bg-gray-700/30 rounded-lg">
+                        <motion.div
+                          className="flex items-center gap-3 absolute"
+                          animate={{
+                            x: ["100%", "-100%"]
+                          }}
+                          transition={{
+                            duration: 20,
+                            repeat: Infinity,
+                            ease: "linear"
+                          }}
+                        >
+                          {[...project.technologies, ...project.technologies].map((tech, techIndex) => (
+                            <motion.div
+                              key={techIndex}
+                              className="flex-shrink-0"
+                              whileHover={{ scale: 1.1 }}
+                            >
+                              <Badge className="bg-gradient-to-r from-blue-600/30 to-violet-600/30 text-blue-200 border-blue-500/30 whitespace-nowrap text-xs">
+                                {tech}
+                              </Badge>
+                            </motion.div>
+                          ))}
+                        </motion.div>
+                      </div>
+                    </div>
+                  </div>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* GitHub Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 1.8 }}
+          className="mt-20"
+        >
+          <motion.h3  
+            className="text-3xl md:text-4xl font-bold text-white mb-8 text-center"
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={isInView ? { opacity: 1, scale: 1 } : {}}
+            transition={{ duration: 0.8, delay: 2.0 }}
           >
             My GitHub
           </motion.h3>
@@ -435,7 +420,7 @@ const Projects = () => {
                     onClick={() => window.open("https://github.com/VEMURI-PRAVEENA", "_blank")}
                   >
                     <Github size={20} className="mr-2" />
-                    👉 GitHub
+                    👉 View My GitHub
                     <motion.span
                       className="ml-2"
                       animate={{ x: [0, 3, 0] }}
@@ -446,85 +431,6 @@ const Projects = () => {
                   </Button>
                 </motion.div>
               </div>
-            </div>
-          </Card>
-        </motion.div>
-
-        {/* Coming Soon Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 1.6 }}
-          className="mt-20"
-        >
-          <motion.h3 
-            className="text-3xl md:text-4xl font-bold text-white mb-8 text-center"
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={isInView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ duration: 0.8, delay: 1.8 }}
-          >
-            Coming Soon
-          </motion.h3>
-          
-          <Card className="bg-gradient-to-r from-purple-600/10 to-blue-600/10 backdrop-blur-sm border-gray-600 shadow-xl overflow-hidden">
-            <div className="p-12 text-center">
-              <motion.div
-                animate={{ 
-                  scale: [1, 1.1, 1],
-                  rotate: [0, 5, -5, 0]
-                }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-                className="text-6xl mb-4"
-              >
-                🚀
-              </motion.div>
-              <motion.h4 
-                className="text-2xl font-bold text-white mb-4"
-                initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 2.0 }}
-              >
-                Exciting Projects in Development
-              </motion.h4>
-              <motion.p 
-                className="text-lg text-gray-300 max-w-2xl mx-auto"
-                initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 2.2 }}
-              >
-                Working on innovative AI solutions, advanced deep learning models, and cutting-edge applications. 
-                Stay tuned for more amazing projects!
-              </motion.p>
-              
-              <motion.div
-                className="mt-8 flex justify-center space-x-4"
-                initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 2.4 }}
-              >
-                {["🤖", "🔬", "💡", "⚡"].map((emoji, index) => (
-                  <motion.div
-                    key={index}
-                    animate={{ 
-                      y: [0, -10, 0],
-                      scale: [1, 1.2, 1]
-                    }}
-                    transition={{
-                      duration: 2,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                      delay: index * 0.5
-                    }}
-                    className="text-2xl"
-                  >
-                    {emoji}
-                  </motion.div>
-                ))}
-              </motion.div>
             </div>
           </Card>
         </motion.div>

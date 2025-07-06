@@ -9,7 +9,7 @@ const ProfileImage = () => {
   const roles = [
     "AI & ML Engineer",
     "Data Science Enthusiast", 
-    "Software Engineer"
+    "Cloud Explorer"
   ];
 
   useEffect(() => {
@@ -54,7 +54,7 @@ const ProfileImage = () => {
             <div className="w-full h-full rounded-full bg-gradient-to-br from-blue-400 via-violet-500 to-emerald-400 p-1 animate-gradient-slow shadow-lg">
               <div className="w-full h-full rounded-full overflow-hidden bg-gray-800 relative group-hover:scale-105 transition-transform duration-700 shadow-inner">
                 <img
-                  src="/lovable-uploads/19346197-3c39-44a9-bade-fed3fb392a19.png"
+                  src="/lovable-uploads/8813f753-f649-4df4-8926-a6e212c60f3a.png"
                   alt="Vemuri Praveena profile photo"
                   className="w-full h-full object-cover"
                 />
@@ -127,7 +127,7 @@ const ProfileImage = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.8, ease: "easeInOut" }}
               className="text-lg md:text-xl text-gray-300 font-medium"
             >
               {roles[currentRole]}
