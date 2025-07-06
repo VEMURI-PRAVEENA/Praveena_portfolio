@@ -305,6 +305,32 @@ const Projects = () => {
                             transition={{ duration: 0.4 }}
                           />
                         </div>
+                        
+                        {/* Key Features moved below image */}
+                        <div className="mt-6 space-y-3">
+                          <h4 className="font-semibold text-white text-base">Key Features:</h4>
+                          <ul className="text-sm text-gray-300 space-y-2">
+                            {project.features.slice(0, 3).map((feature, featureIndex) => (
+                              <motion.li
+                                key={featureIndex}
+                                initial={{ opacity: 0, x: -30 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ 
+                                  duration: 0.3,
+                                  delay: (index * 0.05) + (featureIndex * 0.05) + 0.3
+                                }}
+                                className="flex items-start"
+                              >
+                                <motion.span 
+                                  className={`w-2 h-2 ${accentColors.bg} rounded-full mr-3 flex-shrink-0 mt-2`}
+                                  whileHover={{ scale: 2, rotate: 180 }}
+                                  transition={{ duration: 0.3 }}
+                                />
+                                <span className="leading-relaxed">{feature}</span>
+                              </motion.li>
+                            ))}
+                          </ul>
+                        </div>
                       </motion.div>
 
                       <div className="flex flex-col justify-between">
@@ -358,33 +384,9 @@ const Projects = () => {
                               </motion.div>
                             </div>
                           </div>
-
-                          <div className="space-y-3 mb-8">
-                            <h4 className="font-semibold text-white text-base">Key Features:</h4>
-                            <ul className="text-sm text-gray-300 space-y-2">
-                              {project.features.slice(0, 3).map((feature, featureIndex) => (
-                                <motion.li
-                                  key={featureIndex}
-                                  initial={{ opacity: 0, x: -30 }}
-                                  animate={{ opacity: 1, x: 0 }}
-                                  transition={{ 
-                                    duration: 0.3,
-                                    delay: (index * 0.05) + (featureIndex * 0.05) + 0.3
-                                  }}
-                                  className="flex items-start"
-                                >
-                                  <motion.span 
-                                    className={`w-2 h-2 ${accentColors.bg} rounded-full mr-3 flex-shrink-0 mt-2`}
-                                    whileHover={{ scale: 2, rotate: 180 }}
-                                    transition={{ duration: 0.3 }}
-                                  />
-                                  <span className="leading-relaxed">{feature}</span>
-                                </motion.li>
-                              ))}
-                            </ul>
-                          </div>
                         </div>
 
+                        {/* GitHub link moved below tools */}
                         <motion.div
                           whileHover={{ scale: 1.05 }}
                           whileTap={{ scale: 0.98 }}
