@@ -2,7 +2,7 @@ import { useState, useRef } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Github } from "lucide-react";
+import { Github, ExternalLink } from "lucide-react";
 import { motion, useInView } from "framer-motion";
 
 const Projects = () => {
@@ -15,8 +15,8 @@ const Projects = () => {
       title: "Real-Time Driver Distraction Detection System",
       description: "Built a multi-branch CNN to classify 10 driver activities with reliable performance. Improved generalization on minority classes using data augmentation and weighted loss.",
       technologies: ["Python", "TensorFlow", "Keras", "OpenCV"],
-      github: "https://github.com/VEMURI-PRAVEENA",
-      image: "/lovable-uploads/d59bf700-cd97-4455-bd99-d98ab994d176.png",
+      github: "https://github.com/VEMURI-PRAVEENA/Driver-Distraction-Detection-",
+      image: "/lovable-uploads/driver-distraction.png",
       features: [
         "Multi-branch CNN for 10 activity classification",
         "Data augmentation and weighted loss for minority classes",
@@ -31,7 +31,7 @@ const Projects = () => {
       description: "Developed a document-based Q&A application with summarisation, MCQ generation, notes and concept explanation features using FAISS-based vector search.",
       technologies: ["Python", "Streamlit", "LangChain", "LangGraph", "FAISS"],
       github: "https://github.com/VEMURI-PRAVEENA/AI-RAG-based-chatbot",
-      image: "/lovable-uploads/040a527c-f572-4a8a-871e-3c809fb8babc.png",
+      image: "/lovable-uploads/multi-agentic-rag.png",
       features: [
         "Document Q&A with summarisation and MCQ generation",
         "FAISS-based vector search with LLM inference",
@@ -45,8 +45,8 @@ const Projects = () => {
       title: "SmartStore Navigator — AI-Powered Retail Assistant",
       description: "Implemented voice-based product search, smart cart and aisle-level recommendations using LLM reasoning. Full-stack development during Walmart Sparkathon.",
       technologies: ["GPT-4", "Lovable AI", "Python", "Streamlit"],
-      github: "https://github.com/VEMURI-PRAVEENA",
-      image: "/lovable-uploads/13e7dba5-3fcc-4d91-9824-cbbbc32de131.png",
+      liveLink: "https://smart-shopping-assistant.lovable.app/",
+      image: "/lovable-uploads/smartstore-navigator.png",
       features: [
         "Voice-based product search with LLM reasoning",
         "Smart cart and aisle-level recommendations",
@@ -60,8 +60,8 @@ const Projects = () => {
       title: "Brain Tumor Detection using YOLOv8",
       description: "An AI-powered deep learning solution that detects and localizes brain tumors in MRI scans using the YOLOv8 object detection model.",
       technologies: ["YOLOv8", "Python", "OpenCV", "PyTorch", "TensorFlow"],
-      github: "https://github.com/VEMURI-PRAVEENA/brain_tumor_detection",
-      image: "/lovable-uploads/e5c94a12-0cf5-4afc-8bb4-0e596ed8b685.png",
+      github: "http://github.com/VEMURI-PRAVEENA/brain_tumor_detection",
+      image: "/lovable-uploads/brain-tumor.jpg",
       features: [
         "Trained YOLOv8 on custom-labeled MRI dataset",
         "High accuracy, precision, recall, and mAP",
@@ -70,6 +70,51 @@ const Projects = () => {
       category: "Computer Vision",
       gradient: "from-orange-600/20 to-red-600/20",
       accentColor: "orange"
+    },
+    {
+      title: "Face Mask Detection using CNN",
+      description: "Developed and trained a CNN model to classify facial images into 'mask' and 'no mask' with 92%+ accuracy. Implemented real-time video stream detection using OpenCV and deployed .h5 model.",
+      technologies: ["TensorFlow", "Keras", "OpenCV", "Matplotlib"],
+      github: "https://github.com/VEMURI-PRAVEENA/face-mask-detection",
+      image: "/lovable-uploads/face-mask.png",
+      features: [
+        "92%+ accuracy CNN model",
+        "Real-time video stream detection",
+        "Visualized feature maps and interpreted dense layer contributions"
+      ],
+      category: "AI/ML",
+      gradient: "from-teal-600/20 to-cyan-600/20",
+      accentColor: "blue"
+    },
+    {
+      title: "AI Chatbot using RAG with Mistral-7B",
+      description: "Built an RAG-based chatbot using Mistral-7B for over 93% semantic accuracy. Processed 200+ pages of medical PDFs into 500+ semantic chunks using Sentence Transformers + FAISS.",
+      technologies: ["LangChain", "HuggingFace", "FAISS", "Streamlit", "Mistral-7B"],
+      github: "https://github.com/VEMURI-PRAVEENA/AI-RAG-based-chatbot",
+      image: "/lovable-uploads/ai-chatbot-rag.png",
+      features: [
+        "93%+ semantic accuracy",
+        "Processed 200+ pages of medical PDFs → 500+ semantic chunks",
+        "Integrated LangChain QA pipeline for dynamic context retrieval"
+      ],
+      category: "GenAI",
+      gradient: "from-amber-600/20 to-yellow-600/20",
+      accentColor: "orange"
+    },
+    {
+      title: "FrozenLake: Q-Learning vs Policy Gradient",
+      description: "Implemented both Q-Learning and Policy Gradient on FrozenLake-v1 using custom rewards. Compared convergence, stability, and average rewards with detailed performance analysis.",
+      technologies: ["OpenAI Gym", "NumPy", "Matplotlib"],
+      github: "https://github.com/VEMURI-PRAVEENA/Frozen--lake",
+      image: "/lovable-uploads/frozenlake.jpg",
+      features: [
+        "Custom reward function implementation",
+        "Compared convergence, stability, and average rewards",
+        "Plotted agent path visualizations and performance metrics"
+      ],
+      category: "Reinforcement Learning",
+      gradient: "from-indigo-600/20 to-violet-600/20",
+      accentColor: "purple"
     }
   ];
 
@@ -384,32 +429,64 @@ const Projects = () => {
                           </div>
                         </div>
 
-                        <motion.div
-                          whileHover={{ scale: 1.05 }}
-                          whileTap={{ scale: 0.98 }}
-                          className="mt-auto"
-                        >
-                          <Button
-                            className={`w-full bg-gradient-to-r from-gray-700 to-gray-600 hover:from-gray-600 hover:to-${project.accentColor}-600/80 text-white transition-all duration-500 shadow-lg hover:shadow-xl text-base py-3`}
-                            onClick={() => window.open(project.github, "_blank")}
-                          >
+                        <div className="mt-auto flex gap-3">
+                          {project.github && (
                             <motion.div
-                              className="flex items-center justify-center"
-                              whileHover={{ x: 5 }}
-                              transition={{ duration: 0.3 }}
+                              whileHover={{ scale: 1.05 }}
+                              whileTap={{ scale: 0.98 }}
+                              className="flex-1"
                             >
-                              <Github size={18} className="mr-2" />
-                              View on GitHub
-                              <motion.span
-                                className="ml-2"
-                                animate={{ x: [0, 5, 0] }}
-                                transition={{ duration: 2, repeat: Infinity }}
+                              <Button
+                                className={`w-full bg-gradient-to-r from-gray-700 to-gray-600 hover:from-gray-600 hover:to-${project.accentColor}-600/80 text-white transition-all duration-500 shadow-lg hover:shadow-xl text-base py-3`}
+                                onClick={() => window.open(project.github, "_blank")}
                               >
-                                →
-                              </motion.span>
+                                <motion.div
+                                  className="flex items-center justify-center"
+                                  whileHover={{ x: 5 }}
+                                  transition={{ duration: 0.3 }}
+                                >
+                                  <Github size={18} className="mr-2" />
+                                  View on GitHub
+                                  <motion.span
+                                    className="ml-2"
+                                    animate={{ x: [0, 5, 0] }}
+                                    transition={{ duration: 2, repeat: Infinity }}
+                                  >
+                                    →
+                                  </motion.span>
+                                </motion.div>
+                              </Button>
                             </motion.div>
-                          </Button>
-                        </motion.div>
+                          )}
+                          {project.liveLink && (
+                            <motion.div
+                              whileHover={{ scale: 1.05 }}
+                              whileTap={{ scale: 0.98 }}
+                              className="flex-1"
+                            >
+                              <Button
+                                className={`w-full bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-500 hover:to-emerald-500 text-white transition-all duration-500 shadow-lg hover:shadow-xl text-base py-3`}
+                                onClick={() => window.open(project.liveLink, "_blank")}
+                              >
+                                <motion.div
+                                  className="flex items-center justify-center"
+                                  whileHover={{ x: 5 }}
+                                  transition={{ duration: 0.3 }}
+                                >
+                                  <ExternalLink size={18} className="mr-2" />
+                                  Live Demo
+                                  <motion.span
+                                    className="ml-2"
+                                    animate={{ x: [0, 5, 0] }}
+                                    transition={{ duration: 2, repeat: Infinity }}
+                                  >
+                                    →
+                                  </motion.span>
+                                </motion.div>
+                              </Button>
+                            </motion.div>
+                          )}
+                        </div>
                       </div>
                     </div>
                   </div>
