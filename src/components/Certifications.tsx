@@ -117,6 +117,78 @@ const Certifications = () => {
       skills: ["Business Communication", "Professional Writing", "Email Etiquette"],
       logo: "🟢",
       verified: true
+    },
+    {
+      title: "Introduction to OpenAI GPT Models",
+      issuer: "Infosys Springboard",
+      date: "June 2025",
+      description: "Comprehensive introduction to OpenAI's GPT models, architecture, and applications.",
+      skills: ["GPT Models", "OpenAI", "Language Models", "AI Applications"],
+      logo: "🟢",
+      verified: true
+    },
+    {
+      title: "Introduction to Natural Language Processing",
+      issuer: "Infosys Springboard",
+      date: "June 2025",
+      description: "Foundational course in NLP covering text processing, sentiment analysis, and language understanding.",
+      skills: ["NLP", "Text Processing", "Sentiment Analysis", "Tokenization"],
+      logo: "🟢",
+      verified: true
+    },
+    {
+      title: "Introduction to Deep Learning",
+      issuer: "Infosys Springboard",
+      date: "June 2025",
+      description: "Introduction to deep learning concepts, neural network architectures, and practical applications.",
+      skills: ["Deep Learning", "Neural Networks", "Backpropagation", "Activation Functions"],
+      logo: "🟢",
+      verified: true
+    },
+    {
+      title: "Introduction to Artificial Intelligence",
+      issuer: "Infosys Springboard",
+      date: "June 2025",
+      description: "Foundational course covering AI concepts, history, applications, and future trends.",
+      skills: ["AI Fundamentals", "Machine Learning Basics", "AI Ethics", "AI Applications"],
+      logo: "🟢",
+      verified: true
+    },
+    {
+      title: "Computer Vision 101",
+      issuer: "Infosys Springboard",
+      date: "June 2025",
+      description: "Introduction to computer vision including image processing, object detection, and visual recognition.",
+      skills: ["Computer Vision", "Image Processing", "Object Detection", "OpenCV"],
+      logo: "🟢",
+      verified: true
+    },
+    {
+      title: "Introduction to Robotic Process Automation",
+      issuer: "Infosys Springboard",
+      date: "June 2025",
+      description: "Comprehensive introduction to RPA concepts, tools, and automation strategies.",
+      skills: ["RPA", "Process Automation", "Bot Development", "Workflow Automation"],
+      logo: "🟢",
+      verified: true
+    },
+    {
+      title: "High Impact Presentations",
+      issuer: "Infosys Springboard",
+      date: "June 2025",
+      description: "Training on creating and delivering effective, high-impact presentations.",
+      skills: ["Presentation Skills", "Public Speaking", "Visual Design", "Storytelling"],
+      logo: "🟢",
+      verified: true
+    },
+    {
+      title: "Time Management",
+      issuer: "Infosys Springboard",
+      date: "June 2025",
+      description: "Effective time management techniques and productivity strategies for professionals.",
+      skills: ["Time Management", "Productivity", "Prioritization", "Goal Setting"],
+      logo: "🟢",
+      verified: true
     }
   ];
 
