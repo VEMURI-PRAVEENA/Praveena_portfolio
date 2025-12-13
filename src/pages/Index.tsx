@@ -9,13 +9,14 @@ import About from "@/components/About";
 import Contact from "@/components/Contact";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import Experience from "@/components/Experience";
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["home", "projects", "skills", "techstack", "certifications", "about", "contact"];
+      const sections = ["home", "experience", "projects", "skills", "techstack", "certifications", "about", "contact"];
       const scrollPosition = window.scrollY + 100;
 
       for (const section of sections) {
@@ -40,6 +41,9 @@ const Index = () => {
       <main>
         <section id="home">
           <Hero />
+        </section>
+        <section id="experience">
+          <Experience />
         </section>
         <section id="projects">
           <Projects />

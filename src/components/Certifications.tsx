@@ -6,15 +6,25 @@ import { ExternalLink, Award, Calendar, Star, Shield } from "lucide-react";
 const Certifications = () => {
   const certifications = [
     {
-      title: "Oracle Certified Foundations Associate",
+      title: "Oracle AI Associate",
       issuer: "Oracle Corporation",
-      date: "February 14, 2025",
+      date: "February 2025",
       description: "Oracle Cloud Infrastructure 2024 Certified AI Foundations Associate. Gained expertise in machine learning concepts, OCR, classification, and chatbot services on OCI.",
       skills: ["Machine Learning", "OCR", "Classification", "Chatbot Services", "Oracle Cloud Infrastructure"],
       logo: "🔵",
       verified: true,
       certificateImage: "/lovable-uploads/e65abdeb-29a8-4028-8f4a-dc194b664bae.png",
       hasImage: true
+    },
+    {
+      title: "Infosys AI Primer Certification",
+      issuer: "Infosys",
+      date: "June 2025",
+      description: "Completed comprehensive AI fundamentals training covering machine learning, deep learning, and AI applications in enterprise solutions.",
+      skills: ["AI Fundamentals", "Machine Learning", "Deep Learning", "Enterprise AI"],
+      logo: "🟢",
+      verified: true,
+      badgeImage: "/lovable-uploads/25563a4a-4ff6-4515-bd5c-e24295030ce2.png"
     },
     {
       title: "AWS Academy Graduate - Cloud Architecting",
@@ -26,34 +36,23 @@ const Certifications = () => {
       verified: true,
       credlyLink: "https://www.credly.com/badges/ccd123a3-5223-4402-87bb-66c0f663cfa4",
       badgeImage: "/lovable-uploads/ef6fef7f-0326-4265-82c2-2a90c6bb127e.png"
-    },
-    {
-      title: "AWS Academy Graduate - Cloud Foundations",
-      issuer: "Amazon Web Services",
-      date: "2024",
-      description: "Completed foundational training on AWS cloud concepts, services, and best practices.",
-      skills: ["AWS Basics", "Cloud Computing", "EC2", "S3", "Security", "Pricing"],
-      logo: "🟠",
-      verified: true,
-      badgeImage: "/lovable-uploads/25563a4a-4ff6-4515-bd5c-e24295030ce2.png",
-      isCloudFoundations: true
     }
   ];
 
   const achievements = [
     {
-      title: "Content Creator",
-      organization: "Think & Thrive & CSI Clubs, VIT-AP",
+      title: "Technical Content Creator",
+      organization: "CSI Club (Think & Thrive), VIT-AP",
       period: "Dec 2022 – Jun 2024",
-      description: "Produced mental-wellness infographics and technical posts that boosted Instagram reach by 35% and lifted event attendance by 30%.",
-      impact: ["35% Instagram reach increase", "30% event attendance boost", "Mental wellness advocacy"]
+      description: "Increased social media reach by 35% and boosted event participation by 30% through data-driven technical content and consistent engagement.",
+      impact: ["35% social media reach increase", "30% event participation boost", "Data-driven content strategy"]
     },
     {
       title: "Academic Excellence",
       organization: "VIT AP University",
       period: "2022 – Present",
-      description: "Maintaining exceptional academic performance with CGPA of 8.88/10 in B.Tech CSE (AI & ML).",
-      impact: ["8.88/10 CGPA", "AI & ML Specialization", "Dean's List"]
+      description: "Maintaining exceptional academic performance with CGPA of 8.91/10 in B.Tech CSE (AI & ML).",
+      impact: ["8.91/10 CGPA", "AI & ML Specialization", "Dean's List"]
     }
   ];
 
@@ -169,7 +168,7 @@ const Certifications = () => {
                   >
                     <ExternalLink size={16} className="mr-2" />
                     <span>
-                      {cert.isCloudFoundations ? "🔗 Verify Credential" : cert.credlyLink ? "Verify Credential" : "View Certificate"}
+                      {cert.credlyLink ? "Verify Credential" : "View Certificate"}
                     </span>
                   </Button>
                 </CardContent>

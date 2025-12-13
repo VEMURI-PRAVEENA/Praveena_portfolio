@@ -12,63 +12,62 @@ const Projects = () => {
 
   const projects = [
     {
-      title: "Face Mask Detection using CNN",
-      description: "Developed and trained a CNN model to classify facial images into 'mask' and 'no mask' with 92%+ accuracy. Implemented real-time video stream detection using OpenCV and deployed .h5 model.",
-      technologies: ["TensorFlow", "Keras", "OpenCV", "Matplotlib"],
-      github: "https://github.com/VEMURI-PRAVEENA/face-mask--detection",
+      title: "Real-Time Driver Distraction Detection System",
+      description: "Built a multi-branch CNN to classify 10 driver activities with reliable performance. Improved generalization on minority classes using data augmentation and weighted loss.",
+      technologies: ["Python", "TensorFlow", "Keras", "OpenCV"],
+      github: "https://github.com/VEMURI-PRAVEENA",
       image: "/lovable-uploads/d59bf700-cd97-4455-bd99-d98ab994d176.png",
       features: [
-        "92%+ accuracy CNN model",
-        "Real-time video stream detection",
-        "Visualized feature maps and interpreted dense layer contributions"
+        "Multi-branch CNN for 10 activity classification",
+        "Data augmentation and weighted loss for minority classes",
+        "Evaluated with confusion matrix and per-class accuracy metrics"
       ],
-      category: "AI/ML",
+      category: "Deep Learning",
       gradient: "from-blue-600/20 to-cyan-600/20",
       accentColor: "blue"
     },
     {
-      title: "AI Chatbot using RAG with Mistral-7B",
-      description: "Built an RAG-based chatbot using Mistral-7B for over 93% semantic accuracy. Processed 200+ pages of medical PDFs into 500+ semantic chunks using Sentence Transformers + FAISS.",
-      technologies: ["LangChain", "HuggingFace", "FAISS", "Streamlit", "Mistral-7B"],
+      title: "Multi-Agentic RAG System",
+      description: "Developed a document-based Q&A application with summarisation, MCQ generation, notes and concept explanation features using FAISS-based vector search.",
+      technologies: ["Python", "Streamlit", "LangChain", "LangGraph", "FAISS"],
       github: "https://github.com/VEMURI-PRAVEENA/AI-RAG-based-chatbot",
       image: "/lovable-uploads/040a527c-f572-4a8a-871e-3c809fb8babc.png",
       features: [
-        "93%+ semantic accuracy",
-        "Processed 200+ pages of medical PDFs → 500+ semantic chunks",
-        "Integrated LangChain QA pipeline for dynamic context retrieval"
+        "Document Q&A with summarisation and MCQ generation",
+        "FAISS-based vector search with LLM inference",
+        "Session-aware memory and modular tool agents"
       ],
-      category: "AI/ML",
+      category: "GenAI",
       gradient: "from-purple-600/20 to-pink-600/20",
       accentColor: "purple"
     },
     {
-      title: "Brain Tumor Detection using YOLOv8",
-      description: "An AI-powered deep learning solution that detects and localizes brain tumors in MRI scans using the YOLOv8 object detection model.",
-      technologies: ["YOLOv8", "Python", "OpenCV", "PyTorch", "TensorFlow", "Keras", "Matplotlib"],
-      github: "https://github.com/VEMURI-PRAVEENA/brain_tumor_detection",
+      title: "SmartStore Navigator — AI-Powered Retail Assistant",
+      description: "Implemented voice-based product search, smart cart and aisle-level recommendations using LLM reasoning. Full-stack development during Walmart Sparkathon.",
+      technologies: ["GPT-4", "Lovable AI", "Python", "Streamlit"],
+      github: "https://github.com/VEMURI-PRAVEENA",
       image: "/lovable-uploads/13e7dba5-3fcc-4d91-9824-cbbbc32de131.png",
       features: [
-        "Trained YOLOv8 on custom-labeled MRI dataset",
-        "Achieved high accuracy, precision, recall, and mAP",
-        "Visualized bounding boxes and performance metrics",
-        "Exported to: PyTorch .pt, TensorFlow SavedModel, Keras .h5"
+        "Voice-based product search with LLM reasoning",
+        "Smart cart and aisle-level recommendations",
+        "Route optimisation and auto re-routing"
       ],
       category: "AI/ML",
       gradient: "from-green-600/20 to-emerald-600/20",
       accentColor: "green"
     },
     {
-      title: "FrozenLake: Q-Learning vs Policy Gradient Comparison",
-      description: "Implemented both Q-Learning and Policy Gradient on FrozenLake-v1 using custom rewards. Compared convergence, stability, and average rewards with detailed performance analysis.",
-      technologies: ["OpenAI Gym", "NumPy", "Matplotlib"],
-      github: "#",
+      title: "Brain Tumor Detection using YOLOv8",
+      description: "An AI-powered deep learning solution that detects and localizes brain tumors in MRI scans using the YOLOv8 object detection model.",
+      technologies: ["YOLOv8", "Python", "OpenCV", "PyTorch", "TensorFlow"],
+      github: "https://github.com/VEMURI-PRAVEENA/brain_tumor_detection",
       image: "/lovable-uploads/e5c94a12-0cf5-4afc-8bb4-0e596ed8b685.png",
       features: [
-        "Custom reward function implementation",
-        "Compared convergence, stability, and average rewards",
-        "Plotted agent path visualizations and performance metrics"
+        "Trained YOLOv8 on custom-labeled MRI dataset",
+        "High accuracy, precision, recall, and mAP",
+        "Exported to PyTorch .pt, TensorFlow SavedModel, Keras .h5"
       ],
-      category: "Reinforcement Learning",
+      category: "Computer Vision",
       gradient: "from-orange-600/20 to-red-600/20",
       accentColor: "orange"
     }

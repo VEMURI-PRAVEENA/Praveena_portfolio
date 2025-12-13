@@ -65,10 +65,10 @@ const About = () => {
                   <h3 className="text-2xl font-bold text-white">Career Objective</h3>
                 </div>
                 <p className="text-gray-300 leading-relaxed">
-                  Goal-driven AI and Data Science enthusiast with hands-on experience in building 
-                  intelligent systems, cloud-native applications, and data-driven solutions. 
-                  Passionate about developing impactful ML models, deploying at scale, and 
-                  contributing to the AI ecosystem.
+                  Results-driven AI Engineer with hands-on experience in NLP, computer vision and generative AI. 
+                  Skilled in building and deploying end-to-end ML systems including LLM-powered applications, 
+                  deep learning models and scalable RAG solutions. Strong foundation in model training, 
+                  evaluation, optimisation and MLOps, with a focus on practical AI applications.
                 </p>
               </CardContent>
             </Card>
@@ -85,7 +85,7 @@ const About = () => {
                   <div className="border-l-4 border-blue-500 pl-6">
                     <h4 className="text-lg font-semibold text-white">B.Tech in CSE (AI & ML)</h4>
                     <p className="text-blue-400 font-medium">VIT AP University, Amaravati</p>
-                    <p className="text-gray-300">2022 – 2026 • CGPA: 8.88/10</p>
+                    <p className="text-gray-300">2022 – 2026 • CGPA: 8.91/10</p>
                   </div>
                   
                   <div className="border-l-4 border-purple-500 pl-6">
@@ -106,11 +106,11 @@ const About = () => {
             {/* Quick Stats */}
             <div className="grid grid-cols-2 gap-4">
               <Card className="text-center p-6 hover:shadow-lg transition-all duration-300 bg-[#1e1e2f] border-gray-600 hover:shadow-blue-500/20">
-                <div className="text-3xl font-bold text-blue-400 mb-2">8.88</div>
+                <div className="text-3xl font-bold text-blue-400 mb-2">8.91</div>
                 <p className="text-gray-300">Current CGPA</p>
               </Card>
               <Card className="text-center p-6 hover:shadow-lg transition-all duration-300 bg-[#1e1e2f] border-gray-600 hover:shadow-purple-500/20">
-                <div className="text-3xl font-bold text-purple-400 mb-2">3+</div>
+                <div className="text-3xl font-bold text-purple-400 mb-2">7+</div>
                 <p className="text-gray-300">Major Projects</p>
               </Card>
             </div>

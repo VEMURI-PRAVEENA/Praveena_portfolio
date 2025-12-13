@@ -11,39 +11,39 @@ const Skills = () => {
   const skillCategories = [
     {
       category: "Programming Languages",
-      skills: ["Python", "Java", "HTML", "CSS", "SQL"],
+      skills: ["Python", "Java", "SQL"],
       color: "bg-blue-600/20 text-blue-300 border-blue-500/30",
       icon: "💻"
     },
     {
-      category: "AI & Machine Learning",
-      skills: ["Transformers", "Prompt Engineering", "RAG", "Model Optimization", "Deep Learning"],
+      category: "ML / DL Frameworks",
+      skills: ["TensorFlow", "PyTorch", "scikit-learn", "Keras"],
       color: "bg-purple-600/20 text-purple-300 border-purple-500/30",
       icon: "🤖"
     },
     {
-      category: "Data Analytics",
-      skills: ["Data Cleaning", "Preprocessing", "Statistical Modeling", "ML Algorithms"],
+      category: "NLP & GenAI",
+      skills: ["Hugging Face", "LangChain", "LangGraph", "RAG", "LLM Fine-tuning", "Prompt Engineering"],
       color: "bg-green-600/20 text-green-300 border-green-500/30",
-      icon: "📊"
+      icon: "🧠"
     },
     {
-      category: "Visualization & Tools",
-      skills: ["Matplotlib", "Seaborn", "Tableau", "Jupyter", "Git"],
+      category: "Computer Vision",
+      skills: ["YOLO", "OpenCV", "CNN", "Image Classification", "Object Detection"],
       color: "bg-orange-600/20 text-orange-300 border-orange-500/30",
-      icon: "📈"
+      icon: "👁️"
     },
     {
-      category: "Cloud & DevOps",
-      skills: ["AWS", "Docker", "Apache Spark", "CI/CD", "Containerization"],
+      category: "Deployment & MLOps",
+      skills: ["Streamlit", "Hugging Face Spaces", "Render", "Docker", "Git"],
       color: "bg-cyan-600/20 text-cyan-300 border-cyan-500/30",
-      icon: "☁️"
+      icon: "🚀"
     },
     {
-      category: "Frameworks & Libraries",
-      skills: ["LangChain", "HuggingFace", "FAISS", "Streamlit", "TensorFlow"],
+      category: "Core Competencies",
+      skills: ["Deep Learning", "NLP", "Model Optimization", "Data Pipelines", "Hyperparameter Tuning"],
       color: "bg-rose-600/20 text-rose-300 border-rose-500/30",
-      icon: "🔧"
+      icon: "🎯"
     }
   ];
 
@@ -253,7 +253,7 @@ const Skills = () => {
                   Soft Skills
                 </motion.h3>
                 <div className="flex flex-wrap justify-center gap-3">
-                  {["Leadership", "Problem-solving", "Communication", "Adaptability", "Team Collaboration"].map((skill, index) => (
+                  {["Analytical Problem Solving", "Experiment Tracking", "Agile Collaboration", "Adaptability", "Communication"].map((skill, index) => (
                     <motion.div
                       key={index}
                       initial={{ opacity: 0, y: 20, scale: 0.8 }}
