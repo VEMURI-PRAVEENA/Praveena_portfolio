@@ -23,7 +23,8 @@ const Certifications = () => {
       description: "Certified in principles of Generative AI including LLMs, transformers, and generative model architectures.",
       skills: ["Generative AI", "LLMs", "Transformers", "AI Principles"],
       logo: "🟢",
-      verified: true
+      verified: true,
+      certificateLink: "https://drive.google.com/file/d/1i1-b3Tlj4ZWkV_yLZduhQW16asAOTuHn/view?usp=sharing"
     },
     {
       title: "Artificial Intelligence Primer Certification",
@@ -33,7 +34,8 @@ const Certifications = () => {
       skills: ["AI Fundamentals", "Machine Learning", "Deep Learning", "Enterprise AI"],
       logo: "🟢",
       verified: true,
-      badgeImage: "/lovable-uploads/25563a4a-4ff6-4515-bd5c-e24295030ce2.png"
+      badgeImage: "/lovable-uploads/25563a4a-4ff6-4515-bd5c-e24295030ce2.png",
+      certificateLink: "https://drive.google.com/file/d/1XeqO7mH7YqReRBx4SEx92UAlpio1GjXQ/view?usp=sharing"
     },
     {
       title: "AWS Academy Graduate - Cloud Architecting",
@@ -53,7 +55,8 @@ const Certifications = () => {
       description: "Mastered techniques for effective prompt engineering with LLMs including prompt design, optimization, and best practices.",
       skills: ["Prompt Design", "LLM Optimization", "AI Communication", "ChatGPT"],
       logo: "🟢",
-      verified: true
+      verified: true,
+      certificateLink: "https://drive.google.com/file/d/1FsDpgZEYPcpy_xIqfqmXEsqAgBTYV4Wt/view?usp=sharing"
     },
     {
       title: "OpenAI GPT-3 for Developers",
@@ -62,7 +65,8 @@ const Certifications = () => {
       description: "Completed training on OpenAI's GPT-3 API, including integration techniques and application development.",
       skills: ["GPT-3 API", "OpenAI", "API Integration", "NLP Applications"],
       logo: "🟢",
-      verified: true
+      verified: true,
+      certificateLink: "https://drive.google.com/file/d/1MYBmEHsEiWNdCa0cs1qnIW3jAaKa4G3V/view?usp=sharing"
     },
     {
       title: "Deep Learning for Developers",
@@ -71,7 +75,8 @@ const Certifications = () => {
       description: "Comprehensive training in deep learning architectures, neural networks, and practical implementation for developers.",
       skills: ["Neural Networks", "CNN", "RNN", "Deep Learning", "TensorFlow"],
       logo: "🟢",
-      verified: true
+      verified: true,
+      certificateLink: "https://drive.google.com/file/d/1mKze23BnZL0km2zx8ADmNNZm3z5BHt9p/view?usp=sharing"
     },
     {
       title: "Generative AI Unleashing",
@@ -80,7 +85,8 @@ const Certifications = () => {
       description: "Advanced course on generative AI technologies, applications, and implementation strategies.",
       skills: ["Generative AI", "AI Applications", "Model Deployment", "Innovation"],
       logo: "🟢",
-      verified: true
+      verified: true,
+      certificateLink: "https://drive.google.com/file/d/1XHWUC4brHU-REMGB5ZYqcNg5k4-rKIeY/view?usp=sharing"
     },
     {
       title: "Generative Models for Developers",
@@ -89,7 +95,8 @@ const Certifications = () => {
       description: "Hands-on training in building and deploying generative models including GANs, VAEs, and diffusion models.",
       skills: ["GANs", "VAEs", "Diffusion Models", "Model Training"],
       logo: "🟢",
-      verified: true
+      verified: true,
+      certificateLink: "https://drive.google.com/file/d/1oNdWh2ZRIMkjs0C7wT-XWJ5V82MgLGNX/view?usp=sharing"
     },
     {
       title: "Artificial Intelligence",
@@ -98,7 +105,8 @@ const Certifications = () => {
       description: "Comprehensive AI course covering fundamental concepts, algorithms, and practical applications.",
       skills: ["AI Algorithms", "Problem Solving", "AI Ethics", "Automation"],
       logo: "🟢",
-      verified: true
+      verified: true,
+      certificateLink: "https://drive.google.com/file/d/1MZToTO4-ezHYdibi6X1B7he8jx76u80X/view?usp=drive_link"
     },
     {
       title: "Agile Scrum in Practice",
@@ -107,7 +115,8 @@ const Certifications = () => {
       description: "Practical training in Agile methodology and Scrum framework for effective project management.",
       skills: ["Agile", "Scrum", "Sprint Planning", "Project Management"],
       logo: "🟢",
-      verified: true
+      verified: true,
+      certificateLink: "https://drive.google.com/file/d/1V44HVMMJ6JHexVrPwLyCWHbp1prXi5Bw/view?usp=sharing"
     },
     {
       title: "Email Writing Skills",
@@ -116,7 +125,8 @@ const Certifications = () => {
       description: "Professional communication course covering effective email writing for business contexts.",
       skills: ["Business Communication", "Professional Writing", "Email Etiquette"],
       logo: "🟢",
-      verified: true
+      verified: true,
+      certificateLink: "https://drive.google.com/file/d/16WxnlGXmPAexmNjZLp7u4AQVrFdVWIDr/view?usp=sharing"
     },
     {
       title: "Introduction to OpenAI GPT Models",
@@ -125,7 +135,8 @@ const Certifications = () => {
       description: "Comprehensive introduction to OpenAI's GPT models, architecture, and applications.",
       skills: ["GPT Models", "OpenAI", "Language Models", "AI Applications"],
       logo: "🟢",
-      verified: true
+      verified: true,
+      certificateLink: "https://drive.google.com/file/d/1lZMs6TPrJemXrVnCrX5MApwaTvDGBelr/view?usp=sharing"
     },
     {
       title: "Introduction to Natural Language Processing",
@@ -134,7 +145,8 @@ const Certifications = () => {
       description: "Foundational course in NLP covering text processing, sentiment analysis, and language understanding.",
       skills: ["NLP", "Text Processing", "Sentiment Analysis", "Tokenization"],
       logo: "🟢",
-      verified: true
+      verified: true,
+      certificateLink: "https://drive.google.com/file/d/1ejhZ84gg6OvmfAMYUOU6v2VvsN0MSLD0/view?usp=sharing"
     },
     {
       title: "Introduction to Deep Learning",
@@ -143,7 +155,8 @@ const Certifications = () => {
       description: "Introduction to deep learning concepts, neural network architectures, and practical applications.",
       skills: ["Deep Learning", "Neural Networks", "Backpropagation", "Activation Functions"],
       logo: "🟢",
-      verified: true
+      verified: true,
+      certificateLink: "https://drive.google.com/file/d/1Dxg2KB-SVVmzs6l0BZDfG4by2rh9JD-o/view?usp=sharing"
     },
     {
       title: "Introduction to Artificial Intelligence",
@@ -152,7 +165,8 @@ const Certifications = () => {
       description: "Foundational course covering AI concepts, history, applications, and future trends.",
       skills: ["AI Fundamentals", "Machine Learning Basics", "AI Ethics", "AI Applications"],
       logo: "🟢",
-      verified: true
+      verified: true,
+      certificateLink: "https://drive.google.com/file/d/1S8o2c0uCS_HlO93QNZCcFEFyjFK54yX6/view?usp=sharing"
     },
     {
       title: "Computer Vision 101",
@@ -161,7 +175,8 @@ const Certifications = () => {
       description: "Introduction to computer vision including image processing, object detection, and visual recognition.",
       skills: ["Computer Vision", "Image Processing", "Object Detection", "OpenCV"],
       logo: "🟢",
-      verified: true
+      verified: true,
+      certificateLink: "https://drive.google.com/file/d/1iqGr5x88rqJipQu_5CP15_PQEmIpp5P6/view?usp=drive_link"
     },
     {
       title: "Introduction to Robotic Process Automation",
@@ -170,7 +185,8 @@ const Certifications = () => {
       description: "Comprehensive introduction to RPA concepts, tools, and automation strategies.",
       skills: ["RPA", "Process Automation", "Bot Development", "Workflow Automation"],
       logo: "🟢",
-      verified: true
+      verified: true,
+      certificateLink: "https://drive.google.com/file/d/10Ra53Nay7a9XmqGCSQcnJkkoyepzKQYs/view?usp=sharing"
     },
     {
       title: "High Impact Presentations",
@@ -179,7 +195,8 @@ const Certifications = () => {
       description: "Training on creating and delivering effective, high-impact presentations.",
       skills: ["Presentation Skills", "Public Speaking", "Visual Design", "Storytelling"],
       logo: "🟢",
-      verified: true
+      verified: true,
+      certificateLink: "https://drive.google.com/file/d/1Qy1iuXuVF0lYi3J-9L7-9vq-2vpviZMJ/view?usp=sharing"
     },
     {
       title: "Time Management",
@@ -188,7 +205,18 @@ const Certifications = () => {
       description: "Effective time management techniques and productivity strategies for professionals.",
       skills: ["Time Management", "Productivity", "Prioritization", "Goal Setting"],
       logo: "🟢",
-      verified: true
+      verified: true,
+      certificateLink: "https://drive.google.com/file/d/1-NignrXJklyOv3ZZYdM5R2Cpm7iP-8n6/view?usp=sharing"
+    },
+    {
+      title: "Introduction to Data Science",
+      issuer: "Infosys Springboard",
+      date: "June 2025",
+      description: "Foundational course covering data science concepts, tools, and methodologies.",
+      skills: ["Data Science", "Data Analysis", "Statistics", "Python"],
+      logo: "🟢",
+      verified: true,
+      certificateLink: "https://drive.google.com/file/d/1x2iMM9zmw_ljTa7FhLciDTgdW_IMGQXc/view?usp=sharing"
     }
   ];
 
@@ -210,7 +238,9 @@ const Certifications = () => {
   ];
 
   const handleCertificateClick = (cert: any) => {
-    if (cert.hasImage && cert.certificateImage) {
+    if (cert.certificateLink) {
+      window.open(cert.certificateLink, '_blank');
+    } else if (cert.hasImage && cert.certificateImage) {
       window.open(cert.certificateImage, '_blank');
     } else if (cert.credlyLink) {
       window.open(cert.credlyLink, '_blank');
