@@ -106,10 +106,10 @@ const HeroText = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.5 }}
         >
-          <p className="text-base md:text-lg text-gray-300 max-w-lg leading-relaxed mx-auto">
-            Passionate about building intelligent systems and data-driven solutions. 
-            Currently pursuing B.Tech in CSE (AI & ML) at VIT-AP with hands-on experience in 
-            cloud-native applications and deep learning.
+          <p className="text-base md:text-lg text-gray-300 max-w-xl leading-relaxed mx-auto">
+            Results-driven AI Engineer with hands-on experience in NLP, computer vision and generative AI. 
+            Skilled in building end-to-end ML systems including LLM-powered applications, deep learning models 
+            and scalable RAG solutions.
           </p>
         </motion.div>
       </div>
