@@ -17,8 +17,17 @@ const Certifications = () => {
       hasImage: true
     },
     {
-      title: "Infosys AI Primer Certification",
-      issuer: "Infosys",
+      title: "Principles of Generative AI Certification",
+      issuer: "Infosys Springboard",
+      date: "June 2025",
+      description: "Certified in principles of Generative AI including LLMs, transformers, and generative model architectures.",
+      skills: ["Generative AI", "LLMs", "Transformers", "AI Principles"],
+      logo: "🟢",
+      verified: true
+    },
+    {
+      title: "Artificial Intelligence Primer Certification",
+      issuer: "Infosys Springboard",
       date: "June 2025",
       description: "Completed comprehensive AI fundamentals training covering machine learning, deep learning, and AI applications in enterprise solutions.",
       skills: ["AI Fundamentals", "Machine Learning", "Deep Learning", "Enterprise AI"],
@@ -36,6 +45,78 @@ const Certifications = () => {
       verified: true,
       credlyLink: "https://www.credly.com/badges/ccd123a3-5223-4402-87bb-66c0f663cfa4",
       badgeImage: "/lovable-uploads/ef6fef7f-0326-4265-82c2-2a90c6bb127e.png"
+    },
+    {
+      title: "Prompt Engineering",
+      issuer: "Infosys Springboard",
+      date: "June 2025",
+      description: "Mastered techniques for effective prompt engineering with LLMs including prompt design, optimization, and best practices.",
+      skills: ["Prompt Design", "LLM Optimization", "AI Communication", "ChatGPT"],
+      logo: "🟢",
+      verified: true
+    },
+    {
+      title: "OpenAI GPT-3 for Developers",
+      issuer: "Infosys Springboard",
+      date: "June 2025",
+      description: "Completed training on OpenAI's GPT-3 API, including integration techniques and application development.",
+      skills: ["GPT-3 API", "OpenAI", "API Integration", "NLP Applications"],
+      logo: "🟢",
+      verified: true
+    },
+    {
+      title: "Deep Learning for Developers",
+      issuer: "Infosys Springboard",
+      date: "June 2025",
+      description: "Comprehensive training in deep learning architectures, neural networks, and practical implementation for developers.",
+      skills: ["Neural Networks", "CNN", "RNN", "Deep Learning", "TensorFlow"],
+      logo: "🟢",
+      verified: true
+    },
+    {
+      title: "Generative AI Unleashing",
+      issuer: "Infosys Springboard",
+      date: "June 2025",
+      description: "Advanced course on generative AI technologies, applications, and implementation strategies.",
+      skills: ["Generative AI", "AI Applications", "Model Deployment", "Innovation"],
+      logo: "🟢",
+      verified: true
+    },
+    {
+      title: "Generative Models for Developers",
+      issuer: "Infosys Springboard",
+      date: "June 2025",
+      description: "Hands-on training in building and deploying generative models including GANs, VAEs, and diffusion models.",
+      skills: ["GANs", "VAEs", "Diffusion Models", "Model Training"],
+      logo: "🟢",
+      verified: true
+    },
+    {
+      title: "Artificial Intelligence",
+      issuer: "Infosys Springboard",
+      date: "June 2025",
+      description: "Comprehensive AI course covering fundamental concepts, algorithms, and practical applications.",
+      skills: ["AI Algorithms", "Problem Solving", "AI Ethics", "Automation"],
+      logo: "🟢",
+      verified: true
+    },
+    {
+      title: "Agile Scrum in Practice",
+      issuer: "Infosys Springboard",
+      date: "June 2025",
+      description: "Practical training in Agile methodology and Scrum framework for effective project management.",
+      skills: ["Agile", "Scrum", "Sprint Planning", "Project Management"],
+      logo: "🟢",
+      verified: true
+    },
+    {
+      title: "Email Writing Skills",
+      issuer: "Infosys Springboard",
+      date: "June 2025",
+      description: "Professional communication course covering effective email writing for business contexts.",
+      skills: ["Business Communication", "Professional Writing", "Email Etiquette"],
+      logo: "🟢",
+      verified: true
     }
   ];
 
