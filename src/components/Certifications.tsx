@@ -35,7 +35,9 @@ const Certifications = () => {
       logo: "🟢",
       verified: true,
       badgeImage: "/lovable-uploads/25563a4a-4ff6-4515-bd5c-e24295030ce2.png",
-      certificateLink: "https://drive.google.com/file/d/1XeqO7mH7YqReRBx4SEx92UAlpio1GjXQ/view?usp=sharing"
+      certificateLink: "https://drive.google.com/file/d/1XeqO7mH7YqReRBx4SEx92UAlpio1GjXQ/view?usp=sharing",
+      certificateImage: "/lovable-uploads/cert-ai-primer.png",
+      hasImage: true
     },
     {
       title: "AWS Academy Graduate - Cloud Architecting",
@@ -76,7 +78,9 @@ const Certifications = () => {
       skills: ["Neural Networks", "CNN", "RNN", "Deep Learning", "TensorFlow"],
       logo: "🟢",
       verified: true,
-      certificateLink: "https://drive.google.com/file/d/1mKze23BnZL0km2zx8ADmNNZm3z5BHt9p/view?usp=sharing"
+      certificateLink: "https://drive.google.com/file/d/1mKze23BnZL0km2zx8ADmNNZm3z5BHt9p/view?usp=sharing",
+      certificateImage: "/lovable-uploads/cert-deep-learning.png",
+      hasImage: true
     },
     {
       title: "Generative AI Unleashing",
@@ -86,7 +90,9 @@ const Certifications = () => {
       skills: ["Generative AI", "AI Applications", "Model Deployment", "Innovation"],
       logo: "🟢",
       verified: true,
-      certificateLink: "https://drive.google.com/file/d/1XHWUC4brHU-REMGB5ZYqcNg5k4-rKIeY/view?usp=sharing"
+      certificateLink: "https://drive.google.com/file/d/1XHWUC4brHU-REMGB5ZYqcNg5k4-rKIeY/view?usp=sharing",
+      certificateImage: "/lovable-uploads/cert-generative-ai-unleashing.png",
+      hasImage: true
     },
     {
       title: "Generative Models for Developers",
@@ -96,7 +102,9 @@ const Certifications = () => {
       skills: ["GANs", "VAEs", "Diffusion Models", "Model Training"],
       logo: "🟢",
       verified: true,
-      certificateLink: "https://drive.google.com/file/d/1oNdWh2ZRIMkjs0C7wT-XWJ5V82MgLGNX/view?usp=sharing"
+      certificateLink: "https://drive.google.com/file/d/1oNdWh2ZRIMkjs0C7wT-XWJ5V82MgLGNX/view?usp=sharing",
+      certificateImage: "/lovable-uploads/cert-generative-models.png",
+      hasImage: true
     },
     {
       title: "Artificial Intelligence",
@@ -106,7 +114,9 @@ const Certifications = () => {
       skills: ["AI Algorithms", "Problem Solving", "AI Ethics", "Automation"],
       logo: "🟢",
       verified: true,
-      certificateLink: "https://drive.google.com/file/d/1MZToTO4-ezHYdibi6X1B7he8jx76u80X/view?usp=drive_link"
+      certificateLink: "https://drive.google.com/file/d/1MZToTO4-ezHYdibi6X1B7he8jx76u80X/view?usp=drive_link",
+      certificateImage: "/lovable-uploads/cert-artificial-intelligence.png",
+      hasImage: true
     },
     {
       title: "Agile Scrum in Practice",
@@ -116,7 +126,9 @@ const Certifications = () => {
       skills: ["Agile", "Scrum", "Sprint Planning", "Project Management"],
       logo: "🟢",
       verified: true,
-      certificateLink: "https://drive.google.com/file/d/1V44HVMMJ6JHexVrPwLyCWHbp1prXi5Bw/view?usp=sharing"
+      certificateLink: "https://drive.google.com/file/d/1V44HVMMJ6JHexVrPwLyCWHbp1prXi5Bw/view?usp=sharing",
+      certificateImage: "/lovable-uploads/cert-agile-scrum.png",
+      hasImage: true
     },
     {
       title: "Email Writing Skills",
@@ -126,7 +138,9 @@ const Certifications = () => {
       skills: ["Business Communication", "Professional Writing", "Email Etiquette"],
       logo: "🟢",
       verified: true,
-      certificateLink: "https://drive.google.com/file/d/16WxnlGXmPAexmNjZLp7u4AQVrFdVWIDr/view?usp=sharing"
+      certificateLink: "https://drive.google.com/file/d/16WxnlGXmPAexmNjZLp7u4AQVrFdVWIDr/view?usp=sharing",
+      certificateImage: "/lovable-uploads/cert-email-writing.png",
+      hasImage: true
     },
     {
       title: "Introduction to OpenAI GPT Models",
@@ -176,7 +190,9 @@ const Certifications = () => {
       skills: ["Computer Vision", "Image Processing", "Object Detection", "OpenCV"],
       logo: "🟢",
       verified: true,
-      certificateLink: "https://drive.google.com/file/d/1iqGr5x88rqJipQu_5CP15_PQEmIpp5P6/view?usp=drive_link"
+      certificateLink: "https://drive.google.com/file/d/1iqGr5x88rqJipQu_5CP15_PQEmIpp5P6/view?usp=drive_link",
+      certificateImage: "/lovable-uploads/cert-computer-vision.png",
+      hasImage: true
     },
     {
       title: "Introduction to Robotic Process Automation",
@@ -196,7 +212,9 @@ const Certifications = () => {
       skills: ["Presentation Skills", "Public Speaking", "Visual Design", "Storytelling"],
       logo: "🟢",
       verified: true,
-      certificateLink: "https://drive.google.com/file/d/1Qy1iuXuVF0lYi3J-9L7-9vq-2vpviZMJ/view?usp=sharing"
+      certificateLink: "https://drive.google.com/file/d/1Qy1iuXuVF0lYi3J-9L7-9vq-2vpviZMJ/view?usp=sharing",
+      certificateImage: "/lovable-uploads/cert-high-impact-presentations.png",
+      hasImage: true
     },
     {
       title: "Time Management",
