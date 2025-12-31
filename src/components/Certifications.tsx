@@ -252,7 +252,9 @@ const Certifications = () => {
       skills: ["Data Science", "Data Analysis", "Statistics", "Python"],
       logo: "🟢",
       verified: true,
-      certificateLink: "https://drive.google.com/file/d/1x2iMM9zmw_ljTa7FhLciDTgdW_IMGQXc/view?usp=sharing"
+      certificateLink: "https://drive.google.com/file/d/1x2iMM9zmw_ljTa7FhLciDTgdW_IMGQXc/view?usp=sharing",
+      certificateImage: "/lovable-uploads/cert-intro-data-science.png",
+      hasImage: true
     }
   ];
 
