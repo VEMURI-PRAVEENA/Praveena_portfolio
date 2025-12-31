@@ -24,7 +24,9 @@ const Certifications = () => {
       skills: ["Generative AI", "LLMs", "Transformers", "AI Principles"],
       logo: "🟢",
       verified: true,
-      certificateLink: "https://drive.google.com/file/d/1i1-b3Tlj4ZWkV_yLZduhQW16asAOTuHn/view?usp=sharing"
+      certificateLink: "https://drive.google.com/file/d/1i1-b3Tlj4ZWkV_yLZduhQW16asAOTuHn/view?usp=sharing",
+      certificateImage: "/lovable-uploads/cert-principles-gen-ai.png",
+      hasImage: true
     },
     {
       title: "Artificial Intelligence Primer Certification",
@@ -58,7 +60,9 @@ const Certifications = () => {
       skills: ["Prompt Design", "LLM Optimization", "AI Communication", "ChatGPT"],
       logo: "🟢",
       verified: true,
-      certificateLink: "https://drive.google.com/file/d/1FsDpgZEYPcpy_xIqfqmXEsqAgBTYV4Wt/view?usp=sharing"
+      certificateLink: "https://drive.google.com/file/d/1FsDpgZEYPcpy_xIqfqmXEsqAgBTYV4Wt/view?usp=sharing",
+      certificateImage: "/lovable-uploads/cert-prompt-engineering.png",
+      hasImage: true
     },
     {
       title: "OpenAI GPT-3 for Developers",
@@ -68,7 +72,9 @@ const Certifications = () => {
       skills: ["GPT-3 API", "OpenAI", "API Integration", "NLP Applications"],
       logo: "🟢",
       verified: true,
-      certificateLink: "https://drive.google.com/file/d/1MYBmEHsEiWNdCa0cs1qnIW3jAaKa4G3V/view?usp=sharing"
+      certificateLink: "https://drive.google.com/file/d/1MYBmEHsEiWNdCa0cs1qnIW3jAaKa4G3V/view?usp=sharing",
+      certificateImage: "/lovable-uploads/cert-openai-gpt3.png",
+      hasImage: true
     },
     {
       title: "Deep Learning for Developers",
@@ -150,7 +156,9 @@ const Certifications = () => {
       skills: ["GPT Models", "OpenAI", "Language Models", "AI Applications"],
       logo: "🟢",
       verified: true,
-      certificateLink: "https://drive.google.com/file/d/1lZMs6TPrJemXrVnCrX5MApwaTvDGBelr/view?usp=sharing"
+      certificateLink: "https://drive.google.com/file/d/1lZMs6TPrJemXrVnCrX5MApwaTvDGBelr/view?usp=sharing",
+      certificateImage: "/lovable-uploads/cert-intro-openai-gpt.png",
+      hasImage: true
     },
     {
       title: "Introduction to Natural Language Processing",
@@ -160,7 +168,9 @@ const Certifications = () => {
       skills: ["NLP", "Text Processing", "Sentiment Analysis", "Tokenization"],
       logo: "🟢",
       verified: true,
-      certificateLink: "https://drive.google.com/file/d/1ejhZ84gg6OvmfAMYUOU6v2VvsN0MSLD0/view?usp=sharing"
+      certificateLink: "https://drive.google.com/file/d/1ejhZ84gg6OvmfAMYUOU6v2VvsN0MSLD0/view?usp=sharing",
+      certificateImage: "/lovable-uploads/cert-intro-nlp.png",
+      hasImage: true
     },
     {
       title: "Introduction to Deep Learning",
@@ -170,7 +180,9 @@ const Certifications = () => {
       skills: ["Deep Learning", "Neural Networks", "Backpropagation", "Activation Functions"],
       logo: "🟢",
       verified: true,
-      certificateLink: "https://drive.google.com/file/d/1Dxg2KB-SVVmzs6l0BZDfG4by2rh9JD-o/view?usp=sharing"
+      certificateLink: "https://drive.google.com/file/d/1Dxg2KB-SVVmzs6l0BZDfG4by2rh9JD-o/view?usp=sharing",
+      certificateImage: "/lovable-uploads/cert-intro-deep-learning.png",
+      hasImage: true
     },
     {
       title: "Introduction to Artificial Intelligence",
@@ -180,7 +192,9 @@ const Certifications = () => {
       skills: ["AI Fundamentals", "Machine Learning Basics", "AI Ethics", "AI Applications"],
       logo: "🟢",
       verified: true,
-      certificateLink: "https://drive.google.com/file/d/1S8o2c0uCS_HlO93QNZCcFEFyjFK54yX6/view?usp=sharing"
+      certificateLink: "https://drive.google.com/file/d/1S8o2c0uCS_HlO93QNZCcFEFyjFK54yX6/view?usp=sharing",
+      certificateImage: "/lovable-uploads/cert-intro-ai.png",
+      hasImage: true
     },
     {
       title: "Computer Vision 101",
@@ -202,7 +216,9 @@ const Certifications = () => {
       skills: ["RPA", "Process Automation", "Bot Development", "Workflow Automation"],
       logo: "🟢",
       verified: true,
-      certificateLink: "https://drive.google.com/file/d/10Ra53Nay7a9XmqGCSQcnJkkoyepzKQYs/view?usp=sharing"
+      certificateLink: "https://drive.google.com/file/d/10Ra53Nay7a9XmqGCSQcnJkkoyepzKQYs/view?usp=sharing",
+      certificateImage: "/lovable-uploads/cert-intro-rpa.png",
+      hasImage: true
     },
     {
       title: "High Impact Presentations",
@@ -224,7 +240,9 @@ const Certifications = () => {
       skills: ["Time Management", "Productivity", "Prioritization", "Goal Setting"],
       logo: "🟢",
       verified: true,
-      certificateLink: "https://drive.google.com/file/d/1-NignrXJklyOv3ZZYdM5R2Cpm7iP-8n6/view?usp=sharing"
+      certificateLink: "https://drive.google.com/file/d/1-NignrXJklyOv3ZZYdM5R2Cpm7iP-8n6/view?usp=sharing",
+      certificateImage: "/lovable-uploads/cert-time-management.png",
+      hasImage: true
     },
     {
       title: "Introduction to Data Science",
