@@ -13,7 +13,7 @@ const Experience = () => {
       title: "AI & Data Engineering Intern",
       company: "Infosys Springboard",
       type: "Virtual Internship",
-      period: "Sep 2025 – Present",
+      period: "Oct 2025 – Dec 2025",
       description: "Developing AI-based property valuation application with ML models and real-time predictions.",
       responsibilities: [
         "Developed an AI-based property valuation application using ML models and Streamlit for real-time price predictions",
