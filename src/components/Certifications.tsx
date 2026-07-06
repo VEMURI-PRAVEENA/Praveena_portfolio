@@ -270,8 +270,8 @@ const Certifications = () => {
       title: "Academic Excellence",
       organization: "VIT AP University",
       period: "2022 – Present",
-      description: "Maintaining exceptional academic performance with CGPA of 8.91/10 in B.Tech CSE (AI & ML).",
-      impact: ["8.91/10 CGPA", "AI & ML Specialization", "Dean's List"]
+      description: "Maintaining exceptional academic performance with CGPA of 8.92/10 in B.Tech CSE (AI & ML).",
+      impact: ["8.92/10 CGPA", "AI & ML Specialization", "Dean's List"]
     }
   ];
 

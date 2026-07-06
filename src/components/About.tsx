@@ -85,7 +85,7 @@ const About = () => {
                   <div className="border-l-4 border-blue-500 pl-6">
                     <h4 className="text-lg font-semibold text-white">B.Tech in CSE (AI & ML)</h4>
                     <p className="text-blue-400 font-medium">VIT AP University, Amaravati</p>
-                    <p className="text-gray-300">2022 – 2026 • CGPA: 8.91/10</p>
+                    <p className="text-gray-300">2022 – 2026 • CGPA: 8.92/10</p>
                   </div>
                   
                   <div className="border-l-4 border-purple-500 pl-6">
@@ -106,7 +106,7 @@ const About = () => {
             {/* Quick Stats */}
             <div className="grid grid-cols-2 gap-4">
               <Card className="text-center p-6 hover:shadow-lg transition-all duration-300 bg-[#1e1e2f] border-gray-600 hover:shadow-blue-500/20">
-                <div className="text-3xl font-bold text-blue-400 mb-2">8.91</div>
+                <div className="text-3xl font-bold text-blue-400 mb-2">8.92</div>
                 <p className="text-gray-300">Current CGPA</p>
               </Card>
               <Card className="text-center p-6 hover:shadow-lg transition-all duration-300 bg-[#1e1e2f] border-gray-600 hover:shadow-purple-500/20">
